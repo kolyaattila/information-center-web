@@ -1,0 +1,47 @@
+.bgimg {
+    background-image: url('../../assets/img/photo.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+  }
+  
+.topleft {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+  }
+  
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
+  
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+hr {
+    margin: auto;
+    width: 40%;
+  }
+
+.logo {
+     img {
+      width: 50px;
+      height: 50px;
+      }
+}
+
+.gradient {
+  background-image: linear-gradient(to bottom right, #f57fae, #f5146e);
+  opacity: 0.8;
+}
