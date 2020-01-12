@@ -1,18 +1,23 @@
-<div class="container-fluid p-2 my-4 mx-auto">
-    <form>
-        <div class="form-row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Nume">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Prenume">
-          </div>
-          <div class="col" >
-            <input type="text" class="form-control" placeholder="Email">
-          </div>
-          <div class="col" >
-            <button type="submit" class="btn btn-dark pull-right">Subscribe</button>
-          </div>
-        </div>
-      </form>
+<div class="container-fluid p-2 my-1 mx-auto">
+    <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+      <div class=" form-group col-md-4">
+        <label for="firstName" [ngClass]="getColorClass('firstName')" >Nume</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="lastName" [ngClass]="getColorClass('lastName')">Prenume</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="email" [ngClass]="getColorClass('email')">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+      </div>
+    </div>
+    
+      <button type="submit" class="btn btn-primary" [disabled]="subscriptionForm.invalid">Afla mai multe</button>
+      <p>*Accept termeni si conditiile de utilizare.</p>   
+    </form>
 </div>
