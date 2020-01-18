@@ -45,7 +45,7 @@ export class SubscriptionComponentComponent implements OnInit {
         this.subscriptionForm.value.lastName))
       .subscribe(
         () => {this.subscriptionForm.reset(); this.toastr.success("V-ati alaturat cu succes!")},
-        (e) => {console.log(e);this.toastr.warning(e.error.message)}
+        (e) => {this.toastr.warning("A aparut o erroare, incercati mai tarziu")}
       );
   }
 
