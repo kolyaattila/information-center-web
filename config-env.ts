@@ -12,6 +12,8 @@ const envConfigFile = `const apiEndpoint = '${apiEndpoint}';
 export const environment = {
   production: ${productionMode},
   subscription: apiEndpoint + '/subscription',
+  unsubscription: apiEndpoint + '/subscription/unsubscription',
+  subscriptionActivation: apiEndpoint + '/subscription/activation'
 };
 `;
 

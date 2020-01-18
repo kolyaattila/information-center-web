@@ -11,13 +11,19 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NotfoundComponent } from './notfound-component/notfound.component';
+import { SubscriptionActivationComponent } from './subscription-component/subscription-activation/subscription-activation.component';
+import { UnsubscriptionComponent } from './subscription-component/unsubscription/unsubscription.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CommingSoonComponent,
-    SubscriptionComponentComponent
+    SubscriptionComponentComponent,
+    NotfoundComponent,
+    SubscriptionActivationComponent,
+    UnsubscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
       bgsOpacity: 0.0,
     }),
     NgxUiLoaderRouterModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }) ,
     MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
@@ -42,6 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
   exports: [
     NgxUiLoaderModule,
     NgxUiLoaderRouterModule,
+    NgxUiLoaderHttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
