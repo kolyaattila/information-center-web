@@ -10,7 +10,15 @@ export class CommonRepositoryService {
     }
 
     subscription(subscription: Subscription) {
-        return this.http.post(`${environment.subscription}`, subscription);
-      }
+      return this.http.post(`${environment.subscription}`, subscription);
+    }
+
+    subscriptionActivation(uid: String){
+      return this.http.post(`${environment.subscriptionActivation}`,uid);
+    }
+
+    unsubscription(uid: String){
+      return this.http.post(`${environment.unsubscription}`,uid);
+    }    
 
 }
