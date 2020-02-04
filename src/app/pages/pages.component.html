@@ -1,0 +1,17 @@
+<div class="sidenav" [ngClass]="{'side-open': isOpen === true}">
+  <a href="javascript:void(0)" class="closebtn" (click)="onCloseNav()">&times;</a>
+  <a routerLink="/" (click)="onCloseNav()">HOME</a>
+  <a routerLink="/lesson" (click)="onCloseNav()">Teorie</a>
+  <a routerLink="/quiz" (click)="onCloseNav()">Quiz</a>
+  <a routerLink="/examen" (click)="onCloseNav()">Simulare examen</a>
+</div>
+
+<div id="main" [ngClass]="{'side-margin': isOpen === true }">
+  <div>
+    <nav class="navbar p-3 px-md-4 mb-3 border-bottom bg-dark">
+      <div *ngIf="!isOpen" (click)="onSwitchNav()"><i class="fas fa-bars"></i></div>
+      <h4 class="my-0 mr-md-auto font-weight-normal text-white text-logo" routerLink="/">Information center</h4>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+</div>
