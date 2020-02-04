@@ -6,7 +6,6 @@ import { CommonRepositoryService } from './service/common-repository.service';
 
 @NgModule({
   declarations: [
-   
   ],
   imports: [
     CommonModule,
@@ -23,4 +22,4 @@ import { CommonRepositoryService } from './service/common-repository.service';
   entryComponents: [
   ]
 })
-export class SharedModule { }
+export class ServiceSharedModule { }

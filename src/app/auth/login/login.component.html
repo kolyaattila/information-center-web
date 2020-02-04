@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-center">
+        <div class="text-center pt-5 pr-5 pl-5 pb-0">
+          <img alt="" class="mb-3 mt-5" src="../../assets/img/logo.png" width="136">
+          <h1 class="mb-4 font-weight-normal">Information Center</h1>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+              <div class="col">
+                <input type="text" class="form-control form-control-lg" id="username" formControlName="username"
+                       placeholder="username" autocomplete="off"/>
+                <div *ngIf="username.touched && username.invalid">
+                  <small class="invalid-credentials mt-1 float-left">Username invalid</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <input type="password" id="password" class="form-control form-control-lg" formControlName="password"
+                       placeholder="password" autocomplete="current-password">
+                <div *ngIf="password.touched && password.invalid">
+                  <small class="invalid-credentials mt-1 float-left">Parola incorecta</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-block btn-lg site-theme-bg-color mt-2" type="submit" [disabled]="loginForm.invalid">Login</button>
+              <button class="btn btn-block btn-lg facebook mt-2">Facebook</button>
+              <button class="btn btn-block btn-lg google mt-2">Google</button>
+              <br>
+              <a routerLink="/auth/registration">
+                <button class="btn btn-block btn-lg site-theme-bg-color mt-2">Inregistraza-te</button>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--      <div class="text-center">-->
+      <!--        <div *ngIf="validCredentials === false && maximAttemptsError === false">-->
+      <!--          <small class="invalid-credentials">Username sau parola este incorecta</small>-->
+      <!--        </div>-->
+      <!--        <div *ngIf="maximAttemptsError === true">-->
+      <!--          <small class="invalid-credentials">-->
+      <!--            {{ 'LOGIN.MAXIM_NUMBER_OF_ATTEMPTS' | translate }}-->
+      <!--            <br>-->
+      <!--            {{ 'LOGIN.TRY_AGAIN_LATER' | translate }}-->
+      <!--          </small>-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </div>
+  </div>
+</div>

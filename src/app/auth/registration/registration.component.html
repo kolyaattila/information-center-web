@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-center">
+        <div class="text-center pt-5 pr-5 pl-5 pb-0">
+          <img alt="" class="mb-3 mt-5" src="../../assets/img/logo.png" width="136">
+          <h1 class="mb-4 font-weight-normal">Information Center</h1>
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+              <div class="col">
+                <input type="text" class="form-control form-control-lg" id="firstName" formControlName="firstName"
+                       placeholder="Nume" autocomplete="off"/>
+                <div *ngIf="firstName.touched && firstName.invalid">
+                  <small class="invalid-credentials mt-1 float-left">Nume este prea scurt</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <input type="text" class="form-control form-control-lg" id="lastName" formControlName="lastName"
+                       placeholder="Prenume" autocomplete="off"/>
+                <div *ngIf="lastName.touched && lastName.invalid">
+                  <small class="invalid-credentials mt-1 float-left">Prenumele este prea scurt</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <input type="text" class="form-control form-control-lg" id="email" formControlName="email"
+                       placeholder="Email" autocomplete="off"/>
+                <div *ngIf="email.touched && email.invalid">
+                  <small class="invalid-credentials mt-1 float-left">Email invalid</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <input type="password" class="form-control form-control-lg" id="password" formControlName="password"
+                       placeholder="Password" autocomplete="off"/>
+                <div *ngIf="password.touched && password.invalid">
+                  <small class="invalid-credentials mt-1 float-left">
+                    Parola nu este valida. Trebuie sa contina
+                  </small>
+                  <br>
+                  <small class="invalid-credentials mt-1 float-left">
+                    - minim 8 caractere
+                  </small>
+                  <br>
+                  <small class="invalid-credentials mt-1 float-left">
+                    - litere mici si mari
+                  </small>
+                  <br>
+                  <small class="invalid-credentials mt-1 float-left">
+                    - cifre
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <input type="password" class="form-control form-control-lg" id="confirmPassword" formControlName="confirmPassword"
+                       placeholder="Confirmare parola" autocomplete="off"/>
+                <div *ngIf="confirmPassword.touched && confirmPassword.invalid && !(confirmPassword.value === password.value)">
+                  <small class="invalid-credentials mt-1 float-left">Parolele trebuie sa fie identice</small>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-block btn-lg site-theme-bg-color mt-2" type="submit" [disabled]="registrationForm.invalid">Inregistreaza-te</button>
+              <br>
+              <a routerLink="/auth/login"><button class="btn btn-block btn-lg site-theme-bg-color mt-2">Login</button></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
