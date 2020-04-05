@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from '../auth/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -7,19 +8,23 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'quiz',
-        loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule)
+        loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'lesson',
-        loadChildren: () => import('./lesson/lesson.module').then(m => m.LessonModule)
+        loadChildren: () => import('./lesson/lesson.module').then(m => m.LessonModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'examen',
-        loadChildren: () => import('./examen-simulation/examen-simulation.module').then(m => m.ExamenSimulationModule)
+        loadChildren: () => import('./examen-simulation/examen-simulation.module').then(m => m.ExamenSimulationModule),
+        canActivate: [AuthGuard]
       }
     ]
   }];

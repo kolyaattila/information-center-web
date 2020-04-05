@@ -16,6 +16,9 @@ import {SubscriptionActivationComponent} from './subscription-component/subscrip
 import {UnsubscriptionComponent} from './subscription-component/unsubscription/unsubscription.component';
 import {AuthModule} from './auth/auth.module';
 import {PagesRoutingModule} from './pages/pages-routing.module';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptor} from './auth/interceptor/token.interceptor';
+import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import {PagesRoutingModule} from './pages/pages-routing.module';
     NgxUiLoaderRouterModule,
     NgxUiLoaderHttpModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

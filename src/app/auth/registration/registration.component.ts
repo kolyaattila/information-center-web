@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import { AccountService } from 'src/app/core/services/account.service';
+import { Account } from 'src/app/shared/models/account';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -8,6 +11,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+
+  constructor(private accountService:AccountService,
+    private router: Router,
+    private toastr: ToastrService){
+    
+  }
 
   registrationForm = new FormGroup({
     firstName: new FormControl('', {
@@ -42,14 +51,37 @@ export class RegistrationComponent implements OnInit {
     })
   });
 
-  constructor(
-    private router: Router) {
-  }
-
   ngOnInit() {
   }
 
   onSubmit() {
+    if(this.isFormValid()){
+      const account:Account  = new Account();
+      account.password = this.password.value;
+      account.username = this.email.value;
+      account.firstName = this.firstName.value;
+      account.lastName = this.lastName.value;
+
+      this.accountService.createAccount(account).subscribe(
+        data => { this.router.navigateByUrl("/auth/login")},
+        error => {this.handleError(error);}
+      )
+    }
+  }
+
+  isFormValid(): boolean{
+    return this.registrationForm.valid &&
+      this.password.value === this.confirmPassword.value;
+  }
+
+  handleError(httpErrorResponse){
+    if(httpErrorResponse && httpErrorResponse.status == 400){
+      this.toastr.error(httpErrorResponse.error.message);
+    } else if(httpErrorResponse && httpErrorResponse.status == 503){
+      this.toastr.error("Serviciul nu este disponibil momentan");
+    } else {
+      this.toastr.error("A aparut ceva eroare.");
+    }
   }
 
   get confirmPassword() {
