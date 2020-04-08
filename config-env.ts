@@ -1,4 +1,4 @@
-import { writeFile } from 'fs';
+import {writeFile} from 'fs';
 
 require('dotenv').config();
 
@@ -16,7 +16,8 @@ export const environment = {
   subscriptionActivation: apiEndpoint + '/subscription/activation'
   login: apiEndpoint + '/auth/oauth/token',
   register: apiEndpoint + '/account/',
-  currentAccount: apiEndpoint + "/account/"
+  currentAccount: apiEndpoint + '/account/',
+  topic: apiEndpoint + 'topic-service/topic'
 };
 `;
 

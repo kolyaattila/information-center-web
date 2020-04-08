@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {NgxUiLoaderModule, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule} from 'ngx-ui-loader';
+import {NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule} from 'ngx-ui-loader';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CommingSoonComponent} from './comming-soon/comming-soon.component';
@@ -8,7 +8,7 @@ import {SubscriptionComponentComponent} from './subscription-component/subscript
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {NotfoundComponent} from './notfound-component/notfound.component';
@@ -16,7 +16,6 @@ import {SubscriptionActivationComponent} from './subscription-component/subscrip
 import {UnsubscriptionComponent} from './subscription-component/unsubscription/unsubscription.component';
 import {AuthModule} from './auth/auth.module';
 import {PagesRoutingModule} from './pages/pages-routing.module';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptor} from './auth/interceptor/token.interceptor';
 import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
 

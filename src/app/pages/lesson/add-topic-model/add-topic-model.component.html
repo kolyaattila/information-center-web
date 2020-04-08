@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Creaza un topic</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="form-component" [formGroup]="createTopicForm">
+    <mat-form-field class="form-field">
+      <mat-label>Nume</mat-label>
+      <input matInput placeholder="Ex. Hidrocarburi" value="" formControlName="name">
+    </mat-form-field>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Cancel</button>
+  <button type="button" class="btn btn-success" (click)="actionFunction()" [disabled]="createTopicForm.invalid">Salveaza</button>
+</div>

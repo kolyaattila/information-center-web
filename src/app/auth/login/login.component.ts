@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {FormGroup, FormControl, Validators, FormArray, Form} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../service/authentication.service';
 import {first} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
@@ -58,9 +58,9 @@ export class LoginComponent implements OnInit {
   }
 
   handleError(httpErrorResponse) {
-    if (httpErrorResponse && httpErrorResponse.status == 400 && httpErrorResponse.error.error_description === 'Bad credentials') {
+    if (httpErrorResponse && httpErrorResponse.status === 400 && httpErrorResponse.error.error_description === 'Bad credentials') {
       this.toastr.error('Numele de utilizator sau parola sunt gresite.');
-    } else if (httpErrorResponse && httpErrorResponse.status == 503) {
+    } else if (httpErrorResponse && httpErrorResponse.status === 503) {
       this.toastr.error('Serviciul nu este disponibil momentan');
     } else {
       this.toastr.error('A aparut ceva eroare.');
