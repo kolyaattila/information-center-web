@@ -1,0 +1,25 @@
+.card {
+  max-width: 20rem;
+  float: left;
+  margin: 20px;
+}
+
+.card-body button, .meniu button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.meniu-content {
+  position: absolute;
+  right: 0;
+}
+
+.create-card {
+  position: absolute;
+  align-self: center;
+  top: 33%;
+}
+

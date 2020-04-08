@@ -4,8 +4,12 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from 'src/app/core/core.module';
 import {LessonComponent} from './lesson.component';
-import { LessonRoutingModule } from './lesson-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+import {LessonRoutingModule} from './lesson-routing.module';
+import {SharedModule} from 'src/app/shared/shared.module';
+import {TopicListComponent} from './topic-list/topic-list.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AddTopicModelComponent} from './add-topic-model/add-topic-model.component';
+import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model.component';
 
 @NgModule({
   imports: [
@@ -14,13 +18,19 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LessonRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgbModule,
   ],
   exports: [RouterModule],
   providers: [],
   declarations: [
-    LessonComponent
-  ]
+    LessonComponent,
+    TopicListComponent,
+    AddTopicModelComponent,
+    UpdateTopicModelComponent
+  ],
+  entryComponents: [AddTopicModelComponent,
+    UpdateTopicModelComponent]
 })
 
 export class LessonModule {

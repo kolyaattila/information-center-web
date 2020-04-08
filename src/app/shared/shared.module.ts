@@ -4,6 +4,8 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from 'src/app/core/core.module';
 import {PagesComponent} from '../pages/pages.component';
+import {ConfirmationModalComponent} from './modal/confirmation-modal/confirmation-modat.component';
+import {MaterialModule} from './matirial/matirial.module';
 
 @NgModule({
   imports: [
@@ -11,15 +13,22 @@ import {PagesComponent} from '../pages/pages.component';
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     RouterModule,
-    PagesComponent
+    PagesComponent,
+    ConfirmationModalComponent,
+    MaterialModule
   ],
   providers: [],
   declarations: [
-    PagesComponent
+    PagesComponent,
+    ConfirmationModalComponent
+  ],
+  entryComponents: [
+    ConfirmationModalComponent
   ]
 })
 
