@@ -4,6 +4,7 @@ import {environment} from '../../../../environments/environment';
 import {Subscription} from '../models/Subscription';
 import {Account} from 'src/app/shared/models/account';
 import {Topic} from '../../../shared/models/topic';
+import {Video} from '../../../shared/models/video'
 import {Observable} from 'rxjs';
 
 @Injectable()
@@ -46,5 +47,8 @@ export class CommonRepositoryService {
 
   deleteTopic(externalId: string) {
     return this.http.delete(`${environment.topic}/` + externalId);
+  }
+  getVideosDetailsByTopic(topic: string){
+    return this.http.get<Video[]>(`${environment.video}/`+topic+`/byChapter`);
   }
 }

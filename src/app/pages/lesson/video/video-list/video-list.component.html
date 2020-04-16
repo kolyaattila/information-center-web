@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="video-container" *ngFor="let video of videosDetails">
+        <div class="image" (click)="changeVideo(video)"></div>
+        <div class="video-title">{{video.title}}</div>
+        <div class="video-duration">13:20</div>
+        <button (click)="redirectUpdate()">Update</button>
+        <button (click)="redirectUpdate()">Delete</button>
+
+    </div>
+</div>

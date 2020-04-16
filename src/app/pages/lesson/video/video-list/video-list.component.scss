@@ -1,0 +1,37 @@
+.video-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.image {
+    min-height: 94px;
+    min-width: 168px;
+    max-height: 94px;
+    max-width: 168px;
+    background: url('src/assets/img/photo.jpg');
+    background-size: cover;
+}
+
+.image:hover {
+    min-height: 94px;
+    min-width: 168px;
+    max-height: 94px;
+    max-width: 168px;
+    background: url('src/assets/img/logo.png');
+    background-size: cover;
+}
+
+.video-title {
+    position: absolute;
+    left: 190px;
+    top: 3px;
+}
+
+.video-duration {
+    background-color: black;
+    position: absolute;
+    bottom: 35px;
+    left: 123px;
+    text-align: center;
+    color: white;
+}

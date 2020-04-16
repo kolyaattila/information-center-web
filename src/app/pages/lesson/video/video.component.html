@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8">
+            <video controls="true" controlsList="nodownload">
+                <source [src]="path" type="video/mp4">
+            </video>
+            <button routerLink="/lesson/video/create-video">Add Video</button>
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-12 topic-title">{{id}}</div>
+                <div class="col-12 video-list">
+                    <app-video-list [videosDetails]="videosDetails" (change)="changeVideo($event)">
+                    </app-video-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

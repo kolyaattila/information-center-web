@@ -1,0 +1,38 @@
+video {
+    float: right;
+    margin-top: 10px;
+    width: 930px;
+    height: 500px;
+}
+
+.topic-title {
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    top: 10px;
+    left: 20px;
+    max-width: 96%;
+}
+
+.video-list {
+    height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.col-12 {
+    padding: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: rgb(197, 197, 197);
+    border-radius: 0px;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+}

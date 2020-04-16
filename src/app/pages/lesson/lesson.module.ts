@@ -10,6 +10,9 @@ import {TopicListComponent} from './topic-list/topic-list.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddTopicModelComponent} from './add-topic-model/add-topic-model.component';
 import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model.component';
+import { VideoComponent } from './video/video.component';
+import { VideoRoutingModule } from './video/video-routing.module';
+import {NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 @NgModule({
   imports: [
@@ -22,13 +25,15 @@ import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model
     NgbModule,
   ],
   exports: [RouterModule],
+  schemas: [NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA],
+
   providers: [],
   declarations: [
     LessonComponent,
     TopicListComponent,
     AddTopicModelComponent,
     UpdateTopicModelComponent
-  ],
+    ],
   entryComponents: [AddTopicModelComponent,
     UpdateTopicModelComponent]
 })

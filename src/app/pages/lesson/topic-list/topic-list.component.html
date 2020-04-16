@@ -1,32 +1,33 @@
 <div>
-  <div class="cards-container" *ngFor="let topic of allTopics; let i = index">
-    <div class="card">
-      <div class="meniu-content">
-        <mat-menu #appMenu="matMenu" class="meniu">
-          <button mat-menu-item (click)="openUpdateTopicModel(topic)">Edit</button>
-          <button mat-menu-item (click)="openDeleteTopicModal(topic)">Delete</button>
-        </mat-menu>
+    <div class="cards-container" *ngFor="let topic of allTopics; let i = index">
+        <div class="card">
+            <div class="meniu-content">
+                <mat-menu #appMenu="matMenu" class="meniu">
+                    <button mat-menu-item (click)="openUpdateTopicModel(topic)">Edit</button>
+                    <button mat-menu-item (click)="openDeleteTopicModal(topic)">Delete</button>
+                </mat-menu>
 
-        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                <button mat-icon-button [matMenuTriggerFor]="appMenu">
           <mat-icon>more_vert</mat-icon>
         </button>
-      </div>
-      <img src="../../../../assets/img/topic-element.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title2">{{topic.name}}</h5>
-      </div>
+            </div>
+            <img src="../../../../assets/img/topic-element.jpeg" class="card-img-top" alt="...">
+            <div class="card-body" [routerLink]="['/lesson/video', topic.name]">
+                <h5 class="card-title2">{{topic.name}}</h5>
+
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="meniu-content">
-    </div>
-    <div class="create-card">
-      <button (click)="iconAnimate.var=!iconAnimate.var;openCreateTopicModel()" #iconAnimate="var" var="'false'" mat-fab color="primary">
+    <div class="card">
+        <div class="meniu-content">
+        </div>
+        <div class="create-card">
+            <button (click)="iconAnimate.var=!iconAnimate.var;openCreateTopicModel()" #iconAnimate="var" var="'false'" mat-fab color="primary">
         <mat-animated-icon start="add_circle" end="add_circle_outline" colorStart="none" colorEnd="none" [animate]="iconAnimate.var"
                            animateFromParent="true"></mat-animated-icon>
       </button>
+        </div>
+        <img src="../../../../assets/img/topic-element.jpeg" class="card-img-top" alt="...">
     </div>
-    <img src="../../../../assets/img/topic-element.jpeg" class="card-img-top" alt="...">
-  </div>
 </div>
 <!-- Icon animation https://stackblitz.com/edit/angular-material-prototype-animated-icon -->

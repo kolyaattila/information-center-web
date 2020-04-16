@@ -17,7 +17,8 @@ export const environment = {
   login: apiEndpoint + '/auth/oauth/token',
   register: apiEndpoint + '/account/',
   currentAccount: apiEndpoint + '/account/',
-  topic: apiEndpoint + 'topic-service/topic'
+  topic: apiEndpoint + 'topic-service/topic',
+  video: apiEndpoint + '/video' 
 };
 `;
 
