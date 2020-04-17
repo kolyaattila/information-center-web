@@ -1,0 +1,50 @@
+img {
+  max-width: 100%;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0px;
+}
+
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+input[type="text"]:focus {
+  border: none;
+  outline: none;
+}
+
+@font-face {
+  font-family: 'AvenirLTStdMedium_0';
+  src: url('../assets/fonts/AvenirLTStdMedium_0.eot');
+  src: url('../assets/fonts/AvenirLTStdMedium_0.eot') format('embedded-opentype'),
+  url('../assets/fonts/AvenirLTStdMedium_0.woff2') format('woff2'),
+  url('../assets/fonts/AvenirLTStdMedium_0.woff') format('woff'),
+  url('../assets/fonts/AvenirLTStdMedium_0.ttf') format('truetype'),
+  url('../assets/fonts/AvenirLTStdMedium_0.svg#AvenirLTStdMedium_0') format('svg');
+}
+
+@font-face {
+  font-family: 'poetsenoneregular';
+  src: url('../assets/fonts/poetsenone-regular_0-webfont.woff2') format('woff2'),
+  url('../assets/fonts/poetsenone-regular_0-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

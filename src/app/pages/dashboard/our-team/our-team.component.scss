@@ -1,0 +1,164 @@
+.our-team {
+  padding: 55px 15px;
+  background: url(../../../../assets/images/team-bg.png) repeat top left;
+}
+
+.our-team .member-slider {
+  padding: 50px 0 83px 0;
+}
+
+.our-team .member-info {
+  padding: 8px 40px 30px 100px;
+  position: relative;
+  border-right: dashed 1px #dddddd;
+}
+
+.our-team .member-info .img {
+  position: absolute;
+  top: 0px;
+  left: 17px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: solid 2px #fff;
+  overflow: hidden;
+}
+
+.our-team .member-info p {
+  font-size: 16px;
+  color: #666666;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.our-team .member-info .member-name {
+  display: block;
+  padding: 25px 0 0 0;
+  font-size: 18px;
+  color: #333333;
+  font-family: 'AvenirLTStdMedium_0';
+  line-height: 24px;
+}
+
+.our-team .member-info .member-name span {
+  display: block;
+  color: #666666;
+  font-size: 14px;
+  font-family: 'AvenirLTStdLight_3';
+}
+
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title start -=-=-=-=-=-=-=-=-=-=-=*/
+.section-title {
+  text-align: center;
+  display: block;
+}
+
+.section-title h2 {
+  padding-bottom: 20px;
+  color: #02cbf7;
+  line-height: 50px;
+  position: relative;
+}
+
+.section-title h2:after {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 90px;
+  margin-left: -45px;
+  height: 3px;
+  background: #4d4d4d;
+  content: "";
+}
+
+.section-title h2:before {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #4d4d4d;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.section-title p {
+  padding: 19px 0 0 0;
+  font-size: 18px;
+  color: #444;
+  line-height: 30px;
+  display: inline-block;
+  max-width: 800px;
+}
+
+.section-title.white h2 {
+  color: #fff;
+}
+
+.section-title.white h2:after {
+  background: #02cbf7;
+}
+
+.section-title.white h2:before {
+  border-bottom: 5px solid #02cbf7;
+}
+
+.section-title.white p {
+  color: #fff;
+}
+
+.section-title2 {
+  display: block;
+}
+
+.section-title2 h2 {
+  position: relative;
+  line-height: 48px;
+  color: #333333;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0px;
+  padding-bottom: 26px;
+  font-family: "Roboto", sans-serif;
+}
+
+.section-title2 h2:after {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  height: 6px;
+  background: #ffb241;
+  content: "";
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title end -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+@media (max-width: 767px) {
+  .our-team .member-slider {
+    padding-bottom: 30px;
+  }
+  .section-title h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .section-title p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+
+@media (max-width: 479px) {
+  .our-team .member-info {
+    padding-left: 0px;
+    border: none;
+    padding-right: 0px;
+  }
+  .our-team .member-info .img {
+    position: static;
+    margin: 0 auto 15px auto;
+  }
+}

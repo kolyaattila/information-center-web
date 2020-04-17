@@ -4,7 +4,6 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {AuthenticationService} from '../service/authentication.service';
 import {ToastrService} from 'ngx-toastr';
-import {environment} from 'src/environments/environment';
 
 
 @Injectable()
@@ -21,18 +20,16 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           reason: error.message,
           status: error.status
         };
-        if (error && (error.url === `${environment.register}` || error.url.includes(`${environment.login}`)) && error.status === 503) {
+        if (error && !this.authService.isLogin()) {
           return throwError(error);
         }
 
         switch (data[`status`]) {
-          case 401: {
-            this.authService.logout();
-            return throwError(error);
-          }
           case 503: {
             this.toastr.error('Service nu este disponibil momentan');
-            this.authService.logout();
+            if (this.authService.isLogin()) {
+              this.authService.logout();
+            }
             return throwError(error);
           }
         }

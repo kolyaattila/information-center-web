@@ -2,14 +2,14 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../auth/guard/auth.guard';
 
+
 const routes: Routes = [
   {
     path: '',
     children: [
       {
         path: '',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-        canActivate: [AuthGuard]
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
         path: 'quiz',
@@ -24,6 +24,15 @@ const routes: Routes = [
       {
         path: 'examen',
         loadChildren: () => import('./examen-simulation/examen-simulation.module').then(m => m.ExamenSimulationModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('./login-register/login-register.module').then(m => m.LoginRegisterModule)
+      },
+      {
+        path: 'account',
+        loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         canActivate: [AuthGuard]
       }
     ]

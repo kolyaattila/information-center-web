@@ -8,7 +8,6 @@ const routes: Routes = [
   // {path: '', component: CommingSoonComponent},
   {path: 'subscription/activation/:uid', component: SubscriptionActivationComponent},
   {path: 'unsubscription/:uid', component: UnsubscriptionComponent},
-  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path: '**', component: NotfoundComponent}
 ];
 

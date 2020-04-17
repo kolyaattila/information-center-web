@@ -4,4 +4,5 @@ export class Token {
   refresh_token: string;
   expires_in: number;
   scope: string;
+  date: Date;
 }
