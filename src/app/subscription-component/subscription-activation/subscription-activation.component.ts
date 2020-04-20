@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CommonRepositoryService} from '../../core/shared/service/common-repository.service';
-import { ToastrService } from 'ngx-toastr';
-import {ActivatedRoute} from "@angular/router";
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-subscription-activation',
@@ -12,19 +11,25 @@ import {ActivatedRoute} from "@angular/router";
 export class SubscriptionActivationComponent implements OnInit {
 
   constructor(private router: Router,
-    private commonRepository: CommonRepositoryService,
-    private toastr: ToastrService,
-    private activeRoute: ActivatedRoute) { }
+              private commonRepository: CommonRepositoryService,
+              private toastr: ToastrService,
+              private activeRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
-    var uid;
-    this.activeRoute.params.subscribe( params => {uid=params.uid;
-    } );
+    let uid;
+    this.activeRoute.params.subscribe(params => {
+      uid = params.uid;
+    });
     this.commonRepository.subscriptionActivation(uid).subscribe(
-      () => {this.toastr.success("Email confirmat!")},
-      () => {this.toastr.warning("A aparut o erroare, incercati mai tarziu")}
-    )
-    this.router.navigate(['/'])
+      () => {
+        this.toastr.success('Email confirmat!');
+      },
+      () => {
+        this.toastr.warning('A aparut o erroare, incercati mai tarziu');
+      }
+    );
+    this.router.navigate(['/']);
   }
 
 }

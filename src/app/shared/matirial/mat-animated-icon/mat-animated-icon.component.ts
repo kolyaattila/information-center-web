@@ -12,7 +12,7 @@ export class MatAnimatedIconComponent implements OnInit {
   @Input() colorStart: string;
   @Input() colorEnd: string;
   @Input() animate: boolean;
-  @Input() animateFromParent?: boolean = false;
+  @Input() animateFromParent = false;
 
   constructor() {
   }
