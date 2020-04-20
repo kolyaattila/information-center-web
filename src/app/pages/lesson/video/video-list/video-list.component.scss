@@ -13,12 +13,7 @@
 }
 
 .image:hover {
-    min-height: 94px;
-    min-width: 168px;
-    max-height: 94px;
-    max-width: 168px;
-    background: url('src/assets/img/logo.png');
-    background-size: cover;
+    opacity: 0.8;
 }
 
 .video-title {
@@ -30,8 +25,26 @@
 .video-duration {
     background-color: black;
     position: absolute;
-    bottom: 35px;
+    bottom: 5px;
     left: 123px;
     text-align: center;
     color: white;
+}
+
+#update-button,
+#delete-button {
+    position: absolute;
+    top: 63px;
+}
+
+#update-button {
+    left: 170px;
+    top: 63px;
+    width: 70px;
+}
+
+#delete-button {
+    left: 240px;
+    top: 63px;
+    width: 70px;
 }

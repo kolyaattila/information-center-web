@@ -48,7 +48,7 @@ export class CommonRepositoryService {
   deleteTopic(externalId: string) {
     return this.http.delete(`${environment.topic}/` + externalId);
   }
-  getVideosDetailsByTopic(topic: string){
-    return this.http.get<Video[]>(`${environment.video}/`+topic+`/byChapter`);
+  getVideosDetailsByTopicId(topicId: string){
+    return this.http.get<Video[]>(`${environment.video}/`+topicId+`/byChapter`);
   }
 }

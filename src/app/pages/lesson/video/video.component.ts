@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter,Output ,Input,ElementRef } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output ,Input,ViewChild, ElementRef, AfterViewInit, AfterViewChecked} from '@angular/core';
 import {Video} from 'src/app/shared/models/video';
 import { Router,ActivatedRoute } from '@angular/router';
 import {VideoService} from 'src/app/core/services/video.service'
@@ -9,27 +9,31 @@ import {environment} from '../../../../environments/environment';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
 })
-export class VideoComponent implements OnInit {
-
-  
-
+export class VideoComponent implements OnInit,AfterViewInit {
+   @ViewChild('video',{static:true}) video;
   videosDetails : Video[];
   videoExternalId : string;
   path :string;
   id:string;
-  constructor(private router: Router,private service : VideoService,private elRef: ElementRef,private route: ActivatedRoute) { 
-    this.service = service;
-    this.elRef = elRef;
+  topicName :string;
+  constructor(private router: Router,
+              private service : VideoService,
+              private elRef: ElementRef,
+              private route: ActivatedRoute) { 
+              this.service = service;
+              this.elRef = elRef;
      }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = params['id']; // (+) converts string 'id' to a number
-      // In a real app: dispatch action to load the details here.
-      console.log(this.id)
+      this.id = params['id'];
       this.getVideosDetailsByTopic(this.id);
    });
   }
+  ngAfterViewInit() {            
+    
+      this.video.nativeElement.focus();
+    }
 
   changeVideo(video:Video){
     this.videoExternalId = video.externalId;
@@ -37,10 +41,15 @@ export class VideoComponent implements OnInit {
     this.refreshVideoTag();
   }
 
+  getChapterName(){
+    if(this.videosDetails != undefined)
+    if(this.videosDetails.length!= 0)
+    this.topicName = this.videosDetails[0].chapter;
+  }
+
   changePath(){
     
     this.path = environment.video+"/"+this.videoExternalId;
-    console.log(this.path)
   }
 
   refreshVideoTag(){  
@@ -57,11 +66,9 @@ export class VideoComponent implements OnInit {
       this.videosDetails = videoDetails;
       if(videoDetails[0] != undefined)
       this.videoExternalId = videoDetails[0].externalId;
-      console.log(videoDetails)
       this.changePath();    
       this.refreshVideoTag();
-      console.log("aici")
-      console.log(this.path)
+      this.getChapterName();
     })
   }
 }

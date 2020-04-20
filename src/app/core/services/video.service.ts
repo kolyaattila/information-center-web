@@ -11,7 +11,7 @@ export class  VideoService {
 
   constructor(private repositoryService: CommonRepositoryService) {
   }
-  getVideosDetailsByTopic(topic:string):Observable<Video[]>{
-      return this.repositoryService.getVideosDetailsByTopic(topic);
+  getVideosDetailsByTopic(topicId:string):Observable<Video[]>{
+      return this.repositoryService.getVideosDetailsByTopicId(topicId);
   }
 }
