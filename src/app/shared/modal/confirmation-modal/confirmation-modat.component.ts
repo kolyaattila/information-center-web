@@ -1,5 +1,5 @@
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {OnInit, Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ModalActionsService} from './modal-actions.service';
 import {ToastrService} from 'ngx-toastr';
 
@@ -37,5 +37,9 @@ export class ConfirmationModalComponent implements OnInit {
 
   closeModal(response: boolean) {
     this.dialogRef.close(response);
+  }
+
+  get data() {
+    return this.modalData;
   }
 }

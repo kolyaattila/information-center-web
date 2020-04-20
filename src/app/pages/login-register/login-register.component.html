@@ -1,0 +1,128 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Login</h1>
+    </div>
+  </div>
+</section>
+
+
+<section class="login-view">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-title">
+          <h2>Login</h2>
+          <p>Login to your account below</p>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="input-box">
+            <input type="text" class="form-control form-control-lg" id="username" formControlName="username"
+                   placeholder="username" autocomplete="off"/>
+            <div *ngIf="loginUsername.touched && loginUsername.invalid">
+              <small class="invalid-credentials mt-1 float-left">Username invalid</small>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="password" class="form-control form-control-lg" formControlName="password"
+                   placeholder="password" autocomplete="current-password">
+            <div *ngIf="loginPassword.touched && loginPassword.invalid">
+              <small class="invalid-credentials mt-1 float-left">Parola invalid</small>
+            </div>
+          </div>
+          <div class="check-slide" style="display: none">
+            <label class="label_check" for="checkbox-01"><input id="checkbox-01" type="checkbox"> Remember Me</label>
+            <div class="right-link">
+              <a href="#">Lost Password? </a>
+            </div>
+          </div>
+          <div class="submit-slide">
+            <input type="submit" [disabled]="loginForm.invalid" value="Login" class="btn">
+
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <div class="section-title">
+          <h2>REGISTER</h2>
+          <p>Register now - Completely free</p>
+        </div>
+        <form [formGroup]="registrationForm" (ngSubmit)="register()">
+          <div class="input-box">
+            <input type="text" class="form-control form-control-lg" id="firstName" formControlName="firstName"
+                   placeholder="Nume" autocomplete="off"/>
+            <div *ngIf="registerFirstName.touched && registerFirstName.invalid">
+              <small class="invalid-credentials mt-1 float-left">Numele este invalid</small>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="text" class="form-control form-control-lg" id="lastName" formControlName="lastName"
+                   placeholder="Prenume" autocomplete="off"/>
+            <div *ngIf="registerLastName.touched && registerLastName.invalid">
+              <small class="invalid-credentials mt-1 float-left">Prenume invalid</small>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="text" class="form-control form-control-lg" id="email" formControlName="email"
+                   placeholder="Email" autocomplete="off"/>
+            <div *ngIf="registerEmail.touched && registerEmail.invalid">
+              <small class="invalid-credentials mt-1 float-left">Email invalid</small>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="password" class="form-control form-control-lg" formControlName="password"
+                   placeholder="Password" autocomplete="off"/>
+            <div *ngIf="registerPassword.touched && registerPassword.invalid">
+              <small class="invalid-credentials mt-1 float-left">
+                Parola nu este valida. Trebuie sa contina
+              </small>
+              <br>
+              <small class="invalid-credentials mt-1 float-left">
+                - minim 8 caractere
+              </small>
+              <br>
+              <small class="invalid-credentials mt-1 float-left">
+                - litere mici si mari
+              </small>
+              <br>
+              <small class="invalid-credentials mt-1 float-left">
+                - cifre
+              </small>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="password" class="form-control form-control-lg" id="confirmPassword" formControlName="confirmPassword"
+                   placeholder="Confirmare parola" autocomplete="off"/>
+            <div *ngIf="registerConfirmPassword.touched && registerConfirmPassword.valid && !(registerConfirmPassword.value === registerPassword.value)">
+              <small class="invalid-credentials mt-1 float-left">Parolele trebuie sa fie identice</small>
+            </div>
+          </div>
+          <div class="submit-slide">
+            <input type="submit" value="Inregistreaza-te" [disabled]="registrationForm.invalid || !(registerConfirmPassword.value === registerPassword.value)"
+                   class="btn">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class=
+           "sosiyal-login" style="display: none">
+      <div class="row">
+        <div class="col-sm-3 col-md-3">
+          <a href="#" class="facebook"><i class="fa fa-facebook"></i>Facebook</a>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <a href="#" class="google-pluse"><i class="fa fa-google-plus"></i>Google</a>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <a href="#" class="twitter"><i class="fa fa-twitter"></i>Twitter</a>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

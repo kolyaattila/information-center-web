@@ -1,0 +1,38 @@
+<section class="contact-block">
+  <div class="contact-form">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
+    <div class="form-filde">
+      <form class="has-validation-callback" [formGroup]="messageForm" (ngSubmit)="sendMessage()" method="post">
+        <div class="input-box">
+          <input type="text" class="form-control form-control-lg" id="name" formControlName="name"
+                 placeholder="Nume" autocomplete="off"/>
+          <div *ngIf="name.touched && name.invalid">
+            <small class="invalid-credentials mt-1 float-left">Name invalid</small>
+          </div>
+        </div>
+        <div class="input-box">
+          <input type="text" class="form-control form-control-lg" id="email" formControlName="email"
+                 placeholder="Email" autocomplete="off"/>
+          <div *ngIf="email.touched && email.invalid">
+            <small class="invalid-credentials mt-1 float-left">Email invalid</small>
+          </div>
+        </div>
+        <div class="input-box">
+          <textarea class="form-control form-control-lg" placeholder="Message" name="message" id="message" formControlName="message"
+                    autocomplete="off"></textarea>
+          <div *ngIf="message.touched && message.invalid">
+            <small class="invalid-credentials mt-1 float-left">Message invalid</small>
+          </div>
+        </div>
+        <div class="submit-slide">
+          <input type="submit" value="Submit" class="btn" [disabled]="messageForm.invalid">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="map" #mapContainer id="map">
+  </div>
+
+</section>

@@ -1,0 +1,222 @@
+/*=-=-=-=-=-=-=-=-=-=-=- Our course css start -=-=-=-=-=-=-=-=-=-=-=*/
+.our-course {
+  padding: 60px 0;
+}
+
+.our-course .section-title {
+  padding-bottom: 30px;
+}
+
+.our-course .course-box {
+  border: solid 1px #f1f1f1;
+  margin-top: 30px;
+}
+
+.our-course .course-box .img {
+  width: 100%;
+  position: relative;
+}
+
+.our-course .course-box .img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: url(../../../../assets/images/courses-bg.png) no-repeat bottom left;
+  content: "";
+}
+
+.our-course .course-box .img img {
+  width: 100%;
+}
+
+.our-course .course-box .img .price {
+  position: absolute;
+  top: 30px;
+  left: -8px;
+  background: #02cbf7;
+  color: #fff;
+  text-align: center;
+  width: 58px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0 5px 5px 0;
+  text-transform: uppercase;
+  z-index: 3;
+  font-family: 'Arima Madurai';
+}
+
+.our-course .course-box .img .price:after {
+  position: absolute;
+  top: -8px;
+  left: 0px;
+  content: "";
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid #029ec0;
+}
+
+.our-course .course-box .img .price.free {
+  background: #fe5969;
+}
+
+.our-course .course-box .img .price.free:after {
+  border-bottom: 8px solid #da3243
+}
+
+.our-course .course-box .course-info {
+  position: absolute;
+  bottom: 11px;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.our-course .course-box .course-info .date {
+  display: inline-block;
+  line-height: 30px;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 19px 0 0;
+}
+
+.our-course .course-box .course-info .date .fa {
+  padding: 0 7px 0 0;
+  font-size: 18px;
+}
+
+.our-course .course-box .course-info .favorite {
+  float: right;
+  width: auto;
+}
+
+.our-course .course-box .course-info .favorite .fa {
+  color: #fff;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.our-course .course-box .course-name {
+  display: block;
+  padding: 12px 20px 6px 20px;
+  line-height: 30px;
+  font-size: 24px;
+  color: #4d4d4d;
+  font-family: 'AvenirLTStdMedium_0';
+}
+
+.our-course .course-box .course-name span {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  line-height: 20px;
+  padding-top: 2px;
+}
+
+.our-course .course-box .course-name span em {
+  color: #888;
+  font-style: normal;
+}
+
+.our-course .course-box .comment-row {
+  display: block;
+  padding: 17px 20px;
+  background: #f9f9f9;
+  border-top: solid 1px #f1f1f1;
+}
+
+.our-course .course-box .comment-row .rating {
+  width: 75px;
+  height: 13px;
+  margin-top: 11px;
+  background: url(../../../../assets/images/stare-blank.svg) repeat-x top left;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.our-course .course-box .comment-row .rating .fill {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  background: url(../../../../assets/images/stare-fille.svg) repeat-x top left;
+}
+
+.our-course .course-box .comment-row .box {
+  display: inline-block;
+  padding: 0 19px 0 0;
+  font-size: 14px;
+  color: #4d4d4d;
+  line-height: 36px;
+  vertical-align: top;
+}
+
+.our-course .course-box .comment-row .box .fa {
+  padding: 0 7px 0 0;
+}
+
+.our-course .course-box .comment-row .enroll-btn {
+  float: right;
+}
+
+.our-course .course-box .comment-row .enroll-btn .btn {
+  line-height: 34px;
+  padding: 0 18px;
+  font-size: 16px;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=-Our course css start -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+/*=-=-=-=-=-=-=-=-=-=-=- Mobile Responsive styles start -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+@media (max-width: 1199px) {
+  .our-course .course-box .comment-row .box {
+    font-size: 12px;
+    padding: 0 10px 0 0;
+  }
+  .our-course .course-box .course-name {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 991px) {
+  .our-course .course-box .comment-row .box {
+    font-size: 14px;
+  }
+  .price-view .price-box.new3 {
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+}
+
+@media (max-width: 767px) {
+  h1, .h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  .our-course {
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .our-course .course-box .comment-row {
+    text-align: center;
+  }
+  .our-course .course-box .comment-row .enroll-btn {
+    float: none;
+  }
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Mobile Responsive styles end -=-=-=-=-=-=-=-=-=-=-=*/

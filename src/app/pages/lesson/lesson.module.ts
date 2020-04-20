@@ -7,7 +7,6 @@ import {LessonComponent} from './lesson.component';
 import {LessonRoutingModule} from './lesson-routing.module';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {TopicListComponent} from './topic-list/topic-list.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddTopicModelComponent} from './add-topic-model/add-topic-model.component';
 import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model.component';
 
@@ -18,8 +17,7 @@ import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model
     LessonRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
-    NgbModule,
+    SharedModule
   ],
   exports: [RouterModule],
   providers: [],

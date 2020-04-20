@@ -1,32 +1,175 @@
-<div class="sidenav" [ngClass]="{'side-open': isOpen === true}">
-  <a href="javascript:void(0)" class="closebtn" (click)="onCloseNav()">&times;</a>
-  <a routerLink="/" (click)="onCloseNav()">HOME</a>
-  <a routerLink="/lesson" (click)="onCloseNav()">Teorie</a>
-  <a routerLink="/quiz" (click)="onCloseNav()">Quiz</a>
-  <a routerLink="/examen" (click)="onCloseNav()">Simulare examen</a>
-</div>
+<div class="wapper">
+  <div class="quck-nav">
+    <div class="container">
+      <div class="contact-no"><a><i class="fa fa-map-marker"></i>Oradea, Romania</a></div>
+      <div class="contact-no"><a routerLink="/"><i class="fa fa-globe"></i>examen-admitere.ro</a></div>
+      <div class="quck-right">
+        <div class="right-link" *ngIf="!isLogin()"><a routerLink="/login"><i class="fa  fa-user"></i>Login \ Register</a></div>
+        <div class="right-link" *ngIf="isLogin() && currentAccount"><a routerLink="/account"><i class="fa  fa-user"></i>{{currentAccount.username}}</a></div>
+        <div class="right-link" *ngIf="isLogin()"><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
+      </div>
+    </div>
+  </div>
 
-<div id="main" [ngClass]="{'side-margin': isOpen === true }">
-  <div>
-    <nav class="navbar p-3 px-md-4 mb-3 border-bottom bg-dark">
-      <div *ngIf="!isOpen" (click)="onSwitchNav()"><i class="fas fa-bars"></i></div>
-      <h4 class="my-0 mr-md-auto font-weight-normal text-white text-logo" routerLink="/">Information center</h4>
-      <div class="dropdown">
 
-        <i class="fas fa-user-circle"></i>
-
-        <div *ngIf="currentAccount && currentAccount.username" class="dropdown-content">
-          <div class="user-content" id="user-content">
-            <i class="fas fa-user-circle"></i>
-            <h4>{{currentAccount.username}}</h4>
+  <header id="header">
+    <div class="container">
+      <nav id="nav-main">
+        <div class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand"><img src="../../assets/images/logo.png" alt="" style="display: none"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
           </div>
-          <div class="border-top separator"></div>
-          <div class="border-bottom">
-            <a (click)="logout()">Logout</a>
+          <div class="cart-box">
+            <a href="#"><i class="fa fa-shopping-basket"></i></a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active sub-menu">
+                <a routerLink="/">Home </a>
+              </li>
+              <li class="mega-menu sub-menu">
+                <a href="#">Courses</a>
+                <div class="menu-view">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="menu-title">Courses Page</div>
+                      <ul>
+                        <li><a href="#">Courses Grid</a></li>
+                        <li><a href="#">Courses Grid SideBar</a></li>
+                        <li><a href="#">Courses List</a></li>
+                        <li><a href="#">Courses List SideBar</a></li>
+                        <li><a href="#">Course Details</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="menu-title">Quiz Page</div>
+                      <ul>
+                        <li><a href="#">Quiz Intro</a></li>
+                        <li><a href="#">Quiz</a></li>
+                        <li><a href="#">Quiz Result</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4 menu-courses">
+                      <div class="menu-title">Popular Courses</div>
+                      <div class="courses-slide">
+                        <div class="img"><img src="../../assets/images/blog/post-img1.jpg" alt=""></div>
+                        <div class="name"><a href="#">Business Management</a></div>
+                        <div class="price">$500</div>
+                      </div>
+                      <div class="courses-slide">
+                        <div class="img"><img src="../../assets/images/blog/post-img2.jpg" alt=""></div>
+                        <div class="name"><a href="#">Computing Science</a></div>
+                        <div class="price">$255</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us </a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <router-outlet></router-outlet>
+
+
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <h5>Popular Courses</h5>
+            <div class="course-slide">
+              <div class="img"><img src="../../assets/images/blog/post-img1.jpg" alt=""></div>
+              <p><a href="#">when an unknown printer took </a></p>
+              <div class="price">$55</div>
+            </div>
+            <div class="course-slide">
+              <div class="img"><img src="../../assets/images/blog/post-img2.jpg" alt=""></div>
+              <p><a href="#">when an unknown printer took </a></p>
+              <div class="price">$505</div>
+            </div>
+            <div class="course-slide">
+              <div class="img"><img src="../../assets/images/blog/post-img3.jpg" alt=""></div>
+              <p><a href="#">when an unknown printer took </a></p>
+              <div class="price">$178</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="col-md-offset-1 col-sm-6 col-md-5 col-xs-6">
+                <h5>Company</h5>
+                <ul class="footer-link">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Event</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Instructor Profile</a></li>
+                </ul>
+              </div>
+              <div class="col-md-offset-1 col-sm-6 col-md-5 col-xs-6">
+                <h5>Link-uri utile</h5>
+                <ul class="footer-link">
+                  <li><a href="#">Courses List</a></li>
+                  <li><a href="#">Pricing Table</a></li>
+                  <li><a href="#">Instructors</a></li>
+                  <li><a href="#">Forums</a></li>
+                  <li><a href="#">Faq</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h5>Contactati-ne</h5>
+            <div class="contact-view">
+              <div class="contact-slide">
+                <p><i class="fa fa-location-arrow"></i>Str. Calea Aradului, Oradea<br>Bihor, Romania</p>
+              </div>
+              <div class="contact-slide">
+                <p><i class="fa fa-phone"></i>+299 97 39 82</p>
+              </div>
+              <div class="contact-slide">
+                <p><i class="fa fa-envelope"></i><a href="mailTo:examen-admitere@gmail.com">examen-admitere@gmail.com</a></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </nav>
-  </div>
-  <router-outlet></router-outlet>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="copy-right">
+            <p>Copyright © <span class="year">2020</span> Examen-admitere.</p>
+            <ul class="footer-link">
+              <li><a href="#">Terms and Conditions</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4 " style="display: none">
+          <div class="social-media">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-skype"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>

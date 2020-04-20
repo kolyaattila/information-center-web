@@ -1,16 +1,16 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-title">{{ modalData.title }}</h4>
-  <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal()">
+  <h4 class="modal-title" id="modal-title">{{ data.title }}</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal(false)">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <p>{{ modalData.description }}
+  <p>{{ data.description }}
   </p>
 </div>
 <div class="modal-footer">
-  <button mat-raised-button (click)="closeModal()">Inapoi</button>
+  <button mat-raised-button (click)="closeModal(false)">Inapoi</button>
   <button mat-raised-button class="btn btn-danger" (click)="actionFunction()">
-    {{ modalData.actionButtonText }}
+    {{ data.actionButtonText }}
   </button>
 </div>

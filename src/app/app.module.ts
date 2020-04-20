@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CommingSoonComponent} from './comming-soon/comming-soon.component';
 import {SubscriptionComponentComponent} from './subscription-component/subscription-component.component';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -41,7 +40,6 @@ import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
     }),
     NgxUiLoaderRouterModule,
     NgxUiLoaderHttpModule.forRoot({showForeground: true}),
-    MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     CoreModule,

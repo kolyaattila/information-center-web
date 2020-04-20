@@ -6,6 +6,8 @@ export const environment = {
   subscriptionActivation: apiEndpoint + '/subscription/activation',
   login: apiEndpoint + '/auth/oauth/token',
   register: apiEndpoint + '/account/',
-  currentAccount: apiEndpoint + '/account/',
-  topic: apiEndpoint + '/topic-service/topic'
+  account: apiEndpoint + '/account/',
+  topic: apiEndpoint + 'topic-service/topic',
+  changePassword: apiEndpoint + '/auth',
+  message: apiEndpoint + '/account/message'
 };

@@ -1,0 +1,302 @@
+/*=-=-=-=-=-=-=-=-=-=-=- Login & Register start -=-=-=-=-=-=-=-=-=-=-=*/
+.login-view {
+  padding: 50px 0;
+}
+
+.login-view .col-sm-6 {
+  padding: 0 40px;
+}
+
+.login-view .col-sm-6:last-child {
+  border-left: solid 1px #e0e0e0;
+}
+
+.login-view .section-title {
+  margin-bottom: 30px;
+}
+
+.login-view .input-box {
+  margin-bottom: 20px;
+}
+
+.login-view .input-box input {
+  width: 100%;
+  height: 42px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #333;
+  padding: 10px 15px;
+  border: solid 1px #e0e0e0;
+}
+
+.login-view .check-slide {
+  display: block;
+  padding-bottom: 20px;
+}
+
+.login-view .check-slide .label_check {
+  padding: 0px;
+  margin: 0px;
+  line-height: 30px;
+  font-size: 15px;
+  color: #444;
+  padding: 0 0 0 30px;
+  background: url(../../../assets/images/check-boxImg.png) no-repeat left 8px;
+  font-weight: normal;
+}
+
+.login-view .check-slide .right-link {
+  float: right;
+  width: auto;
+}
+
+.login-view .check-slide .right-link a {
+  line-height: 30px;
+  color: #444;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.login-view .check-slide .right-link a:hover {
+  color: #02cbf7;
+}
+
+.login-view .check-slide .label_check.c_on {
+  background-position: left -91px;
+}
+
+.login-view .check-slide .label_check input {
+  position: absolute;
+  left: -999999px;
+}
+
+.login-view .submit-slide {
+  display: block;
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+.login-view .submit-slide .btn {
+  padding: 5px 20px;
+}
+
+.login-view .sosiyal-login {
+  display: block;
+  width: 100%;
+  padding: 80px 0 40px 0;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.login-view .sosiyal-login a {
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  text-align: left;
+  padding-left: 50px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.login-view .sosiyal-login a .fa {
+  position: absolute;
+  top: 8px;
+  left: 0px;
+  width: 40px;
+  line-height: 24px;
+  border-right: solid 1px #e0e0e0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.login-view .sosiyal-login .col-sm-6 {
+  border: none;
+  padding: 0 15px;
+}
+
+.login-view .sosiyal-login a.facebook {
+  background: #3b5998;
+}
+
+.login-view .sosiyal-login a.facebook:hover {
+  background: #2d4373;
+}
+
+.login-view .sosiyal-login a.google-pluse {
+  background: #dd4b39;
+}
+
+.login-view .sosiyal-login a.google-pluse:hover {
+  background: #c23321;
+}
+
+.login-view .sosiyal-login a.twitter {
+  background: #55acee;
+}
+
+.login-view .sosiyal-login a.twitter:hover {
+  background: #2795e9;
+}
+
+.login-view .sosiyal-login a.linkedin {
+  background: #007bb6;
+}
+
+.login-view .sosiyal-login a.linkedin:hover {
+  background: #005983;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Login & Register end -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner start -=-=-=-=-=-=-=-=-=-=-=*/
+.banner {
+  position: relative;
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img:after {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.banner-img img {
+  width: 100%;
+}
+
+.inner-page .banner-img {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  min-height: 350px;
+}
+
+.inner-page .banner-img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.page-title {
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner end -=-=-=-=-=-=-=-=-=-=-=*/
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title start -=-=-=-=-=-=-=-=-=-=-=*/
+.section-title {
+  text-align: center;
+  display: block;
+}
+
+.section-title h2 {
+  padding-bottom: 20px;
+  color: #02cbf7;
+  line-height: 50px;
+  position: relative;
+}
+
+.section-title h2:after {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 90px;
+  margin-left: -45px;
+  height: 3px;
+  background: #4d4d4d;
+  content: "";
+}
+
+.section-title h2:before {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #4d4d4d;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.section-title p {
+  padding: 19px 0 0 0;
+  font-size: 18px;
+  color: #444;
+  line-height: 30px;
+  display: inline-block;
+  max-width: 800px;
+}
+
+.section-title.white h2 {
+  color: #fff;
+}
+
+.section-title.white h2:after {
+  background: #02cbf7;
+}
+
+.section-title.white h2:before {
+  border-bottom: 5px solid #02cbf7;
+}
+
+.section-title.white p {
+  color: #fff;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title end -=-=-=-=-=-=-=-=-=-=-=*/
+
+@media (max-width: 991px) {
+  .login-view .col-sm-6:last-child {
+    border: none;
+  }
+  .login-view .section-title {
+    margin-top: 30px;
+  }
+  .login-view {
+    padding: 0px;
+  }
+  .login-view .sosiyal-login {
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+  .section-title h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .section-title p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+
+@media (max-width: 479px) {
+  .login-view .col-sm-6 {
+    padding: 0 15px;
+  }
+}

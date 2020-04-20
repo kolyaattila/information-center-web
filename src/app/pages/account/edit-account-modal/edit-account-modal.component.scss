@@ -1,0 +1,32 @@
+.form-component {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.modal-footer {
+  border: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.modal-container {
+  position: relative;
+  height: 100%;
+}
+
+@media (max-width: 479px) {
+  .modal-footer {
+    padding: 5px;
+  }
+
+  .btn {
+    padding: 5px 10px;
+  }
+}
