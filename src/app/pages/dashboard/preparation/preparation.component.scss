@@ -1,0 +1,145 @@
+.preparation {
+  background: url(../../../../assets/images/parallax/preparation-bg.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  padding: 55px 0;
+  background-attachment: fixed;
+}
+
+.preparation .preparation-view {
+  padding: 92px 0 42px 0;
+}
+
+.preparation .preparation-view .item {
+  position: relative;
+  padding: 0 0 0 79px;
+}
+
+.preparation .preparation-view .item .icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.preparation .preparation-view .course-name {
+  padding-bottom: 25px;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 28px;
+  font-family: 'poetsenoneregular';
+}
+
+.preparation .preparation-view .course-name span {
+  display: block;
+  line-height: 22px;
+  font-size: 14px;
+  font-family: 'AvenirLTStdLight_3';
+}
+
+.preparation .preparation-view p {
+  line-height: 24px;
+  margin: 0px;
+  min-height: 168px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title start -=-=-=-=-=-=-=-=-=-=-=*/
+.section-title {
+  text-align: center;
+  display: block;
+}
+
+.section-title h2 {
+  padding-bottom: 20px;
+  color: #02cbf7;
+  line-height: 50px;
+  position: relative;
+}
+
+.section-title h2:after {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 90px;
+  margin-left: -45px;
+  height: 3px;
+  background: #4d4d4d;
+  content: "";
+}
+
+.section-title h2:before {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #4d4d4d;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.section-title p {
+  padding: 19px 0 0 0;
+  font-size: 18px;
+  color: #444;
+  line-height: 30px;
+  display: inline-block;
+  max-width: 800px;
+}
+
+.section-title.white h2 {
+  color: #fff;
+}
+
+.section-title.white h2:after {
+  background: #02cbf7;
+}
+
+.section-title.white h2:before {
+  border-bottom: 5px solid #02cbf7;
+}
+
+.section-title.white p {
+  color: #fff;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title end -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+@media (max-width: 767px) {
+  .preparation .preparation-view {
+    padding: 40px 0;
+  }
+  .preparation {
+    padding: 30px 0;
+  }
+  .container {
+    padding: 0 15px;
+  }
+
+  .section-title h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .section-title p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .preparation .preparation-view .item {
+    padding-left: 0px;
+  }
+  .preparation .preparation-view .item .icon {
+    position: static;
+    margin: 0px auto;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .preparation .preparation-view .item .icon img {
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+  }
+}

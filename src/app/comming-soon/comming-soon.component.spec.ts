@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CommingSoonComponent } from './comming-soon.component';
+import {CommingSoonComponent} from './comming-soon.component';
+import {SubscriptionComponentComponent} from '../subscription-component/subscription-component.component';
+import {AppModule} from '../app.module';
 
 describe('CommingSoonComponent', () => {
   let component: CommingSoonComponent;
@@ -8,9 +10,10 @@ describe('CommingSoonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommingSoonComponent ]
+      imports: [AppModule],
+      declarations: []
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

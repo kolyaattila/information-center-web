@@ -6,6 +6,8 @@ import {Account} from 'src/app/shared/models/account';
 import {Topic} from '../../../shared/models/topic';
 import {Video} from '../../../shared/models/video'
 import {Observable} from 'rxjs';
+import {ChangePassword} from '../../../shared/models/changePassword';
+import {Message} from '../../../shared/models/message';
 
 @Injectable()
 export class CommonRepositoryService {
@@ -30,7 +32,7 @@ export class CommonRepositoryService {
   }
 
   getCurrentAccount(): Promise<Account> {
-    return this.http.get<Account>(`${environment.currentAccount}`).toPromise();
+    return this.http.get<Account>(`${environment.account}`).toPromise();
   }
 
   createTopic(topic: Topic) {
@@ -50,5 +52,17 @@ export class CommonRepositoryService {
   }
   getVideosDetailsByTopicId(topicId: string){
     return this.http.get<Video[]>(`${environment.video}/`+topicId+`/byChapter`);
+  }
+
+  changePassword(changePassword: ChangePassword) {
+    return this.http.put(`${environment.changePassword}`, changePassword);
+  }
+
+  updateAccount(account: Account) {
+    return this.http.put(`${environment.account}update`, account);
+  }
+
+  saveMessage(message: Message) {
+    return this.http.post(`${environment.message}`, message);
   }
 }

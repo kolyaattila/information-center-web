@@ -1,6 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LessonComponent } from './lesson.component';
+import {LessonComponent} from './lesson.component';
+import {LessonModule} from './lesson.module';
+import {CommonRepositoryService} from '../../core/shared/service/common-repository.service';
+import {CommonRepositoryMockService} from '../../core/shared/service/common-repository.mock.service';
+
 
 describe('LessonComponent', () => {
   let component: LessonComponent;
@@ -8,9 +12,13 @@ describe('LessonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LessonComponent ]
+      imports: [LessonModule],
+      declarations: [],
+      providers: [
+        {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()}
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

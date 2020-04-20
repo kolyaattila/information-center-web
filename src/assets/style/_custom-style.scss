@@ -1,82 +1,82 @@
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(#360834, $company-color);
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 4px 32px;
-  margin: 0px 0px 15px 0px;
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.navbar h4 {
-  color: white;
-  white-space: nowrap;
-  padding: 8px 28px 8px 32px;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .active {
-  color: #f1f1f1;
-  border-bottom: 1px solid rgb(255, 51, 102);
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0px;
-  right: 15px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.side-open {
-  width: 200px;
-}
-
-.side-margin {
-  margin-left: 200px;
-  transition: 0.5s;
-}
-
-#main {
-  transition: margin-left .5s;
-}
-
-.navbar div i {
-  font-size: xx-large;
-  color: white;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .navbar h4 {
-    padding: 0px;
-  }
-}
+//.sidenav {
+//  height: 100%;
+//  width: 0;
+//  position: fixed;
+//  z-index: 1;
+//  top: 0;
+//  left: 0;
+//  background-image: linear-gradient(#360834, $company-color);
+//  overflow-x: hidden;
+//  transition: 0.5s;
+//  padding-top: 60px;
+//}
+//
+//.sidenav a {
+//  padding: 8px 8px 4px 32px;
+//  margin: 0px 0px 15px 0px;
+//  text-decoration: none;
+//  font-size: 18px;
+//  color: white;
+//  display: block;
+//  transition: 0.3s;
+//  white-space: nowrap;
+//}
+//
+//.navbar h4 {
+//  color: white;
+//  white-space: nowrap;
+//  padding: 8px 28px 8px 32px;
+//}
+//
+//.sidenav a:hover {
+//  color: #f1f1f1;
+//}
+//
+//.sidenav .active {
+//  color: #f1f1f1;
+//  border-bottom: 1px solid rgb(255, 51, 102);
+//}
+//
+//.sidenav .closebtn {
+//  position: absolute;
+//  top: 0px;
+//  right: 15px;
+//  font-size: 36px;
+//  margin-left: 50px;
+//}
+//
+//.side-open {
+//  width: 200px;
+//}
+//
+//.side-margin {
+//  margin-left: 200px;
+//  transition: 0.5s;
+//}
+//
+//#main {
+//  transition: margin-left .5s;
+//}
+//
+//.navbar div i {
+//  font-size: xx-large;
+//  color: white;
+//}
+//
+//@media screen and (max-height: 450px) {
+//  .sidenav {
+//    padding-top: 15px;
+//  }
+//  .sidenav a {
+//    font-size: 18px;
+//  }
+//}
+//
+//@media only screen and (max-width: 320px) {
+//  .navbar h4 {
+//    padding: 0px;
+//  }
+//}
 
 
 .site-theme-bg-color {

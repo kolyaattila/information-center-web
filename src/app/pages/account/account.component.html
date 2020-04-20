@@ -1,0 +1,99 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Account Settings</h1>
+    </div>
+  </div>
+</section>
+
+<div class="my-accountPage">
+  <div class="container">
+    <div class="my-account">
+      <div class="account-tab">
+
+        <mat-tab-group>
+          <mat-tab label="Profile">
+            <div class="tab-content profile-con">
+              <div class="personal-edit">
+                <a (click)="openUpdateAccountModel()"><i class="fa fa-pencil"></i><span>Edit Profile</span></a>
+              </div>
+              <div class="personal-information" *ngIf="currentAccount">
+                <div class="info-slide">
+                  <p><span>Nume :</span>{{currentAccount.firstName}} {{currentAccount.lastName}}</p>
+                </div>
+                <div class="info-slide">
+                  <p><span>Email :</span>{{currentAccount.username}}</p>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Order">
+            <div class="tab-content order-con">
+              <table class="booking-viewTable">
+                <tr>
+                  <th>Courses ID</th>
+                  <th class="detail"> Courses Details</th>
+                  <th>Purchase Date</th>
+                  <th>Amount</th>
+                </tr>
+                <tr>
+                  <td><span class="small-heading">Courses ID</span>258452112500</td>
+                  <td class="detail">
+                    <span class="small-heading">Courses Details</span>
+                    <div class="detailTd">
+                      <label>Hiraba Farm</label>
+                      <p>Behind Shalby Hospital, Garden Road, Prahlad Nagar , Ahmedabad-380015</p>
+                    </div>
+                  </td>
+                  <td><span class="small-heading">Purchase Date</span>25<sup>th</sup> Aug 2015</td>
+                  <td><span class="small-heading">Amount</span>Rs. 42,710</td>
+                </tr>
+              </table>
+            </div>
+          </mat-tab>
+          <mat-tab label="Change Password">
+            <div class="tab-content changePassword-con">
+              <div class="change-password ">
+                <form [formGroup]="changePasswordForm" (ngSubmit)="savePassword()">
+                  <div class="input-box">
+                    <input type="password" class="form-control form-control-lg" formControlName="oldPassword"
+                           placeholder="Current Password" autocomplete="off"/>
+                    <div *ngIf="oldPassword.touched && oldPassword.invalid">
+                      <small class="invalid-credentials mt-1 float-left">Parola invalida</small>
+                    </div>
+                  </div>
+                  <div class="input-box">
+                    <input type="password" class="form-control form-control-lg" formControlName="newPassword"
+                           placeholder="New Password" autocomplete="off"/>
+                    <div *ngIf="newPassword.touched && newPassword.invalid">
+                      <small class="invalid-credentials mt-1 float-left">Parola invalida</small>
+                    </div>
+                    <div *ngIf="newPassword.touched && newPassword.valid && oldPassword.value==newPassword.value">
+                      <small class="invalid-credentials mt-1 float-left">Parola trebuie sa fie diferita de parola veche</small>
+                    </div>
+                  </div>
+                  <div class="input-box">
+                    <input type="password" class="form-control form-control-lg" formControlName="confirmNewPassword"
+                           placeholder="Confirm Password" autocomplete="off"/>
+                    <div *ngIf="confirmNewPassword.touched && confirmNewPassword.invalid">
+                      <small class="invalid-credentials mt-1 float-left">Parola invalida</small>
+                    </div>
+                    <div *ngIf="confirmNewPassword.touched && confirmNewPassword.valid && newPassword.valid && confirmNewPassword.value!=newPassword.value">
+                      <small class="invalid-credentials mt-1 float-left">Parolele nu sunt identice</small>
+                    </div>
+                  </div>
+                  <div class="submit-box">
+                    <input type="submit" value="Save" [disabled]="changePasswordForm.invalid && newPassword.value === confirmNewPassword.value" class="btn">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

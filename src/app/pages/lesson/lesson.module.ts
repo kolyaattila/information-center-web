@@ -7,7 +7,6 @@ import {LessonComponent} from './lesson.component';
 import {LessonRoutingModule} from './lesson-routing.module';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {TopicListComponent} from './topic-list/topic-list.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddTopicModelComponent} from './add-topic-model/add-topic-model.component';
 import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model.component';
 import { VideoComponent } from './video/video.component';
@@ -21,8 +20,7 @@ import {NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
     LessonRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
-    NgbModule,
+    SharedModule
   ],
   exports: [RouterModule],
   schemas: [NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA],
