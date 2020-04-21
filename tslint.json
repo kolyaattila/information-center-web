@@ -6,6 +6,14 @@
     "deprecation": {
       "severity": "warning"
     },
+    "variable-name": {
+      "options": [
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case",
+        "allow-snake-case"
+      ]
+    },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -13,13 +21,15 @@
       true,
       "attribute",
       "app",
-      "camelCase"
+      "camelCase",
+      "[var]"
     ],
     "component-selector": [
       true,
       "element",
       "app",
-      "kebab-case"
+      "kebab-case",
+      "var"
     ],
     "import-blacklist": [
       true,
