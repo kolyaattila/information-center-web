@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -9,9 +9,6 @@ import {SharedModule} from 'src/app/shared/shared.module';
 import {TopicListComponent} from './topic-list/topic-list.component';
 import {AddTopicModelComponent} from './add-topic-model/add-topic-model.component';
 import {UpdateTopicModelComponent} from './update-topic-model/update-topic-model.component';
-import { VideoComponent } from './video/video.component';
-import { VideoRoutingModule } from './video/video-routing.module';
-import {NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 @NgModule({
   imports: [
@@ -23,7 +20,7 @@ import {NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
     SharedModule
   ],
   exports: [RouterModule],
-  schemas: [NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
 
   providers: [],
   declarations: [
@@ -31,7 +28,7 @@ import {NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
     TopicListComponent,
     AddTopicModelComponent,
     UpdateTopicModelComponent
-    ],
+  ],
   entryComponents: [AddTopicModelComponent,
     UpdateTopicModelComponent]
 })

@@ -1,50 +1,42 @@
 .video-container {
-    margin-top: 10px;
-    position: relative;
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
 }
 
 .image {
-    min-height: 94px;
-    min-width: 168px;
-    max-height: 94px;
-    max-width: 168px;
-    background: url('src/assets/img/photo.jpg');
-    background-size: cover;
+  //min-height: 94px;
+  //min-width: 168px;
+  min-height: 94px;
+  max-width: 200px;
+  background: url('src/assets/images/photo.jpg');
+  background-size: cover;
 }
 
 .image:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
-.video-title {
-    position: absolute;
-    left: 190px;
-    top: 3px;
+.padding-0 {
+  padding: 0;
 }
 
 .video-duration {
-    background-color: black;
-    position: absolute;
-    bottom: 5px;
-    left: 123px;
-    text-align: center;
-    color: white;
+  background-color: black;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  text-align: center;
+  color: white;
 }
 
-#update-button,
-#delete-button {
-    position: absolute;
-    top: 63px;
+.description-input {
+  font-weight: normal;
 }
 
-#update-button {
-    left: 170px;
-    top: 63px;
-    width: 70px;
+@media (max-width: 767px) and (min-width: 520px) {
+  .picture-content, .details-content {
+    width: 200px;
+  }
 }
 
-#delete-button {
-    left: 240px;
-    top: 63px;
-    width: 70px;
-}

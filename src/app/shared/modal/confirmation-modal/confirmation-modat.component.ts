@@ -25,7 +25,7 @@ export class ConfirmationModalComponent implements OnInit {
   actionFunction() {
     this.modalService.modalAction(this.modalData).subscribe(
       data => {
-        this.toastr.success('Topic sters cu succes');
+        this.toastr.success('S-a sters cu succes');
         this.closeModal(true);
       },
       error => {
