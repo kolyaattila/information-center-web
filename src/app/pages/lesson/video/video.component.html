@@ -1,0 +1,40 @@
+
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1 class="video-title">{{videoTitle}}</h1>
+    </div>
+  </div>
+</section>
+<div class="container-fluid">
+  <div class="row margin-0">
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 video">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+          <video controls="true" controlsList="nodownload" #video>
+            <source  *ngIf="path && path !=''" [src]="path" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+      <div class="row margin-0">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class=" topic-title">{{topicName}}</div>
+          <button class="create-button" (click)="openCreateVideoModel()">Create video</button>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class=" video-list">
+            <app-video-list [videosDetails]="videosDetails" (changeCurrentVideo)="changeVideo($event)"
+                            (refresh)="populateVideo()">
+            </app-video-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

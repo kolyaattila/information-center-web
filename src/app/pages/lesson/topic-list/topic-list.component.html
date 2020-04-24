@@ -12,7 +12,7 @@
         </button>
       </div>
       <img src="../../../../assets/images/topic-element.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
+      <div class="card-body" [routerLink]="['/lesson/video', topic.name]">
         <h5 class="card-title2">{{topic.name}}</h5>
       </div>
     </div>

@@ -4,6 +4,7 @@ import {Topic} from '../../../shared/models/topic';
 import {Observable, of} from 'rxjs';
 import {ChangePassword} from '../../../shared/models/changePassword';
 import {Message} from '../../../shared/models/message';
+import {Video} from '../../../shared/models/video';
 
 export class CommonRepositoryMockService {
 
@@ -38,6 +39,27 @@ export class CommonRepositoryMockService {
   getAll(): Observable<Topic[]> {
     const topic = [new Topic(), new Topic()];
     return of(topic);
+  }
+
+  getVideosDetailsByTopicId(topicId: string): Observable<Video[]> {
+    const video = [new Video(), new Video()];
+    return of(video);
+  }
+
+  save(video: Video, file: File) {
+    return of(video);
+  }
+
+  getById(id: string) {
+    return of(new Video());
+  }
+
+  deleteVideo(id: string) {
+    return of(new Video());
+  }
+
+  update(id: string) {
+    return of(new Video());
   }
 
   deleteTopic(externalId: string) {
