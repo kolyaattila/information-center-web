@@ -1,7 +1,5 @@
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Component, Inject, OnInit} from '@angular/core';
-import {ModalActionsService} from './modal-actions.service';
-import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'confirmation-modal-component',
@@ -13,9 +11,7 @@ export class ConfirmationModalComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ConfirmationModalComponent>,
-    @Inject(MAT_DIALOG_DATA) private modalData: any,
-    private modalService: ModalActionsService,
-    private toastr: ToastrService) {
+    @Inject(MAT_DIALOG_DATA) private modalData: any) {
 
   }
 
@@ -23,16 +19,7 @@ export class ConfirmationModalComponent implements OnInit {
   }
 
   actionFunction() {
-    this.modalService.modalAction(this.modalData).subscribe(
-      data => {
-        this.toastr.success('Topic sters cu succes');
-        this.closeModal(true);
-      },
-      error => {
-        this.toastr.error('A aparut o eroare');
-        this.closeModal(false);
-      }
-    );
+    this.closeModal(true);
   }
 
   closeModal(response: boolean) {

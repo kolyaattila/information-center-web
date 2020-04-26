@@ -1,0 +1,63 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Quiz</h1>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-view">
+  <div class="container">
+    <div class="quiz-title">
+      <h2>General Quiz</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-md-3">
+        <div class="time-info">Total time
+        </div>
+        <div id="countdown_stop"></div>
+        <div class="qustion-list">
+          <div class="qustion-slide" *ngFor="let question of questionList; let i = index"
+               [ngClass]="{fill: i < selectedQuestion.questionIndex, active: i == selectedQuestion.questionIndex}">
+            <div class="qustion-number" (click)="changeQuestion(i)"
+                 [ngClass]="{'cursor-pointer':quizStarted,'solved':quizStarted && questionSolved(question)}">
+              Question {{question.number}}</div>
+            <span>{{question.points}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 col-md-9">
+        <div class="quiz-intro" *ngIf="!quizStarted">
+          <h3>Introduction</h3>
+          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
+            Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like
+            readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their </p>
+          <div class="start-btn">
+            <a (click)="startQuiz()" class="btn">Start Quizz</a>
+          </div>
+        </div>
+
+        <div *ngIf="quizStarted">
+
+          <div>
+            <div class="question-container">
+              <app-question [question]="selectedQuestion.question" [view_mode]='false'></app-question>
+              <div class="btn-slide">
+                <a (click)="previousQuestion()" class="btn"><i class="fa fa-angle-left"></i></a>
+                <a (click)="nextQuestion()" class="btn"><i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+            <div class="submit-quiz">
+              <a (click)="submitQuiz()" class="btn">submit quiz</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

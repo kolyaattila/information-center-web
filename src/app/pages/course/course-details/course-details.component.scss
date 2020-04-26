@@ -1,0 +1,106 @@
+/*=-=-=-=-=-=-=-=-=-=-=- Banner start -=-=-=-=-=-=-=-=-=-=-=*/
+.banner {
+  position: relative;
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img:after {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.banner-img img {
+  width: 100%;
+}
+
+.inner-page .banner-img {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  min-height: 350px;
+}
+
+.inner-page .banner-img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.page-title {
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner end -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+/*=-=-=-=-=-=-=-=-=-=-=- Course Details Start -=-=-=-=-=-=-=-=-=-=-=*/
+.course-details {padding:50px 0; }
+.course-details h2 {margin-bottom:30px; color:#333;}
+.course-details .course-details-main {background:#f5f5f5;}
+.course-details .course-details-main .course-img img {max-width:100%;}
+.course-details .course-info {padding:30px 0 10px 0; overflow:hidden; }
+.course-details .course-info .course-box {display:block; text-align:center; padding-bottom:20px; width:20%; float:left; }
+.course-details .course-info .icon {width:60px; height:60px; background:#02cbf7; text-align:center; display:inline-block; border-radius:50%; margin-bottom:10px; }
+.course-details .course-info .icon .fas {line-height:60px; font-size:30px; color:#fff; }
+.course-details .course-info p {display:block; text-align:center; font-size:16px; color:#333; margin:0px; }
+.course-details .course-instructorInfo {display:inline-block; padding:26px 0 0 30px; }
+.course-details .course-instructorInfo .info-slide {display:inline-block; font-size:15px; color:#555; padding-bottom:10px; padding-right:10px; line-height:30px;}
+.course-details .course-instructorInfo .fa {display:inline-block; width:20px; padding:0 5px 0 0;}
+.course-details .btn-row {display:block; text-align:right; padding:20px 30px 20px 0;}
+.course-details .btn-row .price {display:inline-block; line-height:30px; font-size:18px; margin-right:10px; margin-top:6px;}
+.course-details .btn-row .price span {font-weight:bold; padding:0 10px 0 0;}
+.course-details .btn-row .btn {padding:6px 20px; vertical-align:top; margin:0; }
+.course-details .btn-row .btn .fa {padding:0 8px 0 0;}
+.course-details .btn-row .btn2 {margin:0 10px;}
+.course-details h4 {display:block; line-height:30px; color:#333; font-size:22px; margin:0px 0 20px 0; padding-bottom:10px; position:relative; }
+.course-details h4:after {content:""; position:absolute; bottom:0px; left:0px; width:30px; height:2px; background:#02cbf7; }
+.course-details .info {display:block; padding:30px 0; }
+.course-details .info p {font-size:15px; line-height:24px; color:#555; margin-bottom:20px; }
+.course-details .instructors {padding-bottom:50px;}
+.course-details .instructors-box {display:block; width:100%; box-shadow:0 0 10px rgba(0,0,0,0.2); padding-bottom:20px; text-align:center; margin:20px 0 0 0;}
+.course-details .instructors-box .name {display:block; text-align:center; padding:0 10px; line-height:30px; font-size:18px; color:#333; padding-top:10px; padding-bottom:5px; }
+.course-details .instructors-box .designation {line-height:22px; font-size:14px; color:#666; text-transform:uppercase; font-family: 'Arima Madurai'; font-weight:bold; padding-bottom:10px; }
+.course-details .instructors-box p {font-size:14px; line-height:24px; color:#666; margin:0px; padding:0 15px; }
+.course-details .instructors-box .link {display:block; text-align:right; padding:5px 15px 0 0; }
+.course-details .instructors-box .link a {display:inline-block; width:auto; line-height:26px; color:#02cbf7; text-decoration:none; }
+.course-details .syllabus {padding:0 0 50px 0; }
+.course-details .syllabus .syllabus-box {display:block; width:100%; position:relative; }
+.course-details .syllabus .syllabus-title {font-size:13px; color:#333; font-weight:normal; padding:10px 0 10px 45px; position:relative; }
+.course-details .syllabus .syllabus-title:after {position:absolute; top:0px; left:29px; width:1px; height:100%; background:#e0e0e0; content:""; }
+.course-details .syllabus .syllabus-view {border:solid 1px #e0e0e0; padding:20px 20px 20px 60px; background:#f5f5f5; position:relative; }
+.course-details .syllabus .syllabus-view .main-point {display:block; width:100%; line-height:30px; font-size:18px; color:#333; position:relative; cursor:pointer;}
+.course-details .syllabus .syllabus-view .point-list {display:block; padding:20px 0 0 0;}
+.course-details .syllabus .syllabus-view .point-list ul {padding:0px; margin:0px; }
+.course-details .syllabus .syllabus-view .point-list ul li { list-style:none; display:block; font-size:15px; color:#555; line-height:30px; position:relative; padding:0px 0 0 0; margin-bottom:5px; }
+.course-details .syllabus .syllabus-view .point-list ul li a {color:#333; text-decoration:none; padding:10px 10px 10px 38px; display:block; overflow:hidden;}
+.course-details .syllabus .syllabus-view .point-list ul li.no-link {padding:10px 10px 10px 38px; }
+.course-details .syllabus .syllabus-view .point-list ul li .hover-text {float:right; line-height:30px; font-size:15px; color:#fe5969; display:none;}
+.course-details .syllabus .syllabus-view .point-list ul li .hover-text .fa {padding:0 0 0 5px;}
+.course-details .syllabus .syllabus-view .point-list ul li:hover a {background:#e2e2e2; }
+.course-details .syllabus .syllabus-view .point-list ul li:hover .hover-text {display:block; }
+.course-details .syllabus .syllabus-view .main-point mat-animated-icon {position: absolute;left: -47px;top: 3px;}
+/*=-=-=-=-=-=-=-=-=-=-=- Course Details End -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+@media (max-width: 767px) {
+  .course-details .course-info {text-align:center;}
+  .course-details .course-info .course-box {width:49%; float:none; display:inline-block;}
+  .course-details {padding:30px 0; }
+  .course-details .syllabus {padding-bottom:30px; }
+}

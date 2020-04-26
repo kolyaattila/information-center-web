@@ -6,6 +6,7 @@ import {MaterialModule} from '../../../shared/matirial/matirial.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {CommonRepositoryService} from '../../../core/shared/service/common-repository.service';
 import {CommonRepositoryMockService} from '../../../core/shared/service/common-repository.mock.service';
+import {ToastrService} from 'ngx-toastr';
 
 describe('TopicListComponent', () => {
   let component: TopicListComponent;
@@ -16,6 +17,7 @@ describe('TopicListComponent', () => {
       imports: [FormsModule, ReactiveFormsModule, MaterialModule, RouterTestingModule],
       declarations: [TopicListComponent],
       providers: [
+        {provide: ToastrService, useValue: {}},
         {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()}
       ]
     })

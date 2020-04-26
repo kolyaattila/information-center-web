@@ -1,0 +1,528 @@
+.mat-accordion .mat-header-row {
+  padding-left: 1.5rem;
+  padding-right: 2rem;
+  border-bottom: none;
+}
+
+.mat-expansion-panel-header.mat-row {
+  border-bottom: none;
+}
+
+$mat-header-row-height: 56px;
+$mat-row-height: 48px;
+$mat-row-horizontal-padding: 24px;
+
+.mat-table {
+  display: block;
+}
+
+mat-expansion-panel {
+  mat-expansion-panel-header {
+    height: auto !important;
+  }
+}
+
+.mat-header-row {
+  min-height: $mat-header-row-height;
+}
+
+.mat-row {
+  min-height: $mat-row-height;
+}
+
+.mat-header-row .name {
+  width: 80%;
+}
+
+.mat-header-row .status {
+  width: 20%;
+  margin-left: 5%;
+}
+
+.mat-cell.name {
+  width: 80%;
+  padding: 10px 0px;
+}
+
+.mat-cell.status {
+  width: 10%;
+  text-align: center;
+  margin-left: 0px;
+  position: relative;
+}
+
+.mat-cell.status .fas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -9px;
+  font-size: large;
+}
+
+.mat-row, .mat-header-row {
+  width: 100%;
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  padding: 0 $mat-row-horizontal-padding;
+  box-sizing: border-box;
+
+  // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+  // element that will stretch the row the correct height. See:
+  // https://connect.microsoft.com/IE/feedback/details/802625
+  &::after {
+    display: inline-block;
+    min-height: inherit;
+    content: '';
+  }
+}
+
+.mat-cell, .mat-header-cell {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner start -=-=-=-=-=-=-=-=-=-=-=*/
+.banner {
+  position: relative;
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img:after {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.banner-img img {
+  width: 100%;
+}
+
+.inner-page .banner-img {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  min-height: 350px;
+}
+
+.inner-page .banner-img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.page-title {
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner end -=-=-=-=-=-=-=-=-=-=-=*/
+
+/*=-=-=-=-=-=-=-=-=-=-=- Quiz Start -=-=-=-=-=-=-=-=-=-=-=*/
+.quiz-view {
+  background: #f5f5f5;
+  padding: 50px 0;
+}
+
+.quiz-view .quiz-title {
+  padding-bottom: 50px;
+}
+
+.quiz-view .quiz-title h2 {
+  margin-bottom: 10px;
+}
+
+.quiz-view .quiz-title p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #333;
+  margin: 0px;
+}
+
+.quiz-view .quiz-time {
+  display: inline-block;
+  width: 100%;
+}
+
+.quiz-view .qustion-list {
+  padding: 30px 0 0 0;
+}
+
+.quiz-view .qustion-list .qustion-slide {
+  padding: 13px 0 13px 30px;
+  position: relative;
+}
+
+.quiz-view .qustion-list .qustion-slide:after {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  height: 100%;
+  width: 4px;
+  background: #e4e2e2;
+  content: "";
+}
+
+.quiz-view .qustion-list .qustion-slide .qustion-number {
+  display: inline-block;
+  line-height: 22px;
+  color: #666;
+  font-size: 15px;
+  position: relative;
+}
+
+.quiz-view .qustion-list .qustion-slide .qustion-number:after {
+  position: absolute;
+  top: 2px;
+  left: -33px;
+  width: 20px;
+  height: 20px;
+  content: "";
+  background: #e4e2e2;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  font-family: 'Font Awesome\ 5 Free';
+  font-weight: 900;
+  z-index: 1;
+  line-height: 20px;
+}
+
+.quiz-view .qustion-list .qustion-slide span {
+  float: right;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: #e4e2e2;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+.quiz-view .qustion-list .qustion-slide.active:after {
+  background: #02cbf7;
+}
+
+.quiz-view .qustion-list .qustion-slide.active .qustion-number {
+  color: #02cbf7;
+}
+
+.quiz-view .qustion-list .qustion-slide .qustion-number.cursor-pointer {
+  cursor: pointer;
+}
+
+.quiz-view .qustion-list .qustion-slide.active .qustion-number:after {
+  background: #02cbf7;
+}
+
+.quiz-view .qustion-list .qustion-slide.active span {
+  background: #02cbf7;
+  color: #fff;
+}
+
+.quiz-view .qustion-list .qustion-slide.fill:after {
+  background: #fe5969;
+}
+
+.quiz-view .qustion-list .qustion-slide.fill .qustion-number {
+  color: #fe5969;
+}
+
+.quiz-view .qustion-list .qustion-slide.fill .qustion-number:after {
+  background: #fe5969;
+}
+
+.quiz-view .qustion-list .qustion-slide .qustion-number.solved:after {
+  content: "\f00c";
+}
+
+.quiz-view .qustion-list .qustion-slide.fill span {
+  background: #fe5969;
+  color: #fff;
+}
+
+.quiz-view .qustion-main {
+  padding: 0 0 0 30px;
+}
+
+.quiz-view .qustion-box {
+  background: #fff;
+  padding: 30px;
+}
+
+.quiz-view .qustion-box .qustion {
+  border-bottom: solid 2px #e0e0e0;
+  line-height: 30px;
+  padding-bottom: 10px;
+  color: #444444;
+  font-size: 18px;
+}
+
+.quiz-view .qustion-box .ans {
+  padding: 20px 0 0 0;
+}
+
+.quiz-view .qustion-box .ans .ans-slide {
+  display: block;
+  padding-bottom: 10px;
+  font-weight: initial;
+}
+
+.quiz-view .qustion-box .ans ::ng-deep .mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+.quiz-view .qustion-box .ans ::ng-deep label {
+  font-weight: normal !important;
+}
+
+.quiz-view .qustion-box .btn-slide {
+  display: block;
+  padding-top: 30px;
+}
+
+.quiz-view .qustion-box .btn-slide .btn {
+  padding: 5px 15px;
+  font-size: 30px;
+  text-transform: capitalize;
+  margin: 0 15px 0 0;
+}
+
+.quiz-view .submit-quiz {
+  padding: 30px 0 0 0;
+  text-align: right;
+}
+
+.quiz-view .submit-quiz .btn {
+  text-transform: uppercase;
+  background: #fe5969;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Quiz End -=-=-=-=-=-=-=-=-=-=-=*/
+
+/*=-=-=-=-=-=-=-=-=-=-=- Quiz intro Start -=-=-=-=-=-=-=-=-=-=-=*/
+.quiz-intro {
+  padding: 20px;
+  margin: 0 0 0 30px;
+  background: #fff;
+}
+
+.quiz-intro h3 {
+  position: relative;
+  padding-bottom: 10px;
+  display: inline-block;
+  margin-bottom: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+.quiz-intro h3:after {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 30px;
+  height: 2px;
+  background: #02cbf7;
+  content: "";
+}
+
+.quiz-intro p {
+  font-size: 15px;
+  line-height: 28px;
+  color: #555;
+}
+
+.quiz-intro .start-btn {
+  display: inline-block;
+  padding: 20px 0 20px 0;
+}
+
+.quiz-view .time-info {
+  font-size: 18px;
+  color: #333;
+  line-height: 30px;
+  padding-bottom: 20px;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Quiz intro Start -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+.btn2 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 40px;
+  padding: 0 30px;
+  position: relative;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  border-top: solid 1px #02cbf7;
+  border-bottom: solid 1px #02cbf7;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #02cbf7;
+}
+
+.btn2:before,
+.btn2:after {
+  border-left: 1px solid #02cbf7;
+  position: absolute;
+  height: 16px;
+  content: "";
+}
+
+.btn2:before {
+  left: 0;
+  top: 0;
+}
+
+.btn2:after {
+  right: 0;
+  bottom: 0;
+}
+
+.btn2:hover:before,
+.btn2:hover:after {
+  height: 100%;
+}
+
+.btn2:hover {
+  background: #02cbf7;
+  text-decoration: none;
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .quiz-view .qustion-main {
+    padding-left: 0px;
+  }
+  .quiz-view .quiz-result {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+  .quiz-view .qustion-main {
+    margin-top: 30px;
+  }
+  .quiz-view .quiz-result {
+    margin-top: 30px;
+  }
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner start -=-=-=-=-=-=-=-=-=-=-=*/
+.banner {
+  position: relative;
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img:after {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.banner-img img {
+  width: 100%;
+}
+
+.inner-page .banner-img {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  min-height: 350px;
+}
+
+.inner-page .banner-img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.page-title {
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner end -=-=-=-=-=-=-=-=-=-=-=*/
+
+/*=-=-=-=-=-=-=-=-=-=-=- Quiz Start -=-=-=-=-=-=-=-=-=-=-=*/
+.quiz-view {
+  background: #f5f5f5;
+  padding: 50px 0;
+}
+
+.quiz-view .quiz-title {
+  padding-bottom: 50px;
+}
+
+.quiz-view .quiz-title h2 {
+  margin-bottom: 10px;
+}
+
+.quiz-view .quiz-title p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #333;
+  margin: 0px;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Quiz End -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+@media (max-width: 991px) {
+  .quiz-view .qustion-main {
+    padding-left: 0px;
+  }
+  .quiz-view .quiz-result {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+  .quiz-view .qustion-main {
+    margin-top: 30px;
+  }
+  .quiz-view .quiz-result {
+    margin-top: 30px;
+  }
+}
+
+
