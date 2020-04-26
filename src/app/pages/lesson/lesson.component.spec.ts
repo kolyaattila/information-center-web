@@ -4,6 +4,7 @@ import {LessonComponent} from './lesson.component';
 import {LessonModule} from './lesson.module';
 import {CommonRepositoryService} from '../../core/shared/service/common-repository.service';
 import {CommonRepositoryMockService} from '../../core/shared/service/common-repository.mock.service';
+import {ToastrService} from 'ngx-toastr';
 
 
 describe('LessonComponent', () => {
@@ -15,6 +16,7 @@ describe('LessonComponent', () => {
       imports: [LessonModule],
       declarations: [],
       providers: [
+        {provide: ToastrService, useValue: {}},
         {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()}
       ]
     })

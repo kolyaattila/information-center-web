@@ -1,0 +1,49 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Quiz result</h1>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-view">
+  <div class="container">
+    <div class="quiz-title">
+      <h2>General Quiz</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-md-3">
+        <div class="time-info">Total time</div>
+      </div>
+      <div class="col-sm-8 col-md-9">
+        <div class="question-result">
+          <mat-accordion displayMode="flat" multi class="mat-table">
+            <section matSort class="mat-elevation-z2 mat-header-row">
+              <div class="mat-header-cell name" mat-sort-header="questionName">Name</div>
+              <div class="mat-header-cell status" mat-sort-header="questionStatus">Status</div>
+            </section>
+
+            <mat-expansion-panel *ngFor="let question of questionList">
+              <mat-expansion-panel-header collapsedHeight="*" expandedHeight="*" class="mat-row">
+                <div class="mat-cell name">{{question.name}}</div>
+                <div class="mat-cell status">
+                  <i *ngIf="question.status" class="fas fa-check text-success"></i>
+                  <i *ngIf="!question.status" class="fas fa-times text-danger"></i>
+                </div>
+              </mat-expansion-panel-header>
+              <div>
+                <app-question [question]="question" [view_mode]="true"></app-question>
+              </div>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,365 @@
+/*=-=-=-=-=-=-=-=-=-=-=- Banner start -=-=-=-=-=-=-=-=-=-=-=*/
+.banner {
+  position: relative;
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img:after {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.banner-img img {
+  width: 100%;
+}
+
+.inner-page .banner-img {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  min-height: 350px;
+}
+
+.inner-page .banner-img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.page-title {
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner end -=-=-=-=-=-=-=-=-=-=-=*/
+
+/*=-=-=-=-=-=-=-=-=-=-=- Courses Listing start -=-=-=-=-=-=-=-=-=-=-=*/
+.courses-view {
+  padding: 50px 0;
+}
+
+.courses-view .filter-row {
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.courses-view .filter-row .search {
+  float: right;
+  width: 100%;
+  max-width: 300px;
+  border: solid 1px #e0e0e0;
+  position: relative;
+  margin-top: 5px;
+}
+
+.courses-view .filter-row .search input[type="text"] {
+  width: 100%;
+  background: #fff;
+  height: 30px;
+  border: none;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 5px 40px 5px 15px;
+}
+
+.courses-view .filter-row .search input[type="submit"] {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  background: url(../../../../assets/images/search-icon2.png) no-repeat left top;
+  background-size: 100% auto;
+  border: none;
+}
+
+.courses-view .course-post {
+  margin-bottom: 30px;
+}
+
+.courses-view .course-post .img {
+  position: relative;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.courses-view .course-post .img img {
+  width: 100%;
+}
+
+.courses-view .course-post .img .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40px 0 0 -15px;
+  z-index: 4;
+  opacity: 0;
+  -moz-transition: opacity 0.2s ease-in-out 0.1s, margin 0.4s ease-in-out 0.1s, transform 0.4s ease-in-out 0.1s;
+  -ms-transition: opacity 0.2s ease-in-out 0.1s, margin 0.4s ease-in-out 0.1s, transform 0.4s ease-in-out 0.1s;
+  -o-transition: opacity 0.2s ease-in-out 0.1s, margin 0.4s ease-in-out 0.1s, transform 0.4s ease-in-out 0.1s;
+  -webkit-transition: opacity 0.2s ease-in-out 0.1s, margin 0.4s ease-in-out 0.1s, transform 0.4s ease-in-out 0.1s;
+  transition: opacity 0.2s ease-in-out 0.1s, margin 0.4s ease-in-out 0.1s, transform 0.4s ease-in-out 0.1s;
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.courses-view .course-post .img:hover .icon {
+  opacity: 1;
+  margin-top: -15px;
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.courses-view .course-post .img:hover:after {
+  background: rgba(61, 61, 71, 0.85);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  content: "";
+  height: 100%;
+}
+
+.courses-view .course-post .price {
+  position: absolute;
+  top: 30px;
+  left: -8px;
+  background: #02cbf7;
+  color: #fff;
+  text-align: center;
+  width: 58px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0 5px 5px 0;
+  text-transform: uppercase;
+  z-index: 3;
+  font-family: 'Arima Madurai';
+}
+
+.courses-view .course-post .price:after {
+  position: absolute;
+  top: -8px;
+  left: 0px;
+  content: "";
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid #029ec0;
+}
+
+.courses-view .course-post .price.free {
+  background: #fe5969;
+}
+
+.courses-view .course-post .price.free:after {
+  border-bottom: 8px solid #da3243
+}
+
+.courses-view .course-post .info {
+  border: solid 1px #e0e0e0;
+  border-top: none;
+  min-height: 90px;
+}
+
+.courses-view .course-post .name {
+  display: block;
+  padding: 10px 15px 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  font-weight: 600;
+  font-family: 'Arima Madurai';
+}
+
+.courses-view .course-post .expert {
+  display: block;
+  padding: 0 15px 10px 15px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #212121;
+}
+
+.courses-view .course-post .expert span {
+  opacity: 0.6;
+}
+
+.courses-view .product-footer {
+  border: solid 1px #e0e0e0;
+  padding: 10px 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.courses-view .product-footer .comment-box {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.courses-view .product-footer .comment-box .box {
+  color: #4d4d4d;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0 19px 0 0;
+  vertical-align: top;
+}
+
+.courses-view .product-footer .comment-box .fa {
+  padding: 0 7px 0 0;
+}
+
+.courses-view .product-footer .rating {
+  float: right;
+  width: 75px;
+  height: 13px;
+  margin-top: 8px;
+  background: url(../../../../assets/images/stare-blank.svg) repeat-x top left;
+  position: relative;
+}
+
+.courses-view .product-footer .rating .fill {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  background: url(../../../../assets/images/stare-fille.svg) repeat-x top left;
+}
+
+.courses-view .product-footer .view-btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  -moz-transform: translate3d(0px, 100%, 0px);
+  -ms-transform: translate3d(0px, 100%, 0px);
+  -o-transform: translate3d(0px, 100%, 0px);
+  -webkit-transform: translate3d(0px, 100%, 0px);
+  transform: translate3d(0px, 100%, 0px);
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.courses-view .product-footer .view-btn .btn {
+  width: 100%;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Arima Madurai';
+}
+
+.courses-view .course-post:hover .view-btn {
+  -moz-transform: translate3d(0px, 0, 0px);
+  -ms-transform: translate3d(0px, 0, 0px);
+  -o-transform: translate3d(0px, 0, 0px);
+  -webkit-transform: translate3d(0px, 0, 0px);
+  transform: translate3d(0px, 0, 0px);
+}
+
+.list-view .course-post {
+  width: 100%;
+  display: inline-block;
+}
+
+.list-view .course-post .img {
+  width: 25%;
+  float: left;
+}
+
+.list-view .course-post .info {
+  float: left;
+  width: 75%;
+  padding: 0 0 0 30px;
+  border: none;
+}
+
+.list-view .course-post .product-footer {
+  border: none;
+}
+
+.list-view .product-footer .rating {
+  display: inline-block;
+  float: none;
+}
+
+.list-view .product-footer p {
+  margin-top: 20px;
+}
+
+.list-view .course-post .name {
+  font-size: 20px;
+  line-height: 34px;
+  padding-top: 0px;
+}
+
+.list-view .course-post .expert {
+  font-size: 16px;
+  line-height: 28px;
+  padding-bottom: 0px;
+}
+
+.list-view .course-post .view-btn2 {
+  display: block;
+  width: auto;
+  margin: 20px 0 0 0;
+}
+
+.list-view .course-post .view-btn2 .btn {
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 5px 20px;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Courses Listing end -=-=-=-=-=-=-=-=-=-=-=*/
+
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+  .courses-view .col-sm-6 {
+    text-align: center;
+  }
+  .courses-view.list-view {
+    text-align: center;
+  }
+  .courses-view .course-post {
+    width: 100%;
+    max-width: 400px;
+    display: inline-block;
+    text-align: left;
+  }
+  .courses-view.list-view .right-slide {
+    text-align: left;
+  }
+}
+
+@media (max-width: 479px) {
+  .courses-view .filter-row .search {
+    margin-top: 15px;
+    min-width: 100%;
+  }
+}

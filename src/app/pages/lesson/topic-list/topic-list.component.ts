@@ -5,6 +5,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material';
 import {ConfirmationModalComponent} from 'src/app/shared/modal/confirmation-modal/confirmation-modat.component';
 import {AddTopicModelComponent} from '../add-topic-model/add-topic-model.component';
 import {UpdateTopicModelComponent} from '../update-topic-model/update-topic-model.component';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class TopicListComponent implements OnInit {
   allTopics: Topic[];
 
   constructor(private topicService: TopicService,
-              public matDialog: MatDialog) {
+              public matDialog: MatDialog,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -53,7 +55,14 @@ export class TopicListComponent implements OnInit {
     const modalDialog = this.matDialog.open(ConfirmationModalComponent, dialogConfig);
     modalDialog.afterClosed().subscribe(result => {
       if (result) {
-        this.populateTopics();
+        this.topicService.deleteTopic(topic.externalId).subscribe(
+          data => {
+            this.toastr.success('Topic sters cu succes');
+            this.populateTopics();
+          },
+          error => {
+            this.toastr.error('A aparut o eroare');
+          });
       }
     });
   }

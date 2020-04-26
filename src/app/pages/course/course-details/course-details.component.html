@@ -1,0 +1,103 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Courses List</h1>
+    </div>
+  </div>
+</section>
+
+
+<div class="course-details">
+  <div class="container">
+    <h2>Basic Time Management Course</h2>
+    <div class="course-details-main">
+      <div class="course-img">
+        <img src="../../../../assets/images/courses/courses-img8.jpg" alt="">
+      </div>
+      <div class="course-info">
+        <div class="course-box">
+          <div class="icon"><i class="fas fa-book-open"></i></div>
+          <p>17 Lessons</p>
+        </div>
+        <div class="course-box">
+          <div class="icon"><i class="fas fa-notes-medical"></i></div>
+          <p>7 Quizzes</p>
+        </div>
+        <div class="course-box">
+          <div class="icon"><i class="fas fa-file-alt"></i></div>
+          <p>13 Documents</p>
+        </div>
+        <div class="course-box">
+          <div class="icon"><i class="fas fa-video"></i></div>
+          <p>9 vedio</p>
+        </div>
+        <div class="course-box">
+          <div class="icon"><i class="fas fa-user-graduate"></i></div>
+          <p>1719 Students</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="course-instructorInfo">
+            <div class="info-slide"><i class="fa fa-user-secret"></i>Rebecca Smith</div>
+            <div class="info-slide"><i class="fa fa-calendar"></i>16-09-2016 - 15-08-2018</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="btn-row">
+            <div class="price"><span>Price: </span>$45</div>
+
+            <a href="#" class="btn"><i class="fa fa-cart-plus"></i>Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="info">
+      <h4>Course Overview</h4>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+        1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+        the leap into electronic typesetting, remaining essentially unchanged. </p>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
+        randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+        embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the
+        first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate
+        Lorem Ipsum which looks reasonable. </p>
+    </div>
+
+    <div class="syllabus">
+      <h4>Syllabus</h4>
+      <div class="syllabus-box" *ngFor="let step of steps; let i = index">
+
+
+        <div class="syllabus-title">{{step.number}}st lesson</div>
+        <div class="syllabus-view">
+          <div class="main-point" #iconAnimate="var" var="'false'">
+
+              <mat-animated-icon (click)="iconAnimate.var=!iconAnimate.var;display(step)" start="expand_less" end="expand_more" colorStart="none" colorEnd="none" [animate]="iconAnimate.var"
+                                 animateFromParent="true"></mat-animated-icon>
+
+
+            {{step.title}}
+          </div>
+          <div class="point-list"  [ngClass]="{'hidden': !step.display}" >
+            <ul>
+              <li *ngIf="step.video">
+                <a href="#">{{step.video}}<span class="hover-text">Watch Video<i class="fa fa-angle-right"></i></span></a>
+              </li>
+              <li *ngIf="step.document">
+                <a href="#" >{{step.document}}<span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a>
+              </li>
+              <li *ngIf="step.quiz">
+                <a href="#">{{step.quiz}}<span class="hover-text">upgrade now<i class="fa fa-angle-right"></i></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
