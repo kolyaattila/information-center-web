@@ -5,6 +5,7 @@ import {LessonModule} from './lesson.module';
 import {CommonRepositoryService} from '../../core/shared/service/common-repository.service';
 import {CommonRepositoryMockService} from '../../core/shared/service/common-repository.mock.service';
 import {ToastrService} from 'ngx-toastr';
+import {RouterTestingModule} from '@angular/router/testing';
 
 
 describe('LessonComponent', () => {
@@ -13,7 +14,7 @@ describe('LessonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LessonModule],
+      imports: [LessonModule, RouterTestingModule],
       declarations: [],
       providers: [
         {provide: ToastrService, useValue: {}},

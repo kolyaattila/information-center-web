@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Schimbă un video</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="form-component" [formGroup]="formGroup">
+    <mat-form-field class="form-field">
+      <mat-select formControlName="chapter" [(ngModel)]="defaultChapter" placeholder="Chapter">
+        <mat-option *ngFor="let topic of topics" [value]="topic.name">
+          {{topic.name}}
+        </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Title" formControlName="title" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <label>
+<textarea matInput class="description-input" rows="4" cols="50" placeholder="Description" formControlName="description"
+          type="text">
+  </textarea>
+      </label>
+    </mat-form-field>
+    {{fileName}}
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
+  <button type="button" class="btn btn-success" (click)="update()" [disabled]="formGroup.invalid">
+    Update
+  </button>
+  <button class="example-button-row btn btn-primary btn-raised" (click)="fileInput.click()">Select File</button>
+  <input style="display: none" id="fisiere" name="fisiere" type="file" accept="video/mp4"
+         (change)="onFileChanged($event)"
+         #fileInput>
+  <video #video style="display: none;" *ngIf="videoUrl" [attr.src]="videoUrl" (loadedmetadata)="getDuration($event)">
+  </video>
+</div>
+

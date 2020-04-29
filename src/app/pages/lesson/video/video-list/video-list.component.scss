@@ -1,0 +1,53 @@
+.video-container {
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  min-height: 94px;
+  max-width: 200px;
+  background: url('src/assets/images/photo.jpg');
+  background-size: cover;
+}
+
+.image:hover {
+  opacity: 0.8;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.video-duration {
+  background-color: black;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  text-align: center;
+  color: white;
+}
+
+.description-input {
+  font-weight: normal;
+}
+
+.video-description {
+  font-weight: lighter;
+}
+
+.video-title {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.details-content {
+  padding-left: 12px;
+}
+
+@media (max-width: 767px) and (min-width: 520px) {
+  .picture-content, .details-content {
+    width: 200px;
+  }
+}
+
