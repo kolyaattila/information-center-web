@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from '../auth/guard/auth.guard';
+import {AdministratorComponent} from './administrator/administrator.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
       {
         path: 'lesson',
         loadChildren: () => import('./lesson/lesson.module').then(m => m.LessonModule),
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
       },
       {
         path: 'examen',
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: 'account',
         loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'administrator',
+        loadChildren: () => import('./administrator/administrator.module').then(m => m.AdministratorModule),
       },
       {
         path: 'course',

@@ -17,6 +17,7 @@ import {AuthModule} from './auth/auth.module';
 import {PagesRoutingModule} from './pages/pages-routing.module';
 import {TokenInterceptor} from './auth/interceptor/token.interceptor';
 import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
     BrowserModule,
     PagesRoutingModule,
     AppRoutingModule,
+    ChartsModule,
     NgxUiLoaderModule.forRoot({
       fgsSize: 100,
       fgsType: 'three-strings',
