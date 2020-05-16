@@ -1,8 +1,16 @@
 import {Answer} from './answer';
+import {QuestionDifficulty} from './QuestionDifficulty';
 
 export class Question {
-  number: number;
-  points: number;
+  questionNumber: number;
+  points?: number;
   name: string;
-  answers: Answer;
+  questionDifficulty: QuestionDifficulty;
+  book: string;
+  chapter: string;
+  course: string;
+  externalId: string;
+  school: string;
+  answers?: Answer[];
+  verified: boolean;
 }

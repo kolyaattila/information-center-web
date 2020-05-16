@@ -33,6 +33,11 @@ const routes: Routes = [
       {
         path: 'course',
         loadChildren: () => import('./course/course.module').then(m => m.CourseModule)
+      },
+      {
+        path: 'questions',
+        loadChildren: () => import('./question-list/question-list.module').then(m => m.QuestionListModule)
+        // canActivate: [AuthGuard]
       }
     ]
   }];

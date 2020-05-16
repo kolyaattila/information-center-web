@@ -188,7 +188,6 @@ export class QuizComponent implements OnInit {
   }
 
   changeQuestion(index) {
-    console.log(index);
     if (index < this.questionList.length && index >= 0 && this.quizStarted) {
       this.selectedQuestion = {
         question: this.questionList[index],
@@ -214,11 +213,8 @@ export class QuizComponent implements OnInit {
   submitQuiz() {
     if (this.allQuestionSolved() && this.quizStarted) {
       console.log('rezultat');
-
     } else if (this.quizStarted) {
-      console.log('modal');
       this.confirmationSubmitQuiz();
-
     }
   }
 

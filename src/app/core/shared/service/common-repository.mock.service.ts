@@ -5,6 +5,8 @@ import {Observable, of} from 'rxjs';
 import {ChangePassword} from '../../../shared/models/changePassword';
 import {Message} from '../../../shared/models/message';
 import {Video} from '../../../shared/models/video';
+import {School} from '../../../shared/models/school';
+import {Question} from '../../../shared/models/question';
 
 export class CommonRepositoryMockService {
 
@@ -78,4 +80,13 @@ export class CommonRepositoryMockService {
     return of(message);
   }
 
+  getAllSchools(): Observable<School[]> {
+    const schools = [new School(), new School()];
+    return of(schools);
+  }
+
+  filterQuestion(): Observable<Question[]> {
+    const questions = [new Question(), new Question()];
+    return of(questions);
+  }
 }

@@ -1,0 +1,177 @@
+<div class="container">
+  <div class='pb-2 mt-5 mb-5 border-bottom title-container'>
+    <div class='row'>
+      <div class='col-md-11 title'>
+        Questions
+      </div>
+    </div>
+  </div>
+
+
+  <div class='card card-body bg-light filter-container'>
+    <div class="form-container">
+      <form [formGroup]="filter">
+        <mat-form-field class='col-md-12'>
+          <mat-label>Nume</mat-label>
+          <input matInput placeholder="Nume" formControlName="questionName">
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Question difficulty</mat-label>
+          <mat-select name="questionDifficultyList" formControlName="questionDifficulty">
+            <mat-option *ngFor="let difficulty of questionDifficultyList" [value]="difficulty">
+              {{difficulty}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <input type="text"
+                 placeholder="School"
+                 matInput
+                 [formControl]="school"
+                 [matAutocomplete]="autoSchool">
+          <mat-autocomplete #autoSchool="matAutocomplete">
+            <mat-option *ngFor="let school of schools" [value]="school.name">
+              {{school.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <input type="text"
+                 placeholder="Course"
+                 matInput
+                 [formControl]="course"
+                 [matAutocomplete]="autoCourse">
+          <mat-autocomplete #autoCourse="matAutocomplete">
+            <mat-option *ngFor="let course of courses" [value]="course.name">
+              {{course.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <input type="text"
+                 placeholder="Chapter"
+                 matInput
+                 [formControl]="chapter"
+                 [matAutocomplete]="autoChapter">
+          <mat-autocomplete #autoChapter="matAutocomplete">
+            <mat-option *ngFor="let chapter of chapters" [value]="chapter.name">
+              {{chapter.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Book</mat-label>
+          <input matInput placeholder="Book name" formControlName="book">
+        </mat-form-field>
+
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Question number</mat-label>
+          <input matInput placeholder="3546" formControlName="questionNumber">
+        </mat-form-field>
+
+        <div class='col-md-12'>
+          <mat-checkbox formControlName="verified">Verified</mat-checkbox>
+        </div>
+
+      </form>
+    </div>
+
+    <div class='buttons-filter'>
+      <div class='card card-body bg-light d-block p-3 my-3'>
+        <div class='button'>
+          <a (click)="applyFilter()" class="btn btn-primary align-middle">Apply filters</a>
+        </div>
+        <div class='button'>
+          <a (click)="resetFilter()" class="btn btn-secondary align-middle">Reset filters</a>
+        </div>
+        <div class='button'>
+          <a (click)="openCreateQuestionModel()" class="btn btn-success align-middle">Create Question</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="table-container">
+    <div class="scroll">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="questionNumber">
+          <th mat-header-cell *matHeaderCellDef> No.</th>
+          <td mat-cell *matCellDef="let element"> {{element.questionNumber}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 500px"> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="questionDifficulty">
+          <th mat-header-cell *matHeaderCellDef> Difficulty</th>
+          <td mat-cell *matCellDef="let element"> {{element.questionDifficulty}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="book">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Book</th>
+          <td mat-cell *matCellDef="let element"> {{element.book}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="course">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Course</th>
+          <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="chapter">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Chapter</th>
+          <td mat-cell *matCellDef="let element"> {{element.chapter}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="school">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> School</th>
+          <td mat-cell *matCellDef="let element"> {{element.school}} </td>
+        </ng-container>
+        <ng-container matColumnDef="externalId">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> External id</th>
+          <td mat-cell *matCellDef="let element"> {{element.externalId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="verified">
+          <th mat-header-cell *matHeaderCellDef> Verified</th>
+          <td mat-cell *matCellDef="let element">
+            <i *ngIf="element.verified" class="fas fa-check text-success"></i>
+            <i *ngIf="!element.verified" class="fas fa-times text-danger"></i>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (contextmenu)="onContextMenu($event, row)"></tr>
+      </table>
+    </div>
+
+    <mat-paginator [length]="page.length"
+                   [pageSize]="page.pageSize"
+                   [pageIndex]="page.pageIndex"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   (page)="changePage($event)">
+    </mat-paginator>
+  </div>
+</div>
+
+
+<div style="visibility: hidden; position: fixed"
+     [style.left]="contextMenuPosition.x"
+     [style.top]="contextMenuPosition.y"
+     [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-item="item">
+    <button mat-menu-item (click)="openViewQuestionModel(item)">View</button>
+    <button mat-menu-item (click)="openUpdateQuestionModel(item)">Update</button>
+    <button mat-menu-item (click)="openDeleteQuestionModal(item)">Delete</button>
+  </ng-template>
+</mat-menu>

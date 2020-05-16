@@ -74,16 +74,16 @@
   width: 100%;
 }
 
-.quiz-view .qustion-list {
+.quiz-view .question-list {
   padding: 30px 0 0 0;
 }
 
-.quiz-view .qustion-list .qustion-slide {
+.quiz-view .question-list .question-slide {
   padding: 13px 0 13px 30px;
   position: relative;
 }
 
-.quiz-view .qustion-list .qustion-slide:after {
+.quiz-view .question-list .question-slide:after {
   position: absolute;
   top: 0px;
   left: 5px;
@@ -93,7 +93,7 @@
   content: "";
 }
 
-.quiz-view .qustion-list .qustion-slide .qustion-number {
+.quiz-view .question-list .question-slide .question-number {
   display: inline-block;
   line-height: 22px;
   color: #666;
@@ -101,7 +101,7 @@
   position: relative;
 }
 
-.quiz-view .qustion-list .qustion-slide .qustion-number:after {
+.quiz-view .question-list .question-slide .question-number:after {
   position: absolute;
   top: 2px;
   left: -33px;
@@ -119,7 +119,7 @@
   line-height: 20px;
 }
 
-.quiz-view .qustion-list .qustion-slide span {
+.quiz-view .question-list .question-slide span {
   float: right;
   width: 24px;
   line-height: 24px;
@@ -129,44 +129,44 @@
   border-radius: 50%;
 }
 
-.quiz-view .qustion-list .qustion-slide.active:after {
+.quiz-view .question-list .question-slide.active:after {
   background: #02cbf7;
 }
 
-.quiz-view .qustion-list .qustion-slide.active .qustion-number {
+.quiz-view .question-list .question-slide.active .question-number {
   color: #02cbf7;
 }
 
-.quiz-view .qustion-list .qustion-slide .qustion-number.cursor-pointer {
+.quiz-view .question-list .question-slide .question-number.cursor-pointer {
   cursor: pointer;
 }
 
-.quiz-view .qustion-list .qustion-slide.active .qustion-number:after {
+.quiz-view .question-list .question-slide.active .question-number:after {
   background: #02cbf7;
 }
 
-.quiz-view .qustion-list .qustion-slide.active span {
+.quiz-view .question-list .question-slide.active span {
   background: #02cbf7;
   color: #fff;
 }
 
-.quiz-view .qustion-list .qustion-slide.fill:after {
+.quiz-view .question-list .question-slide.fill:after {
   background: #fe5969;
 }
 
-.quiz-view .qustion-list .qustion-slide.fill .qustion-number {
+.quiz-view .question-list .question-slide.fill .question-number {
   color: #fe5969;
 }
 
-.quiz-view .qustion-list .qustion-slide.fill .qustion-number:after {
+.quiz-view .question-list .question-slide.fill .question-number:after {
   background: #fe5969;
 }
 
-.quiz-view .qustion-list .qustion-slide .qustion-number.solved:after {
+.quiz-view .question-list .question-slide .question-number.solved:after {
   content: "\f00c";
 }
 
-.quiz-view .qustion-list .qustion-slide.fill span {
+.quiz-view .question-list .question-slide.fill span {
   background: #fe5969;
   color: #fff;
 }

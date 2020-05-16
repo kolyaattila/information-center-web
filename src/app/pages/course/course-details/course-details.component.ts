@@ -55,12 +55,10 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   display(step) {
-    console.log(step);
     this.steps.forEach(i => {
       if (i.number === step.number) {
         i.display = !i.display;
       }
     });
-    console.log(this.steps);
   }
 }

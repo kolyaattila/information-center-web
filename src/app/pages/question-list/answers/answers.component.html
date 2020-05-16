@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Creaza un raspuns</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <form class="form-component" [formGroup]="answerForm">
+      <mat-form-field class='col-md-12'>
+        <mat-label>Nume</mat-label>
+        <textarea matInput placeholder="Nume" formControlName="answerName"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class='col-md-12'>
+        <mat-label>Reason</mat-label>
+        <textarea matInput placeholder="Reason" formControlName="reason"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class='col-md-12'>
+        <mat-label>Question difficulty</mat-label>
+        <mat-select name="key" formControlName="key">
+          <mat-option *ngFor="let key of keys" [value]="key">
+            {{key}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class='col-md-12'>
+        <mat-checkbox formControlName="correct">Correct</mat-checkbox>
+      </div>
+
+    </form>
+
+    <div class="buttons col-md-12">
+      <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Cancel</button>
+      <button type="button" class="btn btn-success" (click)="actionFunction()" [disabled]="answerForm.invalid">Salveaza</button>
+    </div>
+  </div>
+</div>
+

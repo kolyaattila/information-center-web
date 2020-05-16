@@ -20,10 +20,10 @@
         <div class="time-info">Total time
         </div>
         <div id="countdown_stop"></div>
-        <div class="qustion-list">
-          <div class="qustion-slide" *ngFor="let question of questionList; let i = index"
+        <div class="question-list">
+          <div class="question-slide" *ngFor="let question of questionList; let i = index"
                [ngClass]="{fill: i < selectedQuestion.questionIndex, active: i == selectedQuestion.questionIndex}">
-            <div class="qustion-number" (click)="changeQuestion(i)"
+            <div class="question-number" (click)="changeQuestion(i)"
                  [ngClass]="{'cursor-pointer':quizStarted,'solved':quizStarted && questionSolved(question)}">
               Question {{question.number}}</div>
             <span>{{question.points}}</span>
@@ -45,7 +45,7 @@
 
           <div>
             <div class="question-container">
-              <app-question [question]="selectedQuestion.question" [view_mode]='false'></app-question>
+              <app-question [question]="selectedQuestion.question" [view_mode]="'question'"></app-question>
               <div class="btn-slide">
                 <a (click)="previousQuestion()" class="btn"><i class="fa fa-angle-left"></i></a>
                 <a (click)="nextQuestion()" class="btn"><i class="fa fa-angle-right"></i></a>
