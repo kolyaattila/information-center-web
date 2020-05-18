@@ -19,9 +19,11 @@ export const environment = {
   topic: apiEndpoint + 'topic-service/topic',
   video: apiEndpoint + '/video'
   account: apiEndpoint + '/account/',
-  topic: apiEndpoint + 'topic-service/topic',
   changePassword: apiEndpoint + '/auth',
-  message: apiEndpoint + '/account/message'
+  message: apiEndpoint + '/account/message',
+  quiz: apiEndpoint + '/quiz/',
+  school: apiEndpoint + '/quiz/school',
+  question: apiEndpoint + '/quiz/question'
 };
 `;
 

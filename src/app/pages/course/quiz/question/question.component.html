@@ -1,12 +1,12 @@
-<div class="qustion-main">
-  <div class="qustion-box">
-    <div class="qustion">{{question.name}}</div>
+<div class="question-main">
+  <div class="question-box">
+    <div class="question">{{question.name}}</div>
     <div class="ans">
       <div class="ans-slide" *ngFor="let answer of question.answers">
-        <mat-checkbox labelPosition="after" [(ngModel)]="answer.selected" [checked]="answer.selected" [disabled]="view_mode">
+        <mat-checkbox labelPosition="after" [(ngModel)]="answer.selected" [checked]="answer.selected" [disabled]="view_mode != 'question'">
           {{answer.name}} {{answer.selected}}
-          <i *ngIf="view_mode && !question.status && answer.valid" class="fas fa-check text-success"></i>
-          <i *ngIf="view_mode && !question.status && answer.selected && !answer.valid" class="fas fa-times text-danger"></i>
+          <i *ngIf="view_mode == 'result' && !question.status && answer.valid" class="fas fa-check text-success"></i>
+          <i *ngIf="view_mode == 'result' && !question.status && answer.selected && !answer.valid" class="fas fa-times text-danger"></i>
 
         </mat-checkbox>
       </div>

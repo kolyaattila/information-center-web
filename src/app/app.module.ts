@@ -17,6 +17,7 @@ import {AuthModule} from './auth/auth.module';
 import {PagesRoutingModule} from './pages/pages-routing.module';
 import {TokenInterceptor} from './auth/interceptor/token.interceptor';
 import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {HttpErrorInterceptor} from './auth/interceptor/http-error.interceptor';
     BrowserAnimationsModule,
     ToastrModule,
     ToastrModule.forRoot(),
-    AuthModule
+    AuthModule,
+    SharedModule
   ],
   exports: [
     NgxUiLoaderModule,

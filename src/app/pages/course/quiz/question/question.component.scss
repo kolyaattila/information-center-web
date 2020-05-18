@@ -1,13 +1,13 @@
-.qustion-main {
+.question-main {
   padding: 0 0 0 30px;
 }
 
-.qustion-box {
+.question-box {
   background: #fff;
   padding-top: 30px;
 }
 
-.qustion-box .qustion {
+.question-box .question {
   border-bottom: solid 2px #e0e0e0;
   line-height: 30px;
   padding-bottom: 10px;
@@ -15,26 +15,26 @@
   font-size: 18px;
 }
 
-.qustion-box .ans {
+.question-box .ans {
   padding: 20px 0 0 0;
 }
 
-.qustion-box .ans .ans-slide {
+.question-box .ans .ans-slide {
   display: block;
   padding-bottom: 10px;
   font-weight: initial;
 }
 
-.qustion-box .ans ::ng-deep .mat-checkbox-layout {
+.question-box .ans ::ng-deep .mat-checkbox-layout {
   white-space: normal !important;
 }
 
-.qustion-box .ans ::ng-deep label {
+.question-box .ans ::ng-deep label {
   font-weight: normal !important;
 }
 
 @media (max-width: 767px) {
-  .qustion-main {
+  .question-main {
     margin-top: 30px;
   }
 }

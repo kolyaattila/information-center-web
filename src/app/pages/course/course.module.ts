@@ -19,7 +19,7 @@ import {QuestionComponent} from './quiz/question/question.component';
     SharedModule,
     ReactiveFormsModule
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, QuestionComponent]
 })
 export class CourseModule {
 }

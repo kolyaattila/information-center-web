@@ -10,5 +10,8 @@ export const environment = {
   video: apiEndpoint + '/video',
   account: apiEndpoint + '/account/',
   changePassword: apiEndpoint + '/auth',
-  message: apiEndpoint + '/account/message'
+  message: apiEndpoint + '/account/message',
+  quiz: apiEndpoint + '/quiz/',
+  school: apiEndpoint + '/quiz/school',
+  question: apiEndpoint + '/quiz/question'
 };

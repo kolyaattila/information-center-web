@@ -1,0 +1,104 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Create Question</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-container">
+      <form [formGroup]="creatQuestion">
+        <mat-form-field class='col-md-12'>
+          <mat-label>Nume</mat-label>
+          <textarea matInput placeholder="Nume" formControlName="questionName"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Question difficulty</mat-label>
+          <mat-select name="questionDifficultyList" formControlName="questionDifficulty">
+            <mat-option *ngFor="let difficulty of questionDifficultyList" [value]="difficulty">
+              {{difficulty}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>School</mat-label>
+          <mat-select name="school" formControlName="school">
+            <mat-option *ngFor="let school of schools" [value]="school.name">
+              {{school.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Course</mat-label>
+          <mat-select name="course" formControlName="course">
+            <mat-option *ngFor="let course of courses" [value]="course.name">
+              {{course.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Chapter</mat-label>
+          <mat-select name="chapter" formControlName="chapter">
+            <mat-option *ngFor="let chapter of chapters" [value]="chapter.name">
+              {{chapter.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Book</mat-label>
+          <input matInput placeholder="Book name" formControlName="book">
+        </mat-form-field>
+
+        <mat-form-field class='col-md-4'>
+          <mat-label>Question number</mat-label>
+          <input matInput placeholder="3546" formControlName="questionNumber">
+        </mat-form-field>
+
+        <div class='col-md-12'>
+          <mat-checkbox formControlName="verified">Verified</mat-checkbox>
+        </div>
+      </form>
+
+      <div class="create-answers">
+        <div class='title-container'>
+          <div class='title'>
+            <div style="display: inline">Answers
+            </div>
+            <a (click)="openAddAnswerModal()"><i class="fas fa-plus"></i></a>
+          </div>
+        </div>
+
+        <div class="answer-list">
+          <mat-nav-list>
+            <mat-list-item *ngFor="let answer of answers" class="answer">
+              <a matLine (click)="openEditAnswerModal(answer)">{{ answer.name }}</a>
+              <button mat-icon-button (click)="deleteAnswer(answer)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-nav-list>
+        </div>
+
+      </div>
+
+      <div class='buttons'>
+        <div class='button'>
+          <a (click)="saveQuestion()" [class.disabled]="valid() ? null: true" class="btn btn-primary align-middle">Save
+          </a>
+        </div>
+        <div class='button'>
+          <a (click)="openViewQuestionModel()" class="btn btn-secondary align-middle">View</a>
+        </div>
+        <div class='button'>
+          <a (click)="closeModal()" class="btn btn-success align-middle">Cancel</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

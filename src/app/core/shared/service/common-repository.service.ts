@@ -8,6 +8,9 @@ import {Video} from '../../../shared/models/video';
 import {Observable} from 'rxjs';
 import {ChangePassword} from '../../../shared/models/changePassword';
 import {Message} from '../../../shared/models/message';
+import {School} from '../../../shared/models/school';
+import {Question} from '../../../shared/models/question';
+import {QuestionFilter} from '../../../shared/models/questionFilter';
 
 @Injectable()
 export class CommonRepositoryService {
@@ -82,4 +85,38 @@ export class CommonRepositoryService {
   saveMessage(message: Message) {
     return this.http.post(`${environment.message}`, message);
   }
+
+  createSchool(school: School) {
+    return this.http.post(`${environment.school}`, school);
+  }
+
+  updateSchool(school: School) {
+    return this.http.put(`${environment.school}`, school);
+  }
+
+  deleteSchool(externalId: string) {
+    return this.http.delete(`${environment.school}` + externalId);
+  }
+
+  getAllSchools() {
+    return this.http.get(`${environment.school}`);
+  }
+
+  createQuestion(question: Question) {
+    return this.http.post(`${environment.question}`, question);
+  }
+
+  updateQuestion(question: Question) {
+    return this.http.put(`${environment.question}`, question);
+  }
+
+
+  deleteQuestion(externalId: string) {
+    return this.http.delete(`${environment.question}/` + externalId);
+  }
+
+  filterQuestion(questionFilter: QuestionFilter) {
+    return this.http.post(`${environment.question}` + '/filter', questionFilter);
+  }
+
 }
