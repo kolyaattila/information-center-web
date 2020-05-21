@@ -1,18 +1,18 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ContactUsComponent} from './contact-us.component';
+import {SendMessageComponent} from './send-message.component';
 import {CommonRepositoryService} from '../../../core/shared/service/common-repository.service';
 import {CommonRepositoryMockService} from '../../../core/shared/service/common-repository.mock.service';
 import {ToastrService} from 'ngx-toastr';
 
-describe('ContactUsComponent', () => {
-  let component: ContactUsComponent;
-  let fixture: ComponentFixture<ContactUsComponent>;
+describe('SendMessageComponent', () => {
+  let component: SendMessageComponent;
+  let fixture: ComponentFixture<SendMessageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule],
-      declarations: [ContactUsComponent],
+      declarations: [SendMessageComponent],
       providers: [
         {provide: ToastrService, useValue: {}},
         {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()},
@@ -23,7 +23,7 @@ describe('ContactUsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContactUsComponent);
+    fixture = TestBed.createComponent(SendMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

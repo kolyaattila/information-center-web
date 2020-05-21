@@ -1,0 +1,229 @@
+.about-team .member-box .img:after,
+.about-team .member-box .sosiyal-mediya li a,
+.about-team .member-box .sosiyal-mediya {
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title start -=-=-=-=-=-=-=-=-=-=-=*/
+.section-title {
+  text-align: center;
+  display: block;
+}
+
+.section-title h2 {
+  padding-bottom: 20px;
+  color: #02cbf7;
+  line-height: 50px;
+  position: relative;
+}
+
+.section-title h2:after {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 90px;
+  margin-left: -45px;
+  height: 3px;
+  background: #4d4d4d;
+  content: "";
+}
+
+.section-title h2:before {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #4d4d4d;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.section-title p {
+  padding: 19px 0 0 0;
+  font-size: 18px;
+  color: #444;
+  line-height: 30px;
+  display: inline-block;
+  max-width: 800px;
+}
+
+.section-title.white h2 {
+  color: #fff;
+}
+
+.section-title.white h2:after {
+  background: #02cbf7;
+}
+
+.section-title.white h2:before {
+  border-bottom: 5px solid #02cbf7;
+}
+
+.section-title.white p {
+  color: #fff;
+}
+
+.section-title2 {
+  display: block;
+}
+
+.section-title2 h2 {
+  position: relative;
+  line-height: 48px;
+  color: #333333;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0px;
+  padding-bottom: 26px;
+  font-family: "Roboto", sans-serif;
+}
+
+.section-title2 h2:after {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  height: 6px;
+  background: #ffb241;
+  content: "";
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Section title end -=-=-=-=-=-=-=-=-=-=-=*/
+
+.about-team .member-box {
+  margin-bottom: 20px;
+}
+
+.about-team .member-box {
+  width: 100%;
+  padding: 0px;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.about-team .member-box .img {
+  position: relative;
+}
+
+.about-team .member-box .img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(2, 203, 247, 0.3);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  opacity: 0;
+}
+
+.about-team .member-box:hover .img:after {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.about-team .member-box .sosiyal-mediya {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  margin-top: -19px;
+  z-index: 3;
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  opacity: 0;
+  padding: 0px;
+}
+
+.about-team .member-box:hover .sosiyal-mediya {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.about-team .member-box .sosiyal-mediya li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.about-team .member-box .sosiyal-mediya li a {
+  width: 38px;
+  height: 38px;
+  background: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  display: block;
+  color: #02cbf7;
+}
+
+.about-team .member-box .sosiyal-mediya li a:hover {
+  background: #fe5969;
+  color: #fff;
+}
+
+.about-team .member-box .sosiyal-mediya li .fab {
+  text-align: center;
+  font-size: 18px;
+  line-height: 38px;
+}
+
+.about-team .member-box .info {
+  display: block;
+  padding: 20px;
+}
+
+.about-team .member-box .info .name {
+  display: block;
+  line-height: 30px;
+  font-size: 20px;
+  color: #333;
+}
+
+.about-team .member-box .info .designation {
+  display: block;
+  line-height: 20px;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.about-team .member-box .info p {
+  font-size: 14px;
+  color: #666;
+  line-height: 28px;
+  margin: 0px;
+}
+
+@media (max-width: 767px) {
+  .section-title h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .section-title p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .container {
+    padding: 0 15px;
+  }
+}
