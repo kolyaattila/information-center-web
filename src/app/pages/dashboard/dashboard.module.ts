@@ -12,7 +12,8 @@ import {PreparationComponent} from './preparation/preparation.component';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {PeopleFeedbackComponent} from './people-feedback/people-feedback.component';
 import {OurTeamComponent} from './our-team/our-team.component';
-import {ContactUsComponent} from './contact-us/contact-us.component';
+import {ContactUsModule} from '../contact-us/contact-us.module';
+
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
     ReactiveFormsModule,
     DashboardRoutingModule,
     SharedModule,
-    CarouselModule
+    CarouselModule,
+    ContactUsModule
   ],
   exports: [RouterModule],
   providers: [],
@@ -32,8 +34,7 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
     OurCourseComponent,
     PreparationComponent,
     PeopleFeedbackComponent,
-    OurTeamComponent,
-    ContactUsComponent
+    OurTeamComponent
   ]
 })
 

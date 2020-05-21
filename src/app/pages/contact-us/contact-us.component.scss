@@ -1,0 +1,56 @@
+/*=-=-=-=-=-=-=-=-=-=-=- Banner start -=-=-=-=-=-=-=-=-=-=-=*/
+.banner {
+  position: relative;
+}
+
+.banner-img {
+  position: relative;
+}
+
+.banner-img:after {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.banner-img img {
+  width: 100%;
+}
+
+.inner-page .banner-img {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  min-height: 350px;
+}
+
+.inner-page .banner-img:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+}
+
+.page-title {
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+/*=-=-=-=-=-=-=-=-=-=-=- Banner end -=-=-=-=-=-=-=-=-=-=-=*/
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+

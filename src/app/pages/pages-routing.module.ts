@@ -38,6 +38,14 @@ const routes: Routes = [
         path: 'questions',
         loadChildren: () => import('./question-list/question-list.module').then(m => m.QuestionListModule)
         // canActivate: [AuthGuard]
+      },
+      {
+        path: 'about-us',
+        loadChildren: () => import('./about-us/about-us-module').then(m => m.AboutUsModule)
+      },
+      {
+        path: 'contact-us',
+        loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
       }
     ]
   }];

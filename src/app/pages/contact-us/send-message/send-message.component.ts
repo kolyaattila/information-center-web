@@ -5,11 +5,11 @@ import {Message} from '../../../shared/models/message';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
-  selector: 'app-contact-us',
-  templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss']
+  selector: 'app-send-message',
+  templateUrl: './send-message.component.html',
+  styleUrls: ['./send-message.component.scss']
 })
-export class ContactUsComponent implements OnInit, AfterViewInit {
+export class SendMessageComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   map: google.maps.Map;
   lat = 47.0548027;
