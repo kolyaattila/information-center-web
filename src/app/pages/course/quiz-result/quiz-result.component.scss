@@ -356,8 +356,26 @@ mat-expansion-panel {
   font-size: 18px;
   color: #333;
   line-height: 30px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding: 25px;
+  background: white;
+  border-radius: 9px;
+  -webkit-box-shadow: -7px 7px 13px -9px rgba(0,0,0,1);
+  -moz-box-shadow: -7px 7px 13px -9px rgba(0,0,0,1);
+  box-shadow: -7px 7px 13px -9px rgba(0,0,0,1);
 }
+
+.quiz-view .time-info .punctaj {
+  float: right;
+}
+
+.quiz-view .time-info  hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 
 /*=-=-=-=-=-=-=-=-=-=-=- Quiz intro Start -=-=-=-=-=-=-=-=-=-=-=*/
 

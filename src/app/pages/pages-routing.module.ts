@@ -36,8 +36,8 @@ const routes: Routes = [
       },
       {
         path: 'questions',
-        loadChildren: () => import('./question-list/question-list.module').then(m => m.QuestionListModule)
-        // canActivate: [AuthGuard]
+        loadChildren: () => import('./question-list/question-list.module').then(m => m.QuestionListModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'about-us',
@@ -46,6 +46,10 @@ const routes: Routes = [
       {
         path: 'contact-us',
         loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
+      },
+      {
+        path: 'cart',
+        loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
       }
     ]
   }];

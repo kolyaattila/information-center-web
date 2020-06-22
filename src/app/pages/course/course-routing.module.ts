@@ -5,6 +5,10 @@ import {CourseListComponent} from './course-list/course-list.component';
 import {CourseDetailsComponent} from './course-details/course-details.component';
 import {QuizComponent} from './quiz/quiz.component';
 import {QuizResultComponent} from './quiz-result/quiz-result.component';
+import {CoursManagementComponent} from './cours-management/cours-management.component';
+import {QuizCreateComponent} from './quiz-create/quiz-create.component';
+import {NotfoundComponent} from '../../notfound-component/notfound.component';
+import {MyQuizComponent} from './my-quiz/my-quiz.component';
 
 const routes: Routes = [
   {
@@ -16,15 +20,32 @@ const routes: Routes = [
         component: CourseListComponent
       },
       {
-        path: 'details',
+        path: 'create/quiz',
+        component: QuizCreateComponent
+      },
+      {
+        path: 'details/:id',
         component: CourseDetailsComponent
       },
       {
-        path: 'quiz',
+        path: 'quiz/:id',
         component: QuizComponent
-      }, {
-        path: 'quiz/result/:id',
+      },
+      {
+        path: 'result/quiz/:id',
         component: QuizResultComponent
+      },
+      {
+        path: 'management',
+        component: CoursManagementComponent
+      },
+      {
+        path: 'my-quiz',
+        component: MyQuizComponent
+      },
+      {
+        path: '**',
+        component: NotfoundComponent
       }
     ]
   }

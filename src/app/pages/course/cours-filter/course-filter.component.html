@@ -1,0 +1,94 @@
+<div class="container">
+  <div class='card card-body bg-light filter-container'>
+    <div class="form-container">
+      <form [formGroup]="filter">
+        <mat-form-field class='col-md-3 '>
+          <mat-label>Nume</mat-label>
+          <input matInput placeholder="Nume" formControlName="courseName">
+        </mat-form-field>
+
+        <mat-form-field class='col-md-3'>
+          <mat-label>External ID</mat-label>
+          <input matInput placeholder="dfm4knf4-k4rmnfi4n-4ktnv9" formControlName="externalId">
+        </mat-form-field>
+
+        <mat-form-field class='col-md-2'>
+          <mat-label>Pret</mat-label>
+          <input matInput placeholder="24RON" formControlName="price">
+        </mat-form-field>
+
+        <div class='col-md-2 activeCourse'>
+          <mat-checkbox formControlName="enable">Activ</mat-checkbox>
+        </div>
+
+        <div class='button col-md-2'>
+          <a (click)="applyFilter()" class="btn btn-primary align-middle">Apply filters</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="scroll">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 100px"> Autor</th>
+          <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 100px"> Data crearii</th>
+          <td mat-cell *matCellDef="let element"> {{element.created |  date:'MM/dd/yyyy' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Pret</th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+        <ng-container matColumnDef="externalId">
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> External id</th>
+          <td mat-cell *matCellDef="let element"> {{element.externalId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="enable">
+          <th mat-header-cell *matHeaderCellDef> Activ</th>
+          <td mat-cell *matCellDef="let element">
+            <i *ngIf="element.enable" class="fas fa-check text-success"></i>
+            <i *ngIf="!element.enable" class="fas fa-times text-danger"></i>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (contextmenu)="onContextMenu($event, row)"></tr>
+      </table>
+    </div>
+
+    <mat-paginator [length]="page.length"
+                   [pageSize]="page.pageSize"
+                   [pageIndex]="page.pageIndex"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   (page)="changePage($event)">
+    </mat-paginator>
+  </div>
+</div>
+
+
+<div style="visibility: hidden; position: fixed"
+     [style.left]="contextMenuPosition.x"
+     [style.top]="contextMenuPosition.y"
+     [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-item="item">
+    <button mat-menu-item (click)="redirectCourse(item)">View</button>
+    <button mat-menu-item (click)="openEditCourseModal(item)">Update</button>
+    <button mat-menu-item (click)="openDeleteCourseModal(item)">Delete</button>
+  </ng-template>
+</mat-menu>

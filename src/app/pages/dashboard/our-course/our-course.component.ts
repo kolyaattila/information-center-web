@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Course} from '../../../shared/models/course';
+import {CourseService} from '../../../core/services/course.service';
 
 @Component({
   selector: 'app-our-course',
@@ -6,11 +8,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./our-course.component.scss']
 })
 export class OurCourseComponent implements OnInit {
+  bestCourses: Course[] = [];
 
-  constructor() {
+  constructor(private courseService: CourseService) {
   }
 
   ngOnInit() {
+    this.courseService.getBestCourses().subscribe(data => this.bestCourses = data);
+  }
+
+  getRating(course: Course) {
+
   }
 
 }

@@ -1,7 +1,6 @@
-
 <section class="banner inner-page">
-  <div [style.backgroundImage]="'url(../../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
-    <img class="hidden" src="../../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/banner-wall.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/banner-wall.jpg" alt="">
   </div>
   <div class="page-title">
     <div class="container">
@@ -15,8 +14,14 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
           <video controls="true" controlsList="nodownload" #video>
-            <source  *ngIf="path && path !=''" [src]="path" type="video/mp4">
+            <source *ngIf="path && path !=''" [src]="path" type="video/mp4">
           </video>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 description">
+          <div class="info">
+            <h4>Descriere video</h4>
+            <p>{{videoDescription}} </p>
+          </div>
         </div>
       </div>
     </div>
@@ -24,7 +29,6 @@
       <div class="row margin-0">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class=" topic-title">{{topicName}}</div>
-          <button class="create-button" (click)="openCreateVideoModel()">Create video</button>
         </div>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class=" video-list">

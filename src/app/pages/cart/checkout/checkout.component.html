@@ -1,0 +1,129 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../assets/images/banner/banner-wall.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../assets/images/banner/banner-wall.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Checkout</h1>
+    </div>
+  </div>
+</section>
+
+<section class="checkout-section container">
+  <div>
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="addressFormGroup">
+        <div class="row">
+          <form [formGroup]="addressFormGroup">
+            <ng-template matStepLabel>Adresa</ng-template>
+            <mat-form-field class="col-md-4">
+              <mat-label>Nume</mat-label>
+              <input matInput placeholder="Nume, Prenume" formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+              <mat-label>Adresa 1</mat-label>
+              <input matInput formControlName="primaryAddress" required>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+              <mat-label>Adresa 2</mat-label>
+              <input matInput formControlName="secondAddress">
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+              <mat-label>Oras</mat-label>
+              <input matInput formControlName="city" required>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+              <mat-label>Tara</mat-label>
+              <input matInput placeholder="Romania" formControlName="state" required>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+              <mat-label>Cod postal</mat-label>
+              <input matInput placeholder="435500" formControlName="postalCode" required>
+            </mat-form-field>
+            <mat-form-field class="col-md-4">
+              <mat-label>Telefon</mat-label>
+              <input matInput placeholder="0715489625" formControlName="phoneNumber" required>
+            </mat-form-field>
+            <div class="col-md-12">
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Confirm</ng-template>
+        <div>
+          <div>
+            <p>Nume: {{name}}</p>
+            <p>Numar de telefon: {{phoneNumber}}</p>
+            <p>Tara: {{state}}</p>
+            <p>Oras: {{city}}</p>
+            <p>Adresa: {{primaryAddress}}</p>
+            <p *ngIf="secondAddress">Adresa secundarea: {{secondAddress}}</p>
+            <p>Cod postal: {{postalCode}}</p>
+          </div>
+          <div>
+            <section class="cart-page">
+              <div>
+                <div class="table-view">
+                  <div class="cart-table">
+                    <table>
+                      <tr>
+                        <th>PRODUCT</th>
+                        <th>PRICE</th>
+                      </tr>
+                      <tr *ngFor="let product of cartProducts">
+                        <td>
+                          <div class="product-details">
+                            <div class="img"><img src="../../../../assets/images/courses/course_default_75x65.png" alt=""></div>
+                            <div class="name">{{product.name}}</div>
+                          </div>
+                        </td>
+                        <td><span class="small-text">PRICE</span>{{product.price}}$</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="cart-total">
+                    <table>
+                      <tr>
+                        <td>Total:</td>
+                        <td>{{totalPrice}}$</td>
+                      </tr>
+                      <tr>
+                        <td>Cupon:</td>
+                        <td>{{coupon}}$</td>
+                      </tr>
+                      <tr class="total">
+                        <td>Suma aotala</td>
+                        <td> {{totalPrice + coupon}}$</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="order()" matStepperNext>Comanda</button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <section class="thankYou-page">
+          <div class="container">
+            <div class="section-title">
+              <h2>Comanda confirmata!</h2>
+              <p>Comanda a fost realizata cu succes.</p>
+            </div>
+            <div class="thankYou-msg" style="display: none">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+                the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+          </div>
+        </section>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</section>

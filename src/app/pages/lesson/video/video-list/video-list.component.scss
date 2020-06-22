@@ -23,7 +23,7 @@
   background-color: black;
   position: absolute;
   bottom: 5px;
-  right: 5px;
+  left: 20px;
   text-align: center;
   color: white;
 }
@@ -43,6 +43,12 @@
 
 .details-content {
   padding-left: 12px;
+}
+
+.option-icon button {
+  position: absolute;
+  right: 0;
+  top: -10px;
 }
 
 @media (max-width: 767px) and (min-width: 520px) {

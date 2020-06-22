@@ -2,22 +2,22 @@
   <div class="quck-nav">
     <div class="container">
       <div class="contact-no"><a><i class="fa fa-map-marker"></i>Oradea, Romania</a></div>
-      <div class="contact-no"><a routerLink="/"><i class="fa fa-globe"></i>examen-admitere.ro</a></div>
+      <div class="contact-no"><a routerLink="/"><i class="fa fa-globe"></i>smart-learning.ro</a></div>
       <div class="quck-right">
         <div class="right-link" *ngIf="!isLogin()"><a routerLink="/login"><i class="fa  fa-user"></i>Login \ Register</a></div>
-        <div class="right-link" *ngIf="isLogin() && currentAccount"><a routerLink="/account"><i class="fa  fa-user"></i>{{currentAccount.username}}</a></div>
+        <div class="right-link" *ngIf="isLogin() && currentAccount &&currentAccount.username"><a routerLink="/account"><i
+          class="fa  fa-user"></i>{{currentAccount.username}}</a></div>
         <div class="right-link" *ngIf="isLogin()"><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
       </div>
     </div>
   </div>
 
-
   <header id="header">
     <div class="container">
-      <nav id="nav-main">
+      <nav id="nav-main" class="not-fixed">
         <div class="navbar navbar-inverse">
           <div class="navbar-header">
-            <a href="#" class="navbar-brand"><img src="../../assets/images/logo.png" alt="" style="display: none"></a>
+            <a href="/" class="navbar-brand"><img src="../../assets/images/logo8.png" alt=""></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -25,50 +25,46 @@
             </button>
           </div>
           <div class="cart-box">
-            <a href="#"><i class="fa fa-shopping-basket"></i></a>
+            <a routerLink="/cart"><i class="fa fa-shopping-basket"></i></a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active sub-menu">
+              <li class="sub-menu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                 <a routerLink="/">Home </a>
               </li>
-              <li class="mega-menu sub-menu">
-                <a href="#">Courses</a>
+              <li class="mega-menu sub-menu" [routerLinkActive]="['active']">
+                <a routerLink="/course">Cursuri</a>
                 <div class="menu-view">
                   <div class="row">
                     <div class="col-sm-4">
                       <div class="menu-title">Curs</div>
                       <ul>
                         <li><a routerLink="/course">Lista cu cursuri</a></li>
-                        <li><a href="#">Administrarea cursurilor</a></li>
+                        <li><a routerLink="/course/management">Administrarea cursurilor</a></li>
                       </ul>
                     </div>
                     <div class="col-sm-4">
                       <div class="menu-title">Quiz</div>
                       <ul>
-                        <li><a href="#">Quiz-urile mele</a></li>
-                        <li><a href="#">Administrare Quiz</a></li>
+                        <!--                        <li><a href="/">Quiz-urile mele</a></li>-->
+                        <!--                        <li><a href="/">Administrare Quiz</a></li>-->
                         <li><a routerLink="/questions">Administrare Intrebari</a></li>
+                        <li><a routerLink="/course/create/quiz">Creare quiz</a></li>
                       </ul>
                     </div>
                     <div class="col-sm-4 menu-courses">
                       <div class="menu-title">Cursuri populare</div>
-                      <div class="courses-slide">
-                        <div class="img"><img src="../../assets/images/blog/post-img1.jpg" alt=""></div>
-                        <div class="name"><a href="#">Business Management</a></div>
-                        <div class="price">$500</div>
-                      </div>
-                      <div class="courses-slide">
-                        <div class="img"><img src="../../assets/images/blog/post-img2.jpg" alt=""></div>
-                        <div class="name"><a href="#">Computing Science</a></div>
-                        <div class="price">$255</div>
+                      <div class="courses-slide" *ngFor="let course of bestCourses">
+                        <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
+                        <div class="name"><a routerLink="/course/details/{{course.externalId}}">{{course.name}}</a></div>
+                        <div class="price">${{course.price}}</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
-              <li><a routerLink="/about-us">Despre noi</a></li>
-              <li><a routerLink="/contact-us">Contactaţi-ne</a></li>
+              <li [routerLinkActive]="['active']"><a routerLink="/about-us">Despre noi</a></li>
+              <li [routerLinkActive]="['active']"><a routerLink="/contact-us">Contactaţi-ne</a></li>
             </ul>
           </div>
         </div>
@@ -86,20 +82,10 @@
         <div class="row">
           <div class="col-sm-6 col-md-3">
             <h5>Cursuri populare</h5>
-            <div class="course-slide">
-              <div class="img"><img src="../../assets/images/blog/post-img1.jpg" alt=""></div>
-              <p><a href="#">when an unknown printer took </a></p>
-              <div class="price">$55</div>
-            </div>
-            <div class="course-slide">
-              <div class="img"><img src="../../assets/images/blog/post-img2.jpg" alt=""></div>
-              <p><a href="#">when an unknown printer took </a></p>
-              <div class="price">$505</div>
-            </div>
-            <div class="course-slide">
-              <div class="img"><img src="../../assets/images/blog/post-img3.jpg" alt=""></div>
-              <p><a href="#">when an unknown printer took </a></p>
-              <div class="price">$178</div>
+            <div class="course-slide" *ngFor="let course of bestCourses">
+              <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
+              <p><a routerLink="/course/details/{{course.externalId}}">{{course.name}}</a></p>
+              <div class="price">${{course.price}}</div>
             </div>
           </div>
           <div class="col-sm-6">
@@ -107,14 +93,14 @@
               <div class="col-md-offset-1 col-sm-6 col-md-5 col-xs-6">
                 <h5>Company</h5>
                 <ul class="footer-link">
-                  <li><a href="#">Despre noi</a></li>
-                  <li><a href="#">Contactaţi-ne</a></li>
+                  <li><a routerLink="/about-us">Despre noi</a></li>
+                  <li><a routerLink="/contact-us">Contactaţi-ne</a></li>
                 </ul>
               </div>
               <div class="col-md-offset-1 col-sm-6 col-md-5 col-xs-6">
                 <h5>Link-uri utile</h5>
                 <ul class="footer-link">
-                  <li><a href="/course">Cursurii</a></li>
+                  <li><a routerLink="/course">Cursurii</a></li>
                   <li><a href="#">Quiz</a></li>
                 </ul>
               </div>
@@ -130,7 +116,7 @@
                 <p><i class="fa fa-phone"></i>+299 97 39 82</p>
               </div>
               <div class="contact-slide">
-                <p><i class="fa fa-envelope"></i><a href="mailTo:examen-admitere@gmail.com">examen-admitere@gmail.com</a></p>
+                <p><i class="fa fa-envelope"></i><a href="mailTo:examen-admitere@gmail.com">smart-learning@gmail.com</a></p>
               </div>
             </div>
           </div>
@@ -141,21 +127,21 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="copy-right">
-            <p>Copyright © <span class="year">2020</span> Examen-admitere.</p>
+            <p>Copyright © <span class="year">2020</span> Smart Learning.</p>
             <ul class="footer-link">
-              <li><a href="#">Termeni si conditi</a></li>
-              <li><a href="#">Date personale</a></li>
+              <li><a href="/">Termeni si conditi</a></li>
+              <li><a href="/">Date personale</a></li>
             </ul>
           </div>
         </div>
         <div class="col-sm-4 " style="display: none">
           <div class="social-media">
             <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-skype"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="/"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="/"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="/"><i class="fa fa-skype"></i></a></li>
+              <li><a href="/"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="/"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>

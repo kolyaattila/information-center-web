@@ -6,6 +6,7 @@ import {CoreModule} from 'src/app/core/core.module';
 import {PagesComponent} from '../pages/pages.component';
 import {ConfirmationModalComponent} from './modal/confirmation-modal/confirmation-modat.component';
 import {MaterialModule} from './matirial/matirial.module';
+import {NotfoundComponent} from '../notfound-component/notfound.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import {MaterialModule} from './matirial/matirial.module';
   providers: [],
   declarations: [
     PagesComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    NotfoundComponent
   ],
   entryComponents: [
     ConfirmationModalComponent

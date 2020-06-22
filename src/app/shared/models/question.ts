@@ -8,7 +8,8 @@ export class Question {
   questionDifficulty: QuestionDifficulty;
   book: string;
   chapter: string;
-  course: string;
+  courseExternalId: string;
+  topicExternalId: string;
   externalId: string;
   school: string;
   answers?: Answer[];

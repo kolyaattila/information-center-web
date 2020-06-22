@@ -7,6 +7,10 @@ import {Message} from '../../../shared/models/message';
 import {Video} from '../../../shared/models/video';
 import {School} from '../../../shared/models/school';
 import {Question} from '../../../shared/models/question';
+import {Course} from '../../../shared/models/course';
+import {CourseFilter} from '../../../shared/models/courseFilter';
+import {Quiz} from '../../../shared/models/quiz';
+import {QuizValidation} from '../../../shared/models/quizValidation';
 
 export class CommonRepositoryMockService {
 
@@ -26,8 +30,8 @@ export class CommonRepositoryMockService {
     return of(account);
   }
 
-  getCurrentAccount(): Promise<Account> {
-    return of(new Account()).toPromise();
+  getCurrentAccount(): Observable<Account> {
+    return of(new Account());
   }
 
   createTopic(topic: Topic) {
@@ -44,7 +48,10 @@ export class CommonRepositoryMockService {
   }
 
   getVideosDetailsByTopicId(topicId: string): Observable<Video[]> {
-    const video = [new Video(), new Video()];
+    const video1 = new Video();
+    video1.description = 'description';
+
+    const video = [video1];
     return of(video);
   }
 
@@ -88,5 +95,65 @@ export class CommonRepositoryMockService {
   filterQuestion(): Observable<Question[]> {
     const questions = [new Question(), new Question()];
     return of(questions);
+  }
+
+  deleteCourse(externalId: string) {
+    return of(externalId);
+  }
+
+  updateCourse(course: Course) {
+    return of(course);
+  }
+
+  createCourse(course: Course) {
+    return of(course);
+  }
+
+  courseFilter(courseFilter: CourseFilter) {
+    return of(courseFilter);
+  }
+
+  getCourseById(externalId: string): Observable<Course> {
+    return of(new Course());
+  }
+
+  getQuizzesByCourseId(externalId: string): Observable<Quiz[]> {
+    return of([new Quiz()]);
+  }
+
+  getAllActiveCourses(): Observable<Course[]> {
+    return of(new Course()[1]);
+  }
+
+  getAllCourses(): Observable<Course[]> {
+    return of(new Course()[1]);
+  }
+
+  createQuiz(quiz: Quiz) {
+    return of(quiz);
+  }
+
+  getQuizById(id: string): Observable<Quiz> {
+    return of(new Quiz());
+  }
+
+  getBestCourses() {
+    return of(new Course()[1]);
+  }
+
+  makeReview(rating: number, courseExternalId: string, accountExternalId: string) {
+    return of(rating);
+  }
+
+  validateQuiz(quiz: QuizValidation) {
+    return of(quiz);
+  }
+
+  getValidationQuizByExternalId(externalId: string) {
+    return of(new QuizValidation());
+  }
+
+  getMyQuizzes(accountUid: string): Observable<any> {
+    return of(accountUid);
   }
 }

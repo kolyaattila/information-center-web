@@ -1,0 +1,60 @@
+.card {
+  max-width: 20rem;
+  float: left;
+  margin: 20px;
+}
+
+.card-body button, .meniu button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.meniu-content {
+  position: absolute;
+  right: 0;
+}
+
+.create-card {
+  position: absolute;
+  align-self: center;
+  top: 33%;
+}
+
+.title-container {
+  display: block;
+  padding: 20px;
+  margin: 50px;
+
+}
+
+.title-container .title {
+  color: black;
+  font-size: 50px;
+  border-bottom: solid;
+  border-width: thin;
+  border-color: grey;
+}
+.title-container .title a {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .title-container .title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 479px) {
+  .title-container .title {
+    font-size: 20px;
+  }
+  .title-container .title a {
+    float: right;
+    font-size: 15px;
+  }
+}

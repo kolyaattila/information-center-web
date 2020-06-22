@@ -223,12 +223,14 @@ $(window).on('scroll', function() {
 	{
 		$(".top-arrow").fadeIn();
 		$("#header").addClass("fiexd");
+    $("#nav-main").removeClass("not-fixed");
 	}
 	else
 	{
 		$(".top-arrow").fadeOut();
 		$("#header").removeClass("fiexd");
-	}
+    $("#nav-main").addClass("not-fixed");
+  }
 });
 
 /* check and radio js start */
