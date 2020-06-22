@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {ConfirmationModalComponent} from '../../../shared/modal/confirmation-modal/confirmation-modat.component';
+import {ActivatedRoute} from '@angular/router';
+import {QuizService} from '../../../core/services/quiz.service';
 
 @Component({
   selector: 'app-quiz',
@@ -9,11 +11,15 @@ import {ConfirmationModalComponent} from '../../../shared/modal/confirmation-mod
 })
 export class QuizComponent implements OnInit {
 
-  constructor(public matDialog: MatDialog) {
+  private id: string;
+
+  constructor(public matDialog: MatDialog,
+              private route: ActivatedRoute,
+              private quizService: QuizService) {
     this.questionList = [
       {
         number: 1,
-        points: 3,
+        points: 1,
         name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         answers: [
           {
@@ -40,7 +46,7 @@ export class QuizComponent implements OnInit {
       },
       {
         number: 2,
-        points: 3,
+        points: 1,
         name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         answers: [
           {
@@ -67,7 +73,7 @@ export class QuizComponent implements OnInit {
       },
       {
         number: 3,
-        points: 3,
+        points: 1,
         name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         answers: [
           {
@@ -94,7 +100,7 @@ export class QuizComponent implements OnInit {
       },
       {
         number: 4,
-        points: 3,
+        points: 1,
         name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         answers: [
           {
@@ -121,26 +127,26 @@ export class QuizComponent implements OnInit {
       },
       {
         number: 5,
-        points: 3,
-        name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+        points: 1,
+        name: 'What is one common time management mistake?',
         answers: [
           {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+            name: 'Procrastination',
             selected: false,
             valid: false
           },
           {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+            name: 'Taking Breaks',
             selected: false,
             valid: false
           },
           {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+            name: 'Manage Distractions',
             selected: false,
             valid: false
           },
           {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+            name: 'Scheduling Tasks',
             selected: false,
             valid: false
           }
@@ -148,6 +154,7 @@ export class QuizComponent implements OnInit {
       }
     ];
   }
+
 
   quizStarted = false;
   selectedQuestion = {
@@ -157,6 +164,11 @@ export class QuizComponent implements OnInit {
   questionList: any;
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = params.id;
+      console.log(params.id);
+      this.quizService.getQuizById(params.id).subscribe(data => console.log(data));
+    });
   }
 
   startQuiz() {

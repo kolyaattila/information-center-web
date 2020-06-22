@@ -9,17 +9,36 @@ import {QuizComponent} from './quiz/quiz.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {QuizResultComponent} from './quiz-result/quiz-result.component';
 import {QuestionComponent} from './quiz/question/question.component';
+import {CourseCreateModalComponent} from './course-create-modal/course-create-modal.component';
+import {CourseFilterComponent} from './cours-filter/course-filter.component';
+import {CoursManagementComponent} from './cours-management/cours-management.component';
+import {AddTopicModelComponent} from '../lesson/add-topic-model/add-topic-model.component';
+import {LessonModule} from '../lesson/lesson.module';
+import {VideoModule} from '../lesson/video/video.module';
+import { QuizCreateComponent } from './quiz-create/quiz-create.component';
 
 
 @NgModule({
-  declarations: [CourseListComponent, CourseDetailsComponent, QuizComponent, QuizResultComponent, QuestionComponent],
+  declarations: [CourseListComponent,
+    CourseDetailsComponent,
+    QuizComponent,
+    QuizResultComponent,
+    QuestionComponent,
+    CourseCreateModalComponent,
+    CourseFilterComponent,
+    CoursManagementComponent,
+    QuizCreateComponent
+  ],
   imports: [
     CommonModule,
     CourseRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LessonModule,
+    VideoModule
   ],
-  exports: [RouterModule, QuestionComponent]
+  exports: [RouterModule, QuestionComponent],
+  entryComponents: [CourseCreateModalComponent, AddTopicModelComponent]
 })
 export class CourseModule {
 }

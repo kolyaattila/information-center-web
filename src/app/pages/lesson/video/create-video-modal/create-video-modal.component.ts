@@ -8,6 +8,8 @@ import {Topic} from '../../../../shared/models/topic';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {ToastrService} from 'ngx-toastr';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Course} from '../../../../shared/models/course';
+import {CourseService} from '../../../../core/services/course.service';
 
 @Component({
   selector: 'app-create-video',
@@ -18,9 +20,10 @@ export class CreateVideoModalComponent implements OnInit {
 
   selected = 'None';
   public formGroup: FormGroup;
-  video: Video;
+  video: Video = new Video();
   file: File;
-  topics: Topic[];
+  topics: Topic[] = [];
+  courses: Course[] = [];
   videoUrl;
   videoDuration = 0;
   fileName: string;
@@ -33,19 +36,36 @@ export class CreateVideoModalComponent implements OnInit {
               public dialogRef: MatDialogRef<CreateVideoModalComponent>,
               @Inject(MAT_DIALOG_DATA) private modalData: any,
               private toastr: ToastrService,
-              private sanitizer: DomSanitizer) {
-    this.topicService.getAllTopics().subscribe(topics => {
-      this.topics = topics;
-    });
+              private sanitizer: DomSanitizer,
+              private courseService: CourseService) {
+
+    if (modalData && modalData.course && modalData.topic) {
+      this.initData(modalData);
+    } else {
+      this.courseService.getAllActiveCourses().subscribe(course => {
+        this.courses = course;
+      });
+    }
+  }
+
+  private initData(modalData: any) {
+    console.log(modalData);
+    this.courses.push(modalData.course);
+    this.video.course = modalData.course.name;
+    this.video.courseExternalId = modalData.course.externalId;
+    this.video.topicExternalId = modalData.topic.externalId;
+    this.video.topic = modalData.topic.name;
+    this.topics.push(modalData.topic);
   }
 
   ngOnInit() {
 
-    this.initForm({} as Video);
+    this.initForm(this.video);
   }
 
   cancel() {
     this.restoreForm(this.formGroup);
+    this.closeModal(false);
   }
 
   onFileChanged(event) {
@@ -65,6 +85,8 @@ export class CreateVideoModalComponent implements OnInit {
     this.video = this.formGroup.value as Video;
     this.video.videoDuration = this.videoDuration.toString();
     this.addTopicIdToVideo();
+    this.addCourseIdToVideo();
+    console.log(this.video);
     this.videoService.save(this.video, this.file).subscribe(
       data => {
         this.toastr.success('Video salvat cu succes');
@@ -82,7 +104,8 @@ export class CreateVideoModalComponent implements OnInit {
 
   initForm(video: Video) {
     this.formGroup = this.formBuilder.group({
-      chapter: [video.chapter, [Validators.required, Validators.minLength(3)]],
+      course: [video.course, [Validators.required, Validators.minLength(3)]],
+      topic: [video.topic, [Validators.required, Validators.minLength(3)]],
       title: [video.title, [Validators.required, Validators.minLength(3)]],
       description: [video.description, [Validators.required, Validators.minLength(3)]],
       file: [video.file]
@@ -103,8 +126,16 @@ export class CreateVideoModalComponent implements OnInit {
 
   addTopicIdToVideo() {
     this.topics.forEach(topic => {
-      if (this.video.chapter === topic.name) {
-        this.video.topicId = topic.externalId;
+      if (this.video.topic === topic.name) {
+        this.video.topicExternalId = topic.externalId;
+      }
+    });
+  }
+
+  addCourseIdToVideo() {
+    this.courses.forEach(course => {
+      if (this.video.course === course.name) {
+        this.video.courseExternalId = course.externalId;
       }
     });
   }

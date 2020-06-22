@@ -45,6 +45,12 @@
   padding-left: 12px;
 }
 
+.option-icon button {
+  position: absolute;
+  right: 0;
+  top: -10px;
+}
+
 @media (max-width: 767px) and (min-width: 520px) {
   .picture-content, .details-content {
     width: 200px;

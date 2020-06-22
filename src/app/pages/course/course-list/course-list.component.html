@@ -1,6 +1,6 @@
 <section class="banner inner-page">
-  <div [style.backgroundImage]="'url(../../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
-    <img class="hidden" src="../../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/banner-wall.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/banner-wall.jpg" alt="">
   </div>
   <div class="page-title">
     <div class="container">
@@ -19,26 +19,26 @@
     </div>
     <div *ngFor="let course of courseList">
       <div class="course-post">
-        <div class="img">
-          <img src="../../../../assets/images/courses/courses-img4.jpg" alt="">
+        <div class="img" *ngIf="course.image">
+          <img src="../../../../assets/images/banner/{{course.image}}_270.jpg" alt="">
           <div class="icon">
-            <a routerLink="details"><img src="../../../../assets/images/book-icon.png" alt=""></a>
+            <a routerLink="details/{{course.externalId}}"><img src="../../../../assets/images/book-icon.png" alt=""></a>
           </div>
           <div class="price">${{course.price}}</div>
         </div>
         <div class="info">
-          <div class="name">{{course.title}}</div>
+          <div class="name">{{course.name}}</div>
           <div class="expert"><span>By </span> {{course.author}}</div>
           <div class="product-footer">
             <div class="comment-box">
-              <div class="box"><i class="fa fa-users"></i>{{course.peopleEnroled}} Enrolled</div>
+              <div class="box"><i class="fa fa-users"></i>57{{course.peopleEnroled}} Enrolled</div>
             </div>
             <div class="rating">
               <div class="fill" style="width:60%"></div>
             </div>
-            <p>${{course.description}}</p>
+            <p>{{course.description}}</p>
             <div class="view-btn2">
-              <a routerLink="details" class="btn">view more</a>
+              <a routerLink="details/{{course.externalId}}" class="btn">view more</a>
             </div>
           </div>
         </div>

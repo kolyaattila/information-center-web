@@ -15,6 +15,11 @@ export class VideoService {
     return this.repositoryService.getVideosDetailsByTopicId(topicId);
   }
 
+  getVideosDetailsByCourseId(courseId: string): Observable<Video[]> {
+    return this.repositoryService.getVideosDetailsByCourseId(courseId);
+  }
+
+
   save(video: Video, file: File) {
     return this.repositoryService.createVideo(this.toFormData(video, file));
   }
@@ -34,8 +39,8 @@ export class VideoService {
   toFormData(video: Video, file: File) {
     const form = new FormData();
 
-    form.append('chapter', video.chapter.toString());
-    form.append('topicId', video.topicId.toString());
+    form.append('courseExternalId', video.courseExternalId.toString());
+    form.append('topicExternalId', video.topicExternalId.toString());
     form.append('title', video.title.toString());
     form.append('description', video.description.toString());
     form.append('videoDuration', video.videoDuration.toString());

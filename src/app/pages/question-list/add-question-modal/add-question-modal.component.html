@@ -43,7 +43,7 @@
         <mat-form-field class='col-md-4'>
           <mat-label>Chapter</mat-label>
           <mat-select name="chapter" formControlName="chapter">
-            <mat-option *ngFor="let chapter of chapters" [value]="chapter.name">
+            <mat-option *ngFor="let chapter of topics" [value]="chapter.name">
               {{chapter.name}}
             </mat-option>
           </mat-select>

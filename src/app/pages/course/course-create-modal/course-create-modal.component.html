@@ -1,0 +1,43 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Course</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-container row">
+      <form [formGroup]="courseForm">
+        <mat-form-field class='col-md-12'>
+          <mat-label>Nume</mat-label>
+          <input matInput placeholder="Management" formControlName="courseName">
+        </mat-form-field>
+
+        <mat-form-field class='col-md-12'>
+          <mat-label>Pret</mat-label>
+          <input matInput placeholder="33" formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field class='col-md-12'>
+          <mat-label>Descriere</mat-label>
+          <textarea matInput placeholder="Descriere" formControlName="description"></textarea>
+        </mat-form-field>
+
+        <div class='col-md-12'>
+          <mat-checkbox formControlName="enable">Activ</mat-checkbox>
+        </div>
+      </form>
+
+      <div class='buttons'>
+        <div class='button'>
+          <a (click)="saveCourse()" [class.disabled]="courseForm.valid ? null: true" class="btn btn-primary align-middle">Save
+          </a>
+        </div>
+        <div class='button'>
+          <a (click)="closeModal()" class="btn btn-success align-middle">Cancel</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

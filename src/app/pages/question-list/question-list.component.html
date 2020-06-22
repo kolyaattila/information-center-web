@@ -58,7 +58,7 @@
                  [formControl]="chapter"
                  [matAutocomplete]="autoChapter">
           <mat-autocomplete #autoChapter="matAutocomplete">
-            <mat-option *ngFor="let chapter of chapters" [value]="chapter.name">
+            <mat-option *ngFor="let chapter of topics" [value]="chapter.name">
               {{chapter.name}}
             </mat-option>
           </mat-autocomplete>

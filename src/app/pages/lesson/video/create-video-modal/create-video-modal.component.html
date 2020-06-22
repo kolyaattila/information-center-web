@@ -6,22 +6,31 @@
 </div>
 <div class="modal-body">
   <form class="form-component" [formGroup]="formGroup">
+
     <mat-form-field class="form-field">
-      <mat-select formControlName="chapter" placeholder="Chapter">
+      <mat-select formControlName="course" placeholder="Curs">
+        <mat-option *ngFor="let course of courses" [value]="course.name">
+          {{course.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-select formControlName="topic" placeholder="Capitol">
         <mat-option *ngFor="let topic of topics" [value]="topic.name">
           {{topic.name}}
         </mat-option>
       </mat-select>
-
     </mat-form-field>
+
     <mat-form-field class="form-field">
       <input matInput placeholder="Title" formControlName="title" type="text">
     </mat-form-field>
 
     <mat-form-field class="form-field">
       <label>
-<textarea matInput class="description-input"  rows="4" cols="50" placeholder="Description" formControlName="description" type="text">
-  </textarea>
+        <textarea matInput class="description-input" rows="4" cols="50" placeholder="Description" formControlName="description" type="text">
+        </textarea>
       </label>
     </mat-form-field>
     {{fileName}}
