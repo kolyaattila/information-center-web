@@ -14,6 +14,7 @@ import {CreateVideoModalComponent} from '../../lesson/video/create-video-modal/c
 import {VideoService} from '../../../core/services/video.service';
 import {Video} from '../../../shared/models/video';
 import {Quiz} from '../../../shared/models/quiz';
+import {CartService} from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-course-details',
@@ -84,7 +85,8 @@ export class CourseDetailsComponent implements OnInit {
               private matDialog: MatDialog,
               private topicService: TopicService,
               private toastr: ToastrService,
-              private videoService: VideoService) {
+              private videoService: VideoService,
+              private cartService: CartService) {
     this.route.params.subscribe(params => {
       this.initDate(params.id);
     });
@@ -247,4 +249,13 @@ export class CourseDetailsComponent implements OnInit {
       }
     });
   }
+
+  addCart() {
+    this.cartService.addCurs(this.course);
+  }
+
+  isInCart() {
+    return this.cartService.isInCart((this.course));
+  }
+
 }

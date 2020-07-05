@@ -4,7 +4,7 @@
   </div>
   <div class="page-title">
     <div class="container">
-      <h1>Quiz result</h1>
+      <h1>Rezultat quiz</h1>
     </div>
   </div>
 </section>
@@ -12,12 +12,23 @@
 <section class="quiz-view">
   <div class="container">
     <div class="quiz-title">
-      <h2>General Quiz</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <h2>Time management quiz</h2>
+      <p style="display: none">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
     </div>
     <div class="row">
       <div class="col-sm-4 col-md-3">
-        <div class="time-info">Total time</div>
+        <div class="time-info">
+
+          <p>Numar total intrebari <span class="punctaj">{{questionList.length}}</span></p>
+          <p>Raspunsuri corecte <span class="punctaj">{{correctAnswers}}</span></p>
+          <p>Raspunsuri gresite <span class="punctaj">{{wrongAnswers}}</span></p>
+          <hr>
+          <p>Total puncte <span class="punctaj" *ngIf="quiz">{{quiz.note}}</span></p>
+          <h3 style="text-align: center" *ngIf="quiz && quiz.passed" >ADMIS</h3>
+          <h3 style="text-align: center" *ngIf="quiz && !quiz.passed"  >RESPINS</h3>
+
+
+        </div>
       </div>
       <div class="col-sm-8 col-md-9">
         <div class="question-result">

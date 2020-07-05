@@ -12,36 +12,32 @@
 <section class="quiz-view">
   <div class="container">
     <div class="quiz-title">
-      <h2>Time management quiz</h2>
+      <h2 *ngIf="quiz">{{courseName}}</h2>
 <!--      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
     </div>
     <div class="row">
       <div class="col-sm-4 col-md-3">
-<!--        <div class="time-info">Total time</div>-->
         <div id="countdown_stop"></div>
-        <div class="question-list">
-          <div class="question-slide" *ngFor="let question of questionList; let i = index"
+        <div class="question-list" *ngIf="quiz">
+          <div class="question-slide" *ngFor="let question of quiz.questions; let i = index"
                [ngClass]="{fill: i < selectedQuestion.questionIndex, active: i == selectedQuestion.questionIndex}">
             <div class="question-number" (click)="changeQuestion(i)"
                  [ngClass]="{'cursor-pointer':quizStarted,'solved':quizStarted && questionSolved(question)}">
-              Intrebarea {{question.number}}</div>
+              Intrebarea {{question.questionNumber}}</div>
             <span>{{question.points}}</span>
           </div>
         </div>
       </div>
       <div class="col-sm-8 col-md-9">
-        <div class="quiz-intro" *ngIf="!quizStarted">
+        <div class="quiz-intro" *ngIf="!quizStarted && quiz">
           <h3>Introducere</h3>
-          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-            Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like
-            readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their </p>
+          <p>{{quiz.description}}Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective. Nu doar că a supravieţuit timp de cinci secole, dar şi a facut saltul în tipografia electronică practic neschimbată. A fost popularizată în anii '60 odată cu ieşirea colilor Letraset care conţineau pasaje Lorem Ipsum, iar mai recent, prin programele de publicare pentru calculator, ca Aldus PageMaker care includeau versiuni de Lorem Ipsum.</p>
           <div class="start-btn">
-            <a (click)="startQuiz()" class="btn">Start Quizz</a>
+            <a (click)="startQuiz()" class="btn">Start Quiz</a>
           </div>
         </div>
 
         <div *ngIf="quizStarted">
-
           <div>
             <div class="question-container">
               <app-question [question]="selectedQuestion.question" [view_mode]="'question'"></app-question>

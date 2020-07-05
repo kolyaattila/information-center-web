@@ -283,6 +283,20 @@ export class QuestionListComponent implements OnInit {
     return externalId;
   }
 
+  private getCourseName(externalId: string) {
+    if (externalId === '' || externalId === undefined) {
+      return '';
+    }
+
+    let name = externalId;
+    this.courses.forEach(course => {
+      if (externalId === course.externalId) {
+        name = course.name;
+      }
+    });
+    return name;
+  }
+
   private initChapters(nameCourse: string) {
     let chapters = [];
     this.courses.forEach(course => {

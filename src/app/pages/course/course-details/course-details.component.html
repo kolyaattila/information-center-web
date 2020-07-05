@@ -50,7 +50,7 @@
           <div class="btn-row">
             <div class="price"><span>Price: </span>${{course.price}}</div>
 
-            <a href="#" class="btn"><i class="fa fa-cart-plus"></i>Adauga in cos</a>
+            <a (click)="addCart()" routerLink="/cart" [ngClass]="{disable: isInCart()}" class="btn"><i class="fa fa-cart-plus"></i>Adauga in cos</a>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
                 <button (click)="openUpdateTopicModel(step)" mat-menu-item>Edit</button>
                 <button (click)="openDeleteTopicModal(step)" mat-menu-item>Delete</button>
                 <button (click)="openCreateVideoModel(step)" mat-menu-item>Add video</button>
-                <button routerLink="/course/quiz/create" mat-menu-item>Add Quiz</button>
+                <button routerLink="/course/create/quiz" mat-menu-item>Add Quiz</button>
               </mat-menu>
             </div>
           </div>
@@ -121,5 +121,8 @@
         </div>
       </div>
     </div>
+    <app-course-review [rating]="course.rating" [courseExternalId]="course.externalId"></app-course-review>
   </div>
 </div>
+
+

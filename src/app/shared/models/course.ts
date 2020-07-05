@@ -1,4 +1,5 @@
 import {Topic} from './topic';
+import {Rating} from './rating';
 
 export class Course {
   name: string;
@@ -7,7 +8,7 @@ export class Course {
   price: string;
   externalId?: string;
   enable: boolean;
-  rating?: any;
+  rating?: Rating;
   description?: string;
   numberTopics?: number;
   numberQuizzes?: number;

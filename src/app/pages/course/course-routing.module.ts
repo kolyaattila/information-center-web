@@ -18,6 +18,10 @@ const routes: Routes = [
         component: CourseListComponent
       },
       {
+        path: 'create/quiz',
+        component: QuizCreateComponent
+      },
+      {
         path: 'details/:id',
         component: CourseDetailsComponent
       },
@@ -25,16 +29,12 @@ const routes: Routes = [
         path: 'quiz/:id',
         component: QuizComponent
       }, {
-        path: 'quiz/result/:id',
+        path: 'result/quiz/:id',
         component: QuizResultComponent
       },
       {
         path: 'management',
         component: CoursManagementComponent
-      },
-      {
-        path: 'quiz/create',
-        component: QuizCreateComponent
       }
     ]
   }

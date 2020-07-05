@@ -14,6 +14,7 @@ import {QuestionFilter} from '../../../shared/models/questionFilter';
 import {Course} from '../../../shared/models/course';
 import {CourseFilter} from '../../../shared/models/courseFilter';
 import {Quiz} from '../../../shared/models/quiz';
+import {QuizValidation} from '../../../shared/models/quizValidation';
 
 @Injectable()
 export class CommonRepositoryService {
@@ -37,8 +38,8 @@ export class CommonRepositoryService {
     return this.http.post(`${environment.register}`, account);
   }
 
-  getCurrentAccount(): Promise<Account> {
-    return this.http.get<Account>(`${environment.account}`).toPromise();
+  getCurrentAccount(): Observable<Account> {
+    return this.http.get<Account>(`${environment.account}`).pipe();
   }
 
   createTopic(topic: Topic) {
@@ -161,7 +162,23 @@ export class CommonRepositoryService {
     return this.http.post(`${environment.quiz}`, quiz);
   }
 
-  getQuizById(id: string) {
-    return this.http.get(`${environment.quiz}active-quiz/` + id);
+  getQuizById(id: string): Observable<Quiz> {
+    return this.http.get<Quiz>(`${environment.quiz}active-quiz/` + id);
+  }
+
+  getBestCourses() {
+    return this.http.get<Course[]>(`${environment.course}course/best`).pipe();
+  }
+
+  makeReview(rating: number, courseExternalId: string, accountExternalId: string) {
+    return this.http.post(`${environment.course}review`, {rating, courseExternalId, accountExternalId});
+  }
+
+  validateQuiz(quiz: QuizValidation) {
+    return this.http.post<QuizValidation>(`${environment.quiz}validation`, quiz).pipe();
+  }
+
+  getValidationQuizByExternalId(externalId: string) {
+    return this.http.get<QuizValidation>(`${environment.quiz}validation/` + externalId).pipe();
   }
 }

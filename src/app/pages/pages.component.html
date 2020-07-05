@@ -2,10 +2,10 @@
   <div class="quck-nav">
     <div class="container">
       <div class="contact-no"><a><i class="fa fa-map-marker"></i>Oradea, Romania</a></div>
-      <div class="contact-no"><a routerLink="/"><i class="fa fa-globe"></i>invata-online.ro</a></div>
+      <div class="contact-no"><a routerLink="/"><i class="fa fa-globe"></i>smart-learning.ro</a></div>
       <div class="quck-right">
         <div class="right-link" *ngIf="!isLogin()"><a routerLink="/login"><i class="fa  fa-user"></i>Login \ Register</a></div>
-        <div class="right-link" *ngIf="isLogin() && currentAccount"><a routerLink="/account"><i class="fa  fa-user"></i>{{currentAccount.username}}</a></div>
+        <div class="right-link" *ngIf="isLogin() && currentAccount &&currentAccount.username"><a routerLink="/account"><i class="fa  fa-user"></i>{{currentAccount.username}}</a></div>
         <div class="right-link" *ngIf="isLogin()"><a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
       </div>
     </div>
@@ -24,7 +24,7 @@
             </button>
           </div>
           <div class="cart-box">
-            <a href="#"><i class="fa fa-shopping-basket"></i></a>
+            <a routerLink="/cart" ><i class="fa fa-shopping-basket"></i></a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -53,15 +53,10 @@
                     </div>
                     <div class="col-sm-4 menu-courses">
                       <div class="menu-title">Cursuri populare</div>
-                      <div class="courses-slide">
+                      <div class="courses-slide" *ngFor="let course of bestCourses">
                         <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
-                        <div class="name"><a href="#">Business Management</a></div>
-                        <div class="price">$500</div>
-                      </div>
-                      <div class="courses-slide">
-                        <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
-                        <div class="name"><a href="#">Computing Science</a></div>
-                        <div class="price">$255</div>
+                        <div class="name"><a routerLink="/course/details/{{course.externalId}}">{{course.name}}</a></div>
+                        <div class="price">${{course.price}}</div>
                       </div>
                     </div>
                   </div>
@@ -86,20 +81,10 @@
         <div class="row">
           <div class="col-sm-6 col-md-3">
             <h5>Cursuri populare</h5>
-            <div class="course-slide">
+            <div class="course-slide" *ngFor="let course of bestCourses">
               <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
-              <p><a href="#">when an unknown printer took </a></p>
-              <div class="price">$55</div>
-            </div>
-            <div class="course-slide">
-              <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
-              <p><a href="#">when an unknown printer took </a></p>
-              <div class="price">$505</div>
-            </div>
-            <div class="course-slide">
-              <div class="img"><img src="../../assets/images/courses/course_default_75x65.png" alt=""></div>
-              <p><a href="#">when an unknown printer took </a></p>
-              <div class="price">$178</div>
+              <p><a routerLink="/course/details/{{course.externalId}}">{{course.name}}</a></p>
+              <div class="price">${{course.price}}</div>
             </div>
           </div>
           <div class="col-sm-6">
@@ -130,7 +115,7 @@
                 <p><i class="fa fa-phone"></i>+299 97 39 82</p>
               </div>
               <div class="contact-slide">
-                <p><i class="fa fa-envelope"></i><a href="mailTo:examen-admitere@gmail.com">invata-online@gmail.com</a></p>
+                <p><i class="fa fa-envelope"></i><a href="mailTo:examen-admitere@gmail.com">smart-learning@gmail.com</a></p>
               </div>
             </div>
           </div>
@@ -141,7 +126,7 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="copy-right">
-            <p>Copyright © <span class="year">2020</span> Invata-online.</p>
+            <p>Copyright © <span class="year">2020</span> Smart Learning.</p>
             <ul class="footer-link">
               <li><a href="#">Termeni si conditi</a></li>
               <li><a href="#">Date personale</a></li>

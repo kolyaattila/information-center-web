@@ -16,6 +16,8 @@ import {AddTopicModelComponent} from '../lesson/add-topic-model/add-topic-model.
 import {LessonModule} from '../lesson/lesson.module';
 import {VideoModule} from '../lesson/video/video.module';
 import { QuizCreateComponent } from './quiz-create/quiz-create.component';
+import { CourseReviewComponent } from './course-review/course-review.component';
+import {BarRatingModule} from 'ngx-bar-rating';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { QuizCreateComponent } from './quiz-create/quiz-create.component';
     CourseCreateModalComponent,
     CourseFilterComponent,
     CoursManagementComponent,
-    QuizCreateComponent
+    QuizCreateComponent,
+    CourseReviewComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +38,8 @@ import { QuizCreateComponent } from './quiz-create/quiz-create.component';
     SharedModule,
     ReactiveFormsModule,
     LessonModule,
-    VideoModule
+    VideoModule,
+    BarRatingModule
   ],
   exports: [RouterModule, QuestionComponent],
   entryComponents: [CourseCreateModalComponent, AddTopicModelComponent]

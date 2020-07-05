@@ -1,0 +1,63 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../assets/images/banner/banner-wall.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/banner-wall.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Cart</h1>
+    </div>
+  </div>
+</section>
+
+
+<section class="cart-page">
+  <div class="container">
+    <div class="table-view">
+      <div class="cart-table">
+        <table>
+          <tr>
+            <th>PRODUCT</th>
+            <th>PRICE</th>
+            <th>&nbsp;</th>
+          </tr>
+          <tr *ngFor="let product of cartProducts">
+            <td>
+              <div class="product-details">
+                <div class="img"><img src="../../../../assets/images/courses/course_default_75x65.png" alt=""></div>
+                <div class="name">{{product.name}}</div>
+              </div>
+            </td>
+            <td><span class="small-text">PRICE</span>{{product.price}}RON</td>
+            <td><span class="small-text">Remove Item</span><a (click)="removeProduct(product)" class="close-icon"><span>Delete</span><i class="fa fa-trash"></i></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="cart-total">
+        <table>
+          <tr>
+            <td>Total:</td>
+            <td>{{totalPrice}}RON</td>
+          </tr>
+          <tr>
+            <td>Cupon:</td>
+            <td>{{coupon}}RON</td>
+          </tr>
+          <tr class="total">
+            <td>Suma totala:</td>
+            <td>{{totalPrice + coupon}}RON</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="cart-row">
+      <div class="coupon-code">
+        <input type="text" placeholder="Coupon code">
+        <input type="submit" value="Aplica" class="btn">
+      </div>
+      <div class="check-outBtn">
+        <a routerLink="checkout" class="btn">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+</section>

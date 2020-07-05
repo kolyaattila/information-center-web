@@ -46,6 +46,10 @@ const routes: Routes = [
       {
         path: 'contact-us',
         loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
+      },
+      {
+        path: 'cart',
+        loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
       }
     ]
   }];

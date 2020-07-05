@@ -10,6 +10,7 @@ import {QuestionService} from '../../../core/services/question.service';
 import {QuizService} from '../../../core/services/quiz.service';
 import {Quiz} from '../../../shared/models/quiz';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-quiz-create',
@@ -53,7 +54,8 @@ export class QuizCreateComponent implements OnInit {
   constructor(private courseService: CourseService,
               private questionService: QuestionService,
               private quizService: QuizService,
-              private toastrService: ToastrService) {
+              private toastrService: ToastrService,
+              private router: Router) {
     courseService.getAllActiveCourses().subscribe(
       data => {
         this.courses = data;
@@ -86,7 +88,15 @@ export class QuizCreateComponent implements OnInit {
 
     console.log(quiz);
     this.quizService.createQuiz(quiz).subscribe(
-      () => this.toastrService.success('Quiz creat.'),
+      () => {
+        this.toastrService.success('Quiz creat.');
+        if (quiz.enable) {
+          const url = '/course/details/' + quiz.courseExternalId;
+          this.router.navigate([url]);
+        } else {
+          this.router.navigate(['/']);
+        }
+      },
       (error) => this.toastrService.error('A aparut o eroare.'));
   }
 
