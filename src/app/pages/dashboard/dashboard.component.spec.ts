@@ -4,8 +4,9 @@ import {DashboardComponent} from './dashboard.component';
 import {DashboardModule} from './dashboard.module';
 import {CommonRepositoryService} from '../../core/shared/service/common-repository.service';
 import {CommonRepositoryMockService} from '../../core/shared/service/common-repository.mock.service';
-import {ToastrService} from 'ngx-toastr';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrService} from 'ngx-toastr';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -13,11 +14,10 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DashboardModule, BrowserAnimationsModule, NoopAnimationsModule],
+      imports: [DashboardModule, BrowserAnimationsModule, NoopAnimationsModule, RouterTestingModule],
       declarations: [],
       providers: [
         {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()},
-        {provide: ToastrService, useClass: ToastrService},
         {provide: ToastrService, useValue: {}}
       ]
     })

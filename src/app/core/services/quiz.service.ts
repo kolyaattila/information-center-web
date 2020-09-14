@@ -82,4 +82,9 @@ export class QuizService {
     });
     return object;
   }
+
+  getMyQuizzes(accountUid: string) {
+    return this.repositoryService.getMyQuizzes(accountUid);
+  }
+
 }

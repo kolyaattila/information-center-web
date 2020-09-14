@@ -50,9 +50,15 @@
                       </p>
                     </div>
                   </td>
-                  <td><span class="small-heading">Adresa</span>{{order.userExternalId}}</td>
+                  <td><span class="small-heading">Adresa</span>
+                    <p style="text-align: left">Nume: {{order.address.name}}</p>
+                    <p style="text-align: left">Telefon: {{order.address.phoneNumber}}</p>
+                    <p style="text-align: left">Adresa: {{order.address.address1}}</p>
+                    <p style="text-align: left">Oras: {{order.address.city}}</p>
+
+                    </td>
                   <td><span class="small-heading">Data</span>{{order.date |  date:'MM/dd/yyyy'}}</td>
-                  <td><span class="small-heading">Total</span>{{order.price}}RON</td>
+                  <td><span class="small-heading">Total</span>{{order.price}}$</td>
                 </tr>
               </table>
             </div>

@@ -26,7 +26,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
         switch (data[`status`]) {
           case 503: {
-            console.log(data);
             this.toastr.error('Service nu este disponibil momentan');
             if (this.authService.isLogin()) {
               // this.authService.logout();

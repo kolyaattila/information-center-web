@@ -58,6 +58,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
   changeVideo(video: Video) {
     this.videoExternalId = video.externalId;
     this.videoTitle = video.title;
+    this.videoDescription = video.description;
     this.changePath();
     this.refreshVideoTag();
   }

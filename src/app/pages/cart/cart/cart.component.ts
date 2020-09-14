@@ -29,4 +29,8 @@ export class CartComponent implements OnInit {
     this.cartService.removeProduct(product);
     this.cartProducts = this.cartService.getCartProducts();
   }
+
+  get disabled() {
+    return this.cartService.isAnyProductInCart();
+  }
 }

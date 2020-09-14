@@ -15,6 +15,6 @@ export class Course {
   numberDocuments?: number;
   numberVideos?: number;
   numberStudents?: number;
-  topics?: Topic[];
+  topics?: Topic[] = [];
   image?: string;
 }

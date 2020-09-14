@@ -1,4 +1,5 @@
 import {CartProduct} from './CartProduct';
+import {Address} from './address';
 
 export class Order {
   price: number;
@@ -6,4 +7,5 @@ export class Order {
   userExternalId: string;
   courses?: CartProduct[];
   orderId: number;
+  address: Address;
 }

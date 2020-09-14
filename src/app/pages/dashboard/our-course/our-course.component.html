@@ -10,15 +10,15 @@
             <img src="../../../../assets/images/courses/course_default_350x250.png" alt="">
             <div class="course-info">
               <div class="date"><i class="fa fa-calendar"></i>{{course.created | date:'MM/dd/yyyy' }}</div>
-<!--              <div class="date"><i class="fa fa-clock-o"></i>2 Days</div>-->
-<!--              <div class="favorite"><a href="#"><i class="fa fa-heart-o"></i></a></div>-->
+              <!--              <div class="date"><i class="fa fa-clock-o"></i>2 Days</div>-->
+              <!--              <div class="favorite"><a href="#"><i class="fa fa-heart-o"></i></a></div>-->
             </div>
             <div class="price">${{course.price}}</div>
           </div>
           <div class="course-name">{{course.name}}<span><em>By </em>{{course.author}}</span></div>
           <div class="comment-row">
             <div class="rating">
-              <div class="fill" style="width:45%"></div>
+              <div class="fill" [ngStyle]="{width: (course.rating.average * 20) + '%'}"></div>
             </div>
             <div class="box"><i class="fa fa-users"></i>35</div>
             <div class="enroll-btn">

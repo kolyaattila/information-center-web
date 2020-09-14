@@ -15,9 +15,10 @@ import {CoursManagementComponent} from './cours-management/cours-management.comp
 import {AddTopicModelComponent} from '../lesson/add-topic-model/add-topic-model.component';
 import {LessonModule} from '../lesson/lesson.module';
 import {VideoModule} from '../lesson/video/video.module';
-import { QuizCreateComponent } from './quiz-create/quiz-create.component';
-import { CourseReviewComponent } from './course-review/course-review.component';
+import {QuizCreateComponent} from './quiz-create/quiz-create.component';
+import {CourseReviewComponent} from './course-review/course-review.component';
 import {BarRatingModule} from 'ngx-bar-rating';
+import {MyQuizComponent} from './my-quiz/my-quiz.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {BarRatingModule} from 'ngx-bar-rating';
     CourseFilterComponent,
     CoursManagementComponent,
     QuizCreateComponent,
-    CourseReviewComponent
+    CourseReviewComponent,
+    MyQuizComponent
   ],
   imports: [
     CommonModule,

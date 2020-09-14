@@ -181,4 +181,8 @@ export class CommonRepositoryService {
   getValidationQuizByExternalId(externalId: string) {
     return this.http.get<QuizValidation>(`${environment.quiz}validation/` + externalId).pipe();
   }
+
+  getMyQuizzes(accountUid: string): Observable<any> {
+    return this.http.get(`${environment.quiz}statistics/` + accountUid);
+  }
 }

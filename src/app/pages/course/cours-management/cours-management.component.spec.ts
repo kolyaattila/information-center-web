@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CoursManagementComponent } from './cours-management.component';
+import {CoursManagementComponent} from './cours-management.component';
+import {CourseModule} from '../course.module';
+import {CommonRepositoryService} from '../../../core/shared/service/common-repository.service';
+import {CommonRepositoryMockService} from '../../../core/shared/service/common-repository.mock.service';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('CoursManagementComponent', () => {
   let component: CoursManagementComponent;
@@ -8,9 +14,15 @@ describe('CoursManagementComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoursManagementComponent ]
+      declarations: [],
+      imports: [CourseModule, BrowserAnimationsModule, NoopAnimationsModule],
+      providers: [
+        {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()},
+        {provide: ToastrService, useValue: {}},
+        {provide: Router, useValue: {}},
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

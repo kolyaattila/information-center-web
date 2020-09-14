@@ -7,6 +7,8 @@ import {QuizComponent} from './quiz/quiz.component';
 import {QuizResultComponent} from './quiz-result/quiz-result.component';
 import {CoursManagementComponent} from './cours-management/cours-management.component';
 import {QuizCreateComponent} from './quiz-create/quiz-create.component';
+import {NotfoundComponent} from '../../notfound-component/notfound.component';
+import {MyQuizComponent} from './my-quiz/my-quiz.component';
 
 const routes: Routes = [
   {
@@ -28,13 +30,22 @@ const routes: Routes = [
       {
         path: 'quiz/:id',
         component: QuizComponent
-      }, {
+      },
+      {
         path: 'result/quiz/:id',
         component: QuizResultComponent
       },
       {
         path: 'management',
         component: CoursManagementComponent
+      },
+      {
+        path: 'my-quiz',
+        component: MyQuizComponent
+      },
+      {
+        path: '**',
+        component: NotfoundComponent
       }
     ]
   }

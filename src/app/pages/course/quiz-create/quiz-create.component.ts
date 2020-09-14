@@ -86,7 +86,6 @@ export class QuizCreateComponent implements OnInit {
       quiz.questionIds.push(question.externalId);
     });
 
-    console.log(quiz);
     this.quizService.createQuiz(quiz).subscribe(
       () => {
         this.toastrService.success('Quiz creat.');
@@ -165,7 +164,6 @@ export class QuizCreateComponent implements OnInit {
 
   private initChapters(nameCourse: string) {
     let chapters = [];
-    console.log(nameCourse);
     this.courses.forEach(course => {
       if (nameCourse === course.name) {
         chapters = course.topics;

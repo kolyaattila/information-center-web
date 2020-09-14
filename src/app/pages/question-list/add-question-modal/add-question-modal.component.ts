@@ -181,7 +181,6 @@ export class AddQuestionModalComponent implements OnInit {
     const question = this.constructQuestion();
     this.saveOrUpdate(question).subscribe(
       data => {
-        console.log(question);
         this.toastr.success('Question saved');
         this.dialogRef.close(true);
       },

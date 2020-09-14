@@ -24,7 +24,6 @@ import {SharedModule} from './shared/shared.module';
     AppComponent,
     CommingSoonComponent,
     SubscriptionComponentComponent,
-    NotfoundComponent,
     SubscriptionActivationComponent,
     UnsubscriptionComponent
   ],

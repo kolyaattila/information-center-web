@@ -19,7 +19,6 @@ export class VideoService {
     return this.repositoryService.getVideosDetailsByCourseId(courseId);
   }
 
-
   save(video: Video, file: File) {
     return this.repositoryService.createVideo(this.toFormData(video, file));
   }

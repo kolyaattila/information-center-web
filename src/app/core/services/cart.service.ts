@@ -3,24 +3,14 @@ import {CartProduct} from '../../shared/models/CartProduct';
 import {Order} from '../../shared/models/Order';
 import {AccountService} from './account.service';
 import {Course} from '../../shared/models/course';
+import {Address} from '../../shared/models/address';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private coupon = 0;
-  private cartProducts: CartProduct[] = [
-    {
-      name: 'Time Management',
-      price: 30,
-      courseExternalId: '3523fff-df34nr9f-f30r9f'
-    },
-    {
-      name: 'Bazele marketingului digital',
-      price: 20,
-      courseExternalId: '3523fff-df34nr9f-f30r9fw'
-    }
-  ];
+  private cartProducts: CartProduct[] = [];
   private orders: Order[] = [];
 
   constructor(private accountService: AccountService) {
@@ -54,12 +44,13 @@ export class CartService {
     }
   }
 
-  order() {
+  order(addres: Address) {
     const order = new Order();
     order.date = new Date();
     order.price = this.totalPrice;
     order.orderId = new Date().getMilliseconds();
     order.courses = this.cartProducts;
+    order.address = addres;
     this.accountService.getCurrentAccount().subscribe(response => order.userExternalId = response.uid);
     this.orders.push(order);
     this.cartProducts = [];
@@ -67,6 +58,10 @@ export class CartService {
 
   getOrders(): Order[] {
     return this.orders;
+  }
+
+  isAnyProductInCart() {
+    return this.cartProducts.length > 0;
   }
 
   addCurs(course: Course) {

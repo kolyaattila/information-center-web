@@ -33,49 +33,6 @@ export class CourseDetailsComponent implements OnInit {
     display?: boolean;
     videoName?: string;
   }[] = [];
-  temp = [
-    {
-      number: 1,
-      name: 'title',
-      topicExternalId: '335',
-      video: 'video',
-      quiz: 'quiz',
-      document: 'document',
-      display: false
-    },
-    {
-      number: 2,
-      video: 'video',
-      name: 'title',
-      document: 'document',
-      display: false
-    },
-    {
-      number: 3,
-      video: 'video',
-      name: 'title',
-      quiz: 'quiz',
-      document: 'document',
-      display: false
-    },
-    {
-      number: 4,
-      video: 'video',
-      name: 'title',
-      quiz: 'quiz',
-      document: 'document',
-      display: false
-    },
-    {
-      number: 5,
-      video: 'video',
-      name: 'title',
-      quiz: 'quiz',
-      document: 'document',
-      display: false
-    }
-  ];
-
   course = new Course();
   quizzes: Quiz[] = [];
 
@@ -112,9 +69,10 @@ export class CourseDetailsComponent implements OnInit {
         this.course = new Course();
       }
     );
-
     this.quizService.getQuizzesByCourseId(courseId).subscribe(
-      data => this.quizzes = data,
+      data => {
+        this.quizzes = data;
+      },
       error => this.quizzes = []
     );
   }

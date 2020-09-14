@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Course} from '../../../shared/models/course';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {CourseCreateModalComponent} from '../course-create-modal/course-create-modal.component';
 

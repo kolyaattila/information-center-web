@@ -9,7 +9,7 @@
       <div class="col-xl-7 col-lg-7 col-md-5 col-sm-9 col-xs-7 col-3 details-content">
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <h5 class="video-title">Five Steps to Get on Top of Your Schedule</h5>
+            <h5 class="video-title">{{video.title}}</h5>
             <div class="option-icon">
               <button mat-icon-button [matMenuTriggerFor]="topicMenu">
                 <mat-icon>more_vert</mat-icon>
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="video-description">When someone brings up essential skills for independent living, time management might not be at the top of your list. It’s probably not one you ...</div>
+            <div class="video-description">{{video.description.substring(0, 90)}}...</div>
           </div>
         </div>
       </div>

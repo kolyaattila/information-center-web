@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CartComponent } from './cart.component';
+import {CartComponent} from './cart.component';
+import {CommonRepositoryService} from '../../../core/shared/service/common-repository.service';
+import {CommonRepositoryMockService} from '../../../core/shared/service/common-repository.mock.service';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -8,9 +10,12 @@ describe('CartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CartComponent ]
+      declarations: [CartComponent],
+      providers: [
+        {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()}
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

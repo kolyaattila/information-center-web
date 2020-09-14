@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Rating} from '../../../shared/models/rating';
 import {ReviewService} from '../../../core/services/review-service';
-import {$e} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-course-review',
@@ -33,7 +32,6 @@ export class CourseReviewComponent implements OnInit {
   }
 
   makeReview($event: number) {
-    console.log($event);
     this.reviewService.makeReview($event, this.courseExternalId);
   }
 }

@@ -42,7 +42,7 @@ export class QuestionListComponent implements OnInit {
     book: new FormControl('', {
       validators: []
     }),
-    verified: new FormControl(false, {
+    verified: new FormControl(true, {
       validators: []
     })
   });
@@ -84,7 +84,7 @@ export class QuestionListComponent implements OnInit {
       }
     );
 
-    this.getData({pageSize: 10, pageNumber: 0});
+    this.getData({pageSize: 10, pageNumber: 0, verified: true});
     this.onChanges();
   }
 
@@ -146,7 +146,7 @@ export class QuestionListComponent implements OnInit {
     return this.filter.get('verified');
   }
 
-  applyFilter() {
+  applyFilter(pageNumber = 0, pageSize = 10) {
     const filter: QuestionFilter = new QuestionFilter();
     if (this.questionName.touched && this.questionName.dirty) {
       filter.name = this.questionName.value;
@@ -172,8 +172,8 @@ export class QuestionListComponent implements OnInit {
       filter.courseExternalId = this.getCourse();
     }
 
-    filter.pageNumber = 0;
-    filter.pageSize = 10;
+    filter.pageNumber = pageNumber;
+    filter.pageSize = pageSize;
 
     this.getData(filter);
   }
@@ -283,7 +283,7 @@ export class QuestionListComponent implements OnInit {
     return externalId;
   }
 
-  private getCourseName(externalId: string) {
+  getCourseName(externalId: string) {
     if (externalId === '' || externalId === undefined) {
       return '';
     }
@@ -308,7 +308,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   changePage($event: PageEvent) {
-    this.getData({pageSize: $event.pageSize, pageNumber: $event.pageIndex});
+    this.applyFilter($event.pageIndex, $event.pageSize);
   }
 }
 

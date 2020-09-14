@@ -27,7 +27,6 @@ export class AddTopicModelComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private modalData: any,
     private toastr: ToastrService) {
 
-    console.log(modalData);
     if (modalData) {
       this.courseExternalId = modalData.courseExternalId;
     }

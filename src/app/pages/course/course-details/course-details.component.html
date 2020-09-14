@@ -14,31 +14,31 @@
   <div class="container">
     <h2>{{course.name}}</h2>
     <div class="course-details-main">
-      <div class="course-img" *ngIf="course.image">
-        <img src="../../../../assets/images/banner/{{course.image}}.jpg" alt="">
-      </div>
-      <div class="course-info">
-        <div class="course-box">
-          <div class="icon"><i class="fas fa-book-open"></i></div>
-          <p>{{course.numberTopics}} Lecti</p>
-        </div>
-        <div class="course-box">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <p>{{course.numberQuizzes}} Quiz</p>
-        </div>
-        <div class="course-box">
-          <div class="icon"><i class="fas fa-file-alt"></i></div>
-          <p>7 Documente</p>
-        </div>
-        <div class="course-box">
-          <div class="icon"><i class="fas fa-video"></i></div>
-          <p>{{course.numberVideos}} Video</p>
-        </div>
-        <div class="course-box">
-          <div class="icon"><i class="fas fa-user-graduate"></i></div>
-          <p>57 Studenti</p>
-        </div>
-      </div>
+      <!--      <div class="course-img" *ngIf="course.image">-->
+      <!--        <img src="../../../../assets/images/banner/{{course.image}}.jpg" alt="">-->
+      <!--      </div>-->
+      <!--      <div class="course-info">-->
+      <!--        <div class="course-box">-->
+      <!--          <div class="icon"><i class="fas fa-book-open"></i></div>-->
+      <!--          <p>{{course.numberTopics}} Lecti</p>-->
+      <!--        </div>-->
+      <!--        <div class="course-box">-->
+      <!--          <div class="icon"><i class="fas fa-notes-medical"></i></div>-->
+      <!--          <p>{{course.numberQuizzes}} Quiz</p>-->
+      <!--        </div>-->
+      <!--        <div class="course-box">-->
+      <!--          <div class="icon"><i class="fas fa-file-alt"></i></div>-->
+      <!--          <p>7 Documente</p>-->
+      <!--        </div>-->
+      <!--        <div class="course-box">-->
+      <!--          <div class="icon"><i class="fas fa-video"></i></div>-->
+      <!--          <p>{{course.numberVideos}} Video</p>-->
+      <!--        </div>-->
+      <!--        <div class="course-box">-->
+      <!--          <div class="icon"><i class="fas fa-user-graduate"></i></div>-->
+      <!--          <p>57 Studenti</p>-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="row">
         <div class="col-sm-6">
           <div class="course-instructorInfo">
@@ -111,7 +111,7 @@
                 <a routerLink="/lesson/video/{{step.topicExternalId}}">{{step.name}} videos<span class="hover-text">Watch Video<i class="fa fa-angle-right"></i></span></a>
               </li>
               <li *ngIf="step.document">
-                <a href="#">{{step.document}}<span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a>
+                <a href="/">{{step.document}}<span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a>
               </li>
               <li *ngIf="step.quiz">
                 <a routerLink="/course/quiz/{{step.quiz}}">{{step.name}} quiz<span class="hover-text">Upgrade now<i class="fa fa-angle-right"></i></span></a>

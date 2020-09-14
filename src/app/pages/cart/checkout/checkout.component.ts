@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CartProduct} from '../../../shared/models/CartProduct';
 import {CartService} from '../../../core/services/cart.service';
+import {Address} from '../../../shared/models/address';
 
 @Component({
   selector: 'app-checkout',
@@ -79,7 +80,15 @@ export class CheckoutComponent implements OnInit {
 
 
   order() {
-    this.cartService.order();
+    const address = new Address();
+    address.name = this.name;
+    address.address1 = this.primaryAddress;
+    address.address2 = this.secondAddress;
+    address.city = this.city;
+    address.country = this.state;
+    address.zipCode = this.postalCode;
+    address.phoneNumber = this.phoneNumber;
+    this.cartService.order(address);
   }
 
   get name() {

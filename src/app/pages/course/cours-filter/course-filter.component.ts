@@ -19,7 +19,7 @@ export class CourseFilterComponent implements OnInit {
     courseName: new FormControl('', {}),
     price: new FormControl('', {}),
     externalId: new FormControl('', {}),
-    enable: new FormControl(false, {})
+    enable: new FormControl(true, {})
   });
   displayedColumns: string[] = ['name', 'author', 'createdAt', 'price', 'externalId', 'enable'];
   dataSource: Course[] = [];
@@ -42,7 +42,7 @@ export class CourseFilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getData({pageSize: 10, pageNumber: 0});
+    this.getData({pageSize: 10, pageNumber: 0, enable: true});
   }
 
   onContextMenu(event: MouseEvent, value: any) {
@@ -136,7 +136,6 @@ export class CourseFilterComponent implements OnInit {
   private getData(filter: CourseFilter) {
     this.courseService.courseFilter(filter).subscribe(
       (data: any) => {
-        console.log(data);
         this.dataSource = data.content;
         this.page.length = data.totalElements;
         this.page.pageSize = data.size;

@@ -34,7 +34,7 @@
               <div class="box"><i class="fa fa-users"></i>57{{course.peopleEnroled}} Enrolled</div>
             </div>
             <div class="rating">
-              <div class="fill" style="width:60%"></div>
+              <div class="fill" [ngStyle]="{width: (course.rating.average * 20) + '%'}"></div>
             </div>
             <p>{{course.description}}</p>
             <div class="view-btn2">

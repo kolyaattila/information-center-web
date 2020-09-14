@@ -142,7 +142,7 @@ export class QuizComponent implements OnInit {
         if (unsolvedQuestion !== '') {
           unsolvedQuestion += ', ';
         }
-        unsolvedQuestion += question.number;
+        unsolvedQuestion += question.questionNumber;
       }
     );
 

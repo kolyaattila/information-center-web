@@ -17,4 +17,8 @@ export class OurCourseComponent implements OnInit {
     this.courseService.getBestCourses().subscribe(data => this.bestCourses = data);
   }
 
+  getRating(course: Course) {
+
+  }
+
 }

@@ -49,7 +49,6 @@ export class CreateVideoModalComponent implements OnInit {
   }
 
   private initData(modalData: any) {
-    console.log(modalData);
     this.courses.push(modalData.course);
     this.video.course = modalData.course.name;
     this.video.courseExternalId = modalData.course.externalId;
@@ -86,7 +85,6 @@ export class CreateVideoModalComponent implements OnInit {
     this.video.videoDuration = this.videoDuration.toString();
     this.addTopicIdToVideo();
     this.addCourseIdToVideo();
-    console.log(this.video);
     this.videoService.save(this.video, this.file).subscribe(
       data => {
         this.toastr.success('Video salvat cu succes');

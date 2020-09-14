@@ -9,6 +9,8 @@ import {CommonRepositoryMockService} from '../../core/shared/service/common-repo
 import {MatDialogRef} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {AccountService} from '../../core/services/account.service';
+import {AccountMockService} from '../../core/services/account.mock.service';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -21,7 +23,8 @@ describe('AccountComponent', () => {
       providers: [
         {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()},
         {provide: ToastrService, useValue: {}},
-        {provide: MatDialogRef, useValue: {}}]
+        {provide: MatDialogRef, useValue: {}},
+        {provide: AccountService, useValue: new AccountMockService()}]
     })
       .compileComponents();
   }));

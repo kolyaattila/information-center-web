@@ -27,7 +27,7 @@
                 <div class="name">{{product.name}}</div>
               </div>
             </td>
-            <td><span class="small-text">PRICE</span>{{product.price}}RON</td>
+            <td><span class="small-text">PRICE</span>{{product.price}}$</td>
             <td><span class="small-text">Remove Item</span><a (click)="removeProduct(product)" class="close-icon"><span>Delete</span><i class="fa fa-trash"></i></a>
             </td>
           </tr>
@@ -37,15 +37,15 @@
         <table>
           <tr>
             <td>Total:</td>
-            <td>{{totalPrice}}RON</td>
+            <td>{{totalPrice}}$</td>
           </tr>
           <tr>
             <td>Cupon:</td>
-            <td>{{coupon}}RON</td>
+            <td>{{coupon}}$</td>
           </tr>
           <tr class="total">
             <td>Suma totala:</td>
-            <td>{{totalPrice + coupon}}RON</td>
+            <td>{{totalPrice + coupon}}$</td>
           </tr>
         </table>
       </div>
