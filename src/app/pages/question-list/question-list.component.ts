@@ -9,6 +9,9 @@ import {ToastrService} from 'ngx-toastr';
 import {QuestionViewModalComponent} from './question-view-modal/question-view-modal.component';
 import {AddQuestionModalComponent} from './add-question-modal/add-question-modal.component';
 import {QuestionService} from '../../core/services/question.service';
+import {CourseService} from '../../core/services/course.service';
+import {Course} from '../../shared/models/course';
+import {Topic} from '../../shared/models/topic';
 
 @Component({
   selector: 'app-question-list',
@@ -39,39 +42,15 @@ export class QuestionListComponent implements OnInit {
     book: new FormControl('', {
       validators: []
     }),
-    verified: new FormControl(false, {
+    verified: new FormControl(true, {
       validators: []
     })
   });
 
   questionDifficultyList = ['HARD', 'EASY', 'MEDIUM'];
   schools: any;
-  chapters = [];
-  courses = [{
-    name: 'course1',
-    externalId: 'awf',
-    chapters: [{
-      name: 'chapter1course1',
-      externalId: 'awf'
-    },
-      {
-        name: 'chapter2course1',
-        externalId: 'afwaw'
-      }]
-  },
-    {
-      name: 'course2',
-      externalId: 'afwaw',
-      chapters: [{
-        name: 'chapter1course2',
-        externalId: 'awf'
-      },
-        {
-          name: 'chapter2course2',
-          externalId: 'afwaw'
-        }]
-    }
-  ];
+  topics: Topic[] = [];
+  courses: Course[] = [];
   displayedColumns: string[] = ['questionNumber', 'name', 'questionDifficulty', 'book', 'course', 'chapter',
     'school', 'externalId', 'verified'];
   dataSource = [];
@@ -88,7 +67,8 @@ export class QuestionListComponent implements OnInit {
   constructor(private schoolService: SchoolService,
               public matDialog: MatDialog,
               private toastr: ToastrService,
-              private questionService: QuestionService) {
+              private questionService: QuestionService,
+              private courseService: CourseService) {
   }
 
   ngOnInit() {
@@ -98,13 +78,13 @@ export class QuestionListComponent implements OnInit {
       }
     );
 
-    // this.courseService.getAllCourse().subscribe(
-    //   (data) => {
-    //     this.courses = data;
-    //   }
-    // );
+    this.courseService.getAllCourse().subscribe(
+      (data) => {
+        this.courses = data;
+      }
+    );
 
-    this.getData({pageSize: 10, pageNumber: 0});
+    this.getData({pageSize: 10, pageNumber: 0, verified: true});
     this.onChanges();
   }
 
@@ -166,7 +146,7 @@ export class QuestionListComponent implements OnInit {
     return this.filter.get('verified');
   }
 
-  applyFilter() {
+  applyFilter(pageNumber = 0, pageSize = 10) {
     const filter: QuestionFilter = new QuestionFilter();
     if (this.questionName.touched && this.questionName.dirty) {
       filter.name = this.questionName.value;
@@ -192,8 +172,8 @@ export class QuestionListComponent implements OnInit {
       filter.courseExternalId = this.getCourse();
     }
 
-    filter.pageNumber = 0;
-    filter.pageSize = 10;
+    filter.pageNumber = pageNumber;
+    filter.pageSize = pageSize;
 
     this.getData(filter);
   }
@@ -205,7 +185,7 @@ export class QuestionListComponent implements OnInit {
 
   private getChapter() {
     let externalId = '';
-    this.chapters.forEach(chapter => {
+    this.topics.forEach(chapter => {
       if (this.chapter.value === chapter.name) {
         externalId = chapter.externalId;
       }
@@ -303,18 +283,32 @@ export class QuestionListComponent implements OnInit {
     return externalId;
   }
 
+  getCourseName(externalId: string) {
+    if (externalId === '' || externalId === undefined) {
+      return '';
+    }
+
+    let name = externalId;
+    this.courses.forEach(course => {
+      if (externalId === course.externalId) {
+        name = course.name;
+      }
+    });
+    return name;
+  }
+
   private initChapters(nameCourse: string) {
     let chapters = [];
     this.courses.forEach(course => {
       if (nameCourse === course.name) {
-        chapters = course.chapters;
+        chapters = course.topics;
       }
     });
-    this.chapters = chapters;
+    this.topics = chapters;
   }
 
   changePage($event: PageEvent) {
-    this.getData({pageSize: $event.pageSize, pageNumber: $event.pageIndex});
+    this.applyFilter($event.pageIndex, $event.pageSize);
   }
 }
 

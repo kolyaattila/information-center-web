@@ -2,7 +2,7 @@
   <div class='pb-2 mt-5 mb-5 border-bottom title-container'>
     <div class='row'>
       <div class='col-md-11 title'>
-        Questions
+        Intrebari
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
         </mat-form-field>
 
         <mat-form-field class='col-md-4'>
-          <mat-label>Question difficulty</mat-label>
+          <mat-label>Dificultate</mat-label>
           <mat-select name="questionDifficultyList" formControlName="questionDifficulty">
             <mat-option *ngFor="let difficulty of questionDifficultyList" [value]="difficulty">
               {{difficulty}}
@@ -27,7 +27,7 @@
 
         <mat-form-field class='col-md-4'>
           <input type="text"
-                 placeholder="School"
+                 placeholder="Scoala"
                  matInput
                  [formControl]="school"
                  [matAutocomplete]="autoSchool">
@@ -40,7 +40,7 @@
 
         <mat-form-field class='col-md-4'>
           <input type="text"
-                 placeholder="Course"
+                 placeholder="Curs"
                  matInput
                  [formControl]="course"
                  [matAutocomplete]="autoCourse">
@@ -53,12 +53,12 @@
 
         <mat-form-field class='col-md-4'>
           <input type="text"
-                 placeholder="Chapter"
+                 placeholder="Subiect"
                  matInput
                  [formControl]="chapter"
                  [matAutocomplete]="autoChapter">
           <mat-autocomplete #autoChapter="matAutocomplete">
-            <mat-option *ngFor="let chapter of chapters" [value]="chapter.name">
+            <mat-option *ngFor="let chapter of topics" [value]="chapter.name">
               {{chapter.name}}
             </mat-option>
           </mat-autocomplete>
@@ -66,18 +66,18 @@
 
 
         <mat-form-field class='col-md-4'>
-          <mat-label>Book</mat-label>
+          <mat-label>Carte</mat-label>
           <input matInput placeholder="Book name" formControlName="book">
         </mat-form-field>
 
 
         <mat-form-field class='col-md-4'>
-          <mat-label>Question number</mat-label>
+          <mat-label>Numarul Intrebari</mat-label>
           <input matInput placeholder="3546" formControlName="questionNumber">
         </mat-form-field>
 
         <div class='col-md-12'>
-          <mat-checkbox formControlName="verified">Verified</mat-checkbox>
+          <mat-checkbox formControlName="verified">Verificata</mat-checkbox>
         </div>
 
       </form>
@@ -86,13 +86,13 @@
     <div class='buttons-filter'>
       <div class='card card-body bg-light d-block p-3 my-3'>
         <div class='button'>
-          <a (click)="applyFilter()" class="btn btn-primary align-middle">Apply filters</a>
+          <a (click)="applyFilter()" class="btn btn-primary align-middle">Aplica</a>
         </div>
         <div class='button'>
-          <a (click)="resetFilter()" class="btn btn-secondary align-middle">Reset filters</a>
+          <a (click)="resetFilter()" class="btn btn-secondary align-middle">Reseteaza</a>
         </div>
         <div class='button'>
-          <a (click)="openCreateQuestionModel()" class="btn btn-success align-middle">Create Question</a>
+          <a (click)="openCreateQuestionModel()" class="btn btn-success align-middle">Creaza</a>
         </div>
       </div>
     </div>
@@ -107,31 +107,31 @@
           <td mat-cell *matCellDef="let element"> {{element.questionNumber}} </td>
         </ng-container>
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef style="min-width: 500px"> Name</th>
+          <th mat-header-cell *matHeaderCellDef style="min-width: 500px"> Nume</th>
           <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
         <ng-container matColumnDef="questionDifficulty">
-          <th mat-header-cell *matHeaderCellDef> Difficulty</th>
+          <th mat-header-cell *matHeaderCellDef> Dificultate</th>
           <td mat-cell *matCellDef="let element"> {{element.questionDifficulty}} </td>
         </ng-container>
 
         <ng-container matColumnDef="book">
-          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Book</th>
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Carte</th>
           <td mat-cell *matCellDef="let element"> {{element.book}} </td>
         </ng-container>
 
         <ng-container matColumnDef="course">
-          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Course</th>
-          <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Curs</th>
+          <td mat-cell *matCellDef="let element"> {{getCourseName(element.courseExternalId)}} </td>
         </ng-container>
 
         <ng-container matColumnDef="chapter">
-          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Chapter</th>
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Subiect</th>
           <td mat-cell *matCellDef="let element"> {{element.chapter}} </td>
         </ng-container>
 
         <ng-container matColumnDef="school">
-          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> School</th>
+          <th mat-header-cell *matHeaderCellDef style="min-width: 300px"> Scoala</th>
           <td mat-cell *matCellDef="let element"> {{element.school}} </td>
         </ng-container>
         <ng-container matColumnDef="externalId">
@@ -140,7 +140,7 @@
         </ng-container>
 
         <ng-container matColumnDef="verified">
-          <th mat-header-cell *matHeaderCellDef> Verified</th>
+          <th mat-header-cell *matHeaderCellDef> Verificata</th>
           <td mat-cell *matCellDef="let element">
             <i *ngIf="element.verified" class="fas fa-check text-success"></i>
             <i *ngIf="!element.verified" class="fas fa-times text-danger"></i>

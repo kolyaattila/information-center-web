@@ -1,5 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {QuizService} from '../../../core/services/quiz.service';
+import {QuizValidation} from '../../../shared/models/quizValidation';
 
 @Component({
   selector: 'app-quiz-result',
@@ -11,163 +13,41 @@ export class QuizResultComponent implements OnInit, OnDestroy {
   id: number;
   private sub: any;
   private timerConfig: any;
+  quiz: QuizValidation;
 
-  constructor(private route: ActivatedRoute) {
-    this.questionList = [
-      {
-        number: 1,
-        points: 3,
-        name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-        status: false,
-        statusMessage: 'Corect',
-        answers: [
-          {
-            name: 'simply dummy',
-            selected: true,
-            valid: true
-          },
-          {
-            name: 'simply dummy',
-            selected: true,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: true
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          }
-        ]
-      },
-      {
-        number: 2,
-        points: 3,
-        name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-        status: true,
-        statusMessage: 'Corect',
-        answers: [
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          }
-        ]
-      },
-      {
-        number: 3,
-        points: 3,
-        name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-        status: false,
-        statusMessage: 'Incorect',
-        answers: [
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          }
-        ]
-      },
-      {
-        number: 4,
-        points: 3,
-        name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-        status: true,
-        statusMessage: 'Corect',
-        answers: [
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: true,
-            valid: false
-          },
-          {
-            name: 'simply dummy',
-            selected: false,
-            valid: false
-          }
-        ]
-      },
-      {
-        number: 5,
-        points: 3,
-        name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing' +
-          ' and typesetting industryLorem Ipsum is simply dummy text of the printing and typesetting industry',
-        status: false,
-        statusMessage: 'Incorect',
-        answers: [
-          {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            selected: false,
-            valid: false
-          },
-          {
-            name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            selected: false,
-            valid: false
-          }
-        ]
-      }
-    ];
+
+  constructor(private route: ActivatedRoute,
+              private quizService: QuizService) {
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params.id;
-      console.log(this.id);
+      this.quizService.getValidationQuiz(params.id).subscribe(data => {
+        this.quiz = data;
+        this.questionList = data.questions;
+      });
     });
+  }
+
+  get wrongAnswers() {
+    let count = 0;
+    this.questionList.forEach(q => {
+      if (!q.status) {
+        count++;
+      }
+    });
+    return count;
+  }
+
+  get correctAnswers() {
+    let count = 0;
+    this.questionList.forEach(q => {
+      if (q.status) {
+        count++;
+      }
+    });
+    return count;
   }
 
   ngOnDestroy() {

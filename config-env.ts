@@ -17,13 +17,14 @@ export const environment = {
   login: apiEndpoint + '/auth/oauth/token',
   register: apiEndpoint + '/account/',
   topic: apiEndpoint + 'topic-service/topic',
-  video: apiEndpoint + '/video'
+  video: apiEndpoint + '/video-service/video'
   account: apiEndpoint + '/account/',
   changePassword: apiEndpoint + '/auth',
   message: apiEndpoint + '/account/message',
   quiz: apiEndpoint + '/quiz/',
   school: apiEndpoint + '/quiz/school',
-  question: apiEndpoint + '/quiz/question'
+  question: apiEndpoint + '/quiz/question',
+  course: apiEndpoint + '/course-service/'
 };
 `;
 

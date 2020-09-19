@@ -1,0 +1,55 @@
+<div class="reviews" *ngIf="rating">
+  <h4>Reviews</h4>
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="rating-info">
+        <label>Review detaliat</label>
+        <div class="rating-slide">
+          <span>5 stele</span>
+          <div class="bar">
+            <div class="fill" [ngStyle]="{ width: percentagePerStars(rating.fiveStarsReviews)}"></div>
+          </div>
+          <em>{{rating.fiveStarsReviews}}</em>
+        </div>
+        <div class="rating-slide">
+          <span>4 stele</span>
+          <div class="bar">
+            <div class="fill" [ngStyle]="{ width: percentagePerStars(rating.fourStarsReviews)}"></div>
+          </div>
+          <em>{{rating.fourStarsReviews}}</em>
+        </div>
+        <div class="rating-slide">
+          <span>3 stele</span>
+          <div class="bar">
+            <div class="fill" [ngStyle]="{ width: percentagePerStars(rating.threeStarsReviews)}"></div>
+          </div>
+          <em>{{rating.threeStarsReviews}}</em>
+        </div>
+        <div class="rating-slide">
+          <span>2 stele</span>
+          <div class="bar">
+            <div class="fill" [ngStyle]="{ width: percentagePerStars(rating.twoStarsReviews)}"></div>
+          </div>
+          <em>{{rating.twoStarsReviews}}</em>
+        </div>
+        <div class="rating-slide">
+          <span>1 stele</span>
+          <div class="bar">
+            <div class="fill" [ngStyle]="{ width: percentagePerStars(rating.oneStarsReviews)}"></div>
+          </div>
+          <em>{{rating.oneStarsReviews}}</em>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <label>Rating</label>
+      <div class="rating-box">
+        <div class="rating">{{rating.average | number: '1.1-1'}}</div>
+        <div class="rating-star">
+          <bar-rating [rate]="getAverageReview()" [max]="5" (rateChange)="makeReview($event)"></bar-rating>
+        </div>
+        <span>{{rating.numberOfReviews}} Reviews</span>
+      </div>
+    </div>
+  </div>
+</div>

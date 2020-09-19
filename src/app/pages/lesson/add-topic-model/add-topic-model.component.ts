@@ -1,5 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
-import {MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 import {TopicService} from 'src/app/core/services/topic.service';
 import {FormControl, Validators, FormGroup} from '@angular/forms';
@@ -19,11 +19,17 @@ export class AddTopicModelComponent implements OnInit {
       ]
     })
   });
+  private courseExternalId: string;
 
   constructor(
     public dialogRef: MatDialogRef<AddTopicModelComponent>,
     private topicService: TopicService,
+    @Inject(MAT_DIALOG_DATA) private modalData: any,
     private toastr: ToastrService) {
+
+    if (modalData) {
+      this.courseExternalId = modalData.courseExternalId;
+    }
 
   }
 
@@ -33,6 +39,7 @@ export class AddTopicModelComponent implements OnInit {
   actionFunction() {
     const topic = new Topic();
     topic.name = this.createTopicForm.value.name;
+    topic.courseExternalId = this.courseExternalId;
 
     if (!this.createTopicForm.invalid) {
 

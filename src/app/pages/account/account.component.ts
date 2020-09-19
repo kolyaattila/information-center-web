@@ -6,6 +6,7 @@ import {Account} from '../../shared/models/account';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {EditAccountModalComponent} from './edit-account-modal/edit-account-modal.component';
 import {ToastrService} from 'ngx-toastr';
+import {CartService} from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-account',
@@ -37,7 +38,16 @@ export class AccountComponent implements OnInit {
 
   constructor(private accountService: AccountService,
               public matDialog: MatDialog,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private cartService: CartService) {
+  }
+
+  get orders() {
+    return this.cartService.getOrders();
+  }
+
+  get hasOrders() {
+    return this.cartService.getOrders().length >= 1;
   }
 
   ngOnInit() {
@@ -46,7 +56,7 @@ export class AccountComponent implements OnInit {
 
   populateAccount() {
     this.accountService.getCurrentAccount()
-      .then(value => this.currentAccount = value);
+      .subscribe(value => this.currentAccount = value);
   }
 
   savePassword() {

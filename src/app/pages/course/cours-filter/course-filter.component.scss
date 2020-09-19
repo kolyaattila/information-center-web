@@ -1,0 +1,72 @@
+
+.table-container table {
+  width: 100%;
+}
+
+.table-container td.mat-cell {
+  padding: 5px;
+}
+
+.table-container th.mat-header-cell {
+  padding: 5px;
+}
+
+::ng-deep .table-container td.mat-cell:first-of-type {
+  padding-left: 24px !important;
+}
+
+.filter-container {
+  display: inline-block;
+  background: #a9a9a93d;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+}
+
+.button a{
+  float: right;
+}
+
+.activeCourse {
+  margin-top: 20px;
+}
+
+.table-container .scroll {
+  overflow-x: scroll;
+}
+
+.mat-row:hover {
+  background-color: #a9a9a93d;
+}
+
+@media (max-width: 479px) {
+  .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  .filter-container {
+    width: unset;
+  }
+
+  .filter-container {
+    padding: 5px;
+  }
+
+  .table-container {
+    margin: 5px;
+  }
+}

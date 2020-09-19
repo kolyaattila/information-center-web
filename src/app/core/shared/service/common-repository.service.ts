@@ -11,6 +11,10 @@ import {Message} from '../../../shared/models/message';
 import {School} from '../../../shared/models/school';
 import {Question} from '../../../shared/models/question';
 import {QuestionFilter} from '../../../shared/models/questionFilter';
+import {Course} from '../../../shared/models/course';
+import {CourseFilter} from '../../../shared/models/courseFilter';
+import {Quiz} from '../../../shared/models/quiz';
+import {QuizValidation} from '../../../shared/models/quizValidation';
 
 @Injectable()
 export class CommonRepositoryService {
@@ -34,8 +38,8 @@ export class CommonRepositoryService {
     return this.http.post(`${environment.register}`, account);
   }
 
-  getCurrentAccount(): Promise<Account> {
-    return this.http.get<Account>(`${environment.account}`).toPromise();
+  getCurrentAccount(): Observable<Account> {
+    return this.http.get<Account>(`${environment.account}`).pipe();
   }
 
   createTopic(topic: Topic) {
@@ -58,8 +62,12 @@ export class CommonRepositoryService {
     return this.http.get<Video[]>(`${environment.video}/` + topicId + `/byChapter`);
   }
 
-  createVideo(formData: FormData) {
-    return this.http.post(`${environment.video}`, formData);
+  getVideosDetailsByCourseId(courseId: string): Observable<Video[]> {
+    return this.http.get<Video[]>(`${environment.video}/byCourse/` + courseId);
+  }
+
+  createVideo(videoRequest) {
+    return this.http.post(`${environment.video}`, videoRequest);
   }
 
   updateVideo(formData: FormData) {
@@ -110,7 +118,6 @@ export class CommonRepositoryService {
     return this.http.put(`${environment.question}`, question);
   }
 
-
   deleteQuestion(externalId: string) {
     return this.http.delete(`${environment.question}/` + externalId);
   }
@@ -119,4 +126,63 @@ export class CommonRepositoryService {
     return this.http.post(`${environment.question}` + '/filter', questionFilter);
   }
 
+  deleteCourse(externalId: string) {
+    return this.http.delete(`${environment.course}` + externalId);
+  }
+
+  updateCourse(course: Course) {
+    return this.http.put(`${environment.course}`, course);
+  }
+
+  createCourse(course: Course) {
+    return this.http.post(`${environment.course}`, course);
+  }
+
+  courseFilter(courseFilter: CourseFilter) {
+    return this.http.post(`${environment.course}filter`, courseFilter);
+  }
+
+  getCourseById(externalId: string): Observable<Course> {
+    return this.http.get<Course>(`${environment.course}course/active/` + externalId);
+  }
+
+  getQuizzesByCourseId(externalId: string): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(`${environment.quiz}active-quiz/course/` + externalId);
+  }
+
+  getAllActiveCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(`${environment.course}course/active`);
+  }
+
+  getAllCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(`${environment.course}course`);
+  }
+
+  createQuiz(quiz: Quiz) {
+    return this.http.post(`${environment.quiz}`, quiz);
+  }
+
+  getQuizById(id: string): Observable<Quiz> {
+    return this.http.get<Quiz>(`${environment.quiz}active-quiz/` + id);
+  }
+
+  getBestCourses() {
+    return this.http.get<Course[]>(`${environment.course}course/best`).pipe();
+  }
+
+  makeReview(rating: number, courseExternalId: string, accountExternalId: string) {
+    return this.http.post(`${environment.course}review`, {rating, courseExternalId, accountExternalId});
+  }
+
+  validateQuiz(quiz: QuizValidation) {
+    return this.http.post<QuizValidation>(`${environment.quiz}validation`, quiz).pipe();
+  }
+
+  getValidationQuizByExternalId(externalId: string) {
+    return this.http.get<QuizValidation>(`${environment.quiz}validation/` + externalId).pipe();
+  }
+
+  getMyQuizzes(accountUid: string): Observable<any> {
+    return this.http.get(`${environment.quiz}statistics/` + accountUid);
+  }
 }

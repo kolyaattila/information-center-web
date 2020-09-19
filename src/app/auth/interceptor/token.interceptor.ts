@@ -28,7 +28,6 @@ export class TokenInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
 
-
     if (!this.refreshTokenInProgress) {
       this.refreshTokenInProgress = true;
       this.refreshTokenSubject.next(null);

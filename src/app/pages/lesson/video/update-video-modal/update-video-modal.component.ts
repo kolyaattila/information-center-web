@@ -95,7 +95,7 @@ export class UpdateVideoModalComponent implements OnInit {
 
   initForm(video: Video) {
     this.formGroup = this.formBuilder.group({
-      chapter: [video.chapter, [Validators.required, Validators.minLength(3)]],
+      chapter: [video.topic, [Validators.required, Validators.minLength(3)]],
       title: [video.title, [Validators.required, Validators.minLength(3)]],
       description: [video.description, [Validators.required, Validators.minLength(3)]],
       file: [video.file]
@@ -120,8 +120,8 @@ export class UpdateVideoModalComponent implements OnInit {
 
   addTopicIdToVideo() {
     this.topics.forEach(topic => {
-      if (this.video.chapter === topic.name) {
-        this.video.topicId = topic.externalId;
+      if (this.video.topic === topic.name) {
+        this.video.topicExternalId = topic.externalId;
       }
     });
   }
@@ -132,5 +132,6 @@ export class UpdateVideoModalComponent implements OnInit {
 
   closeModal(response: boolean) {
     this.dialogRef.close(response);
+    this.closeModal(false);
   }
 }

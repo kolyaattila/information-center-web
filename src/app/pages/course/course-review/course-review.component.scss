@@ -1,0 +1,33 @@
+.reviews .rating-info {display:block; }
+.reviews label {display:block; line-height:30px; font-size:15px; color:#333; font-weight:normal; padding-bottom:15px; }
+.reviews .rating-info .rating-slide {display:inline-block; width:100%; padding-bottom:10px; color:#666; font-size:15px; line-height:22px; vertical-align:top;}
+.reviews .rating-info .rating-slide span {color:#333; vertical-align:top; font-weight:bold; }
+.reviews .rating-info .rating-slide em {vertical-align:top; font-style:normal; }
+.reviews .rating-info .rating-slide .bar {width:100%; width:200px; height:22px; border-radius:4px; background:#f5f5f5; margin:0 5px; position:relative; display:inline-block; overflow:hidden;}
+.reviews .rating-info .rating-slide .bar .fill {position:absolute; top:0px; left:0px; height:100%; background:#fe5969; width:0px; }
+.reviews .rating-box {border:solid 2px #fe5969; border-radius:8px; width:100%; max-width:220px; padding:10px; text-align:center; }
+.reviews .rating-box .rating {display:block; font-size:40px; font-weight:bold; line-height:60px; color:#000; margin-bottom:10px;}
+.reviews .rating-box .rating-star {display:inline-block;}
+.reviews .rating-box span {display:block; line-height:30px; font-size:16px; color:#666; font-weight:normal; padding-top:10px; }
+.reviews h4 {
+  display: block;
+  line-height: 30px;
+  color: #333;
+  font-size: 22px;
+  margin: 0px 0 20px 0;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.reviews h4:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 30px;
+  height: 2px;
+  background: #02cbf7;
+}
+
+.reviews .rating-info .rating-slide .bar .fill{-moz-transition:all 0.5s ease-in-out 0s; -ms-transition:all 0.5s ease-in-out 0s; -o-transition:all 0.5s ease-in-out 0s; -webkit-transition:all 0.5s ease-in-out 0s; transition:all 0.5s ease-in-out 0s;}
+

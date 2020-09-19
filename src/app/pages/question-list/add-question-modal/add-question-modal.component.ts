@@ -7,6 +7,8 @@ import {Answer} from '../../../shared/models/answer';
 import {AnswersComponent} from '../answers/answers.component';
 import {QuestionService} from '../../../core/services/question.service';
 import {ToastrService} from 'ngx-toastr';
+import {Course} from '../../../shared/models/course';
+import {CourseService} from '../../../core/services/course.service';
 
 @Component({
   selector: 'app-add-question-modal',
@@ -42,35 +44,8 @@ export class AddQuestionModalComponent implements OnInit {
   });
   questionDifficultyList = ['HARD', 'EASY', 'MEDIUM'];
   error = '';
-  chapters = [];
-  courses = [{
-    name: 'course1',
-    externalId: '3532',
-    chapters: [
-      {
-        name: 'course1chapter1',
-        externalId: '535'
-      },
-      {
-        name: 'course1chapter2',
-        externalId: '535afawf'
-      }
-    ]
-  },
-    {
-      name: 'course2',
-      externalId: '353dg2',
-      chapters: [
-        {
-          name: 'course2chapter1',
-          externalId: '53dg5'
-        },
-        {
-          name: 'course2chapter2',
-          externalId: '535afadgdwf'
-        }
-      ]
-    }];
+  topics = [];
+  courses: Course[] = [];
   answers: Answer[] = [];
   private updateQuestion = false;
   private questionExternalId: any;
@@ -79,7 +54,13 @@ export class AddQuestionModalComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) private modalData: any,
               public matDialog: MatDialog,
               private questionService: QuestionService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private courseService: CourseService) {
+
+    this.courseService.getAllCourse().subscribe(
+      data => this.courses = data
+    );
+
     if (modalData.question) {
       this.updateQuestion = true;
       this.questionExternalId = modalData.question.externalId;
@@ -231,11 +212,12 @@ export class AddQuestionModalComponent implements OnInit {
     question.name = this.questionName.value;
     question.verified = this.verified.value;
     question.book = this.book.value;
-    question.chapter = this.getChapterExternalId();
-    question.course = this.getCourseExternalId();
+    question.topicExternalId = this.getChapterExternalId();
+    question.courseExternalId = this.getCourseExternalId();
     question.externalId = this.questionExternalId;
     question.questionDifficulty = this.questionDifficulty.value;
     question.school = this.getSchoolExternalId();
+    question.questionNumber = this.questionNumber.value;
     return question;
   }
 
@@ -261,7 +243,7 @@ export class AddQuestionModalComponent implements OnInit {
 
   private getChapterExternalId() {
     let response = '';
-    this.chapters.forEach(chapter => {
+    this.topics.forEach(chapter => {
       if (chapter.name === this.chapter.value) {
         response = chapter.externalId;
       }
@@ -298,10 +280,10 @@ export class AddQuestionModalComponent implements OnInit {
     let chapters = [];
     this.courses.forEach(course => {
       if (nameCourse === course.name) {
-        chapters = course.chapters;
+        chapters = course.topics;
       }
     });
-    this.chapters = chapters;
+    this.topics = chapters;
   }
 
   private initFormForUpdate(question: any) {

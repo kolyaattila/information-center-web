@@ -9,5 +9,6 @@ export const environment = {
   account: apiEndpoint + '/account/',
   topic: apiEndpoint + 'topic-service/topic',
   changePassword: apiEndpoint + '/auth',
-  message: apiEndpoint + '/account/message'
+  message: apiEndpoint + '/account/message',
+  course: apiEndpoint + '/course-service/',
 };

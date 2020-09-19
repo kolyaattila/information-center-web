@@ -1,10 +1,10 @@
 <section class="banner inner-page">
-  <div [style.backgroundImage]="'url(../../../assets/images/banner/register-bannerImg.jpg)'" class="banner-img">
-    <img class="hidden" src="../../../assets/images/banner/register-bannerImg.jpg" alt="">
+  <div [style.backgroundImage]="'url(../../../assets/images/banner/banner-wall.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../assets/images/banner/banner-wall.jpg" alt="">
   </div>
   <div class="page-title">
     <div class="container">
-      <h1>Account Settings</h1>
+      <h1>Setari cont</h1>
     </div>
   </div>
 </section>
@@ -18,9 +18,9 @@
           <mat-tab label="Profile">
             <div class="tab-content profile-con">
               <div class="personal-edit">
-                <a (click)="openUpdateAccountModel()"><i class="fa fa-pencil"></i><span>Edit Profile</span></a>
+                <a (click)="openUpdateAccountModel()"><i class="fa fa-pencil"></i><span>Actualizeaza</span></a>
               </div>
-              <div class="personal-information" *ngIf="currentAccount">
+              <div class="personal-information" *ngIf="currentAccount && currentAccount.username">
                 <div class="info-slide">
                   <p><span>Nume :</span>{{currentAccount.firstName}} {{currentAccount.lastName}}</p>
                 </div>
@@ -30,31 +30,40 @@
               </div>
             </div>
           </mat-tab>
-          <mat-tab label="Order">
+          <mat-tab label="Comenzi" *ngIf="hasOrders">
             <div class="tab-content order-con">
               <table class="booking-viewTable">
                 <tr>
-                  <th>Courses ID</th>
-                  <th class="detail"> Courses Details</th>
-                  <th>Purchase Date</th>
-                  <th>Amount</th>
+                  <th>ID Comanda</th>
+                  <th class="detail"> Detali comanda</th>
+                  <th>Adresa</th>
+                  <th>Data</th>
+                  <th>Total</th>
                 </tr>
-                <tr>
-                  <td><span class="small-heading">Courses ID</span>258452112500</td>
+                <tr *ngFor="let order of orders">
+                  <td><span class="small-heading">ID Comanda</span>{{order.orderId}}</td>
                   <td class="detail">
-                    <span class="small-heading">Courses Details</span>
+                    <span class="small-heading">Detali comanda</span>
                     <div class="detailTd">
-                      <label>Hiraba Farm</label>
-                      <p>Behind Shalby Hospital, Garden Road, Prahlad Nagar , Ahmedabad-380015</p>
+                      <p *ngFor="let product of order.courses">
+                        {{product.name}}
+                      </p>
                     </div>
                   </td>
-                  <td><span class="small-heading">Purchase Date</span>25<sup>th</sup> Aug 2015</td>
-                  <td><span class="small-heading">Amount</span>Rs. 42,710</td>
+                  <td><span class="small-heading">Adresa</span>
+                    <p style="text-align: left">Nume: {{order.address.name}}</p>
+                    <p style="text-align: left">Telefon: {{order.address.phoneNumber}}</p>
+                    <p style="text-align: left">Adresa: {{order.address.address1}}</p>
+                    <p style="text-align: left">Oras: {{order.address.city}}</p>
+
+                    </td>
+                  <td><span class="small-heading">Data</span>{{order.date |  date:'MM/dd/yyyy'}}</td>
+                  <td><span class="small-heading">Total</span>{{order.price}}$</td>
                 </tr>
               </table>
             </div>
           </mat-tab>
-          <mat-tab label="Change Password">
+          <mat-tab label="Schimba parola">
             <div class="tab-content changePassword-con">
               <div class="change-password ">
                 <form [formGroup]="changePasswordForm" (ngSubmit)="savePassword()">

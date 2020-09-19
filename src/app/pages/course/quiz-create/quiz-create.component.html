@@ -1,0 +1,126 @@
+<section class="banner inner-page">
+  <div [style.backgroundImage]="'url(../../../../assets/images/banner/banner-wall.jpg)'" class="banner-img">
+    <img class="hidden" src="../../../../assets/images/banner/banner-wall.jpg" alt="">
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Creaza quiz</h1>
+    </div>
+  </div>
+</section>
+
+<section class="create-quiz-container">
+  <div class="container">
+
+    <div class="form-container row">
+      <form [formGroup]="quizForm">
+
+        <mat-form-field class='col-md-6'>
+          <input type="text"
+                 placeholder="Nume curs"
+                 matInput
+                 [formControl]="courseName"
+                 [matAutocomplete]="autoCourse">
+          <mat-autocomplete #autoCourse="matAutocomplete">
+            <mat-option *ngFor="let course of courses" [value]="course.name">
+              {{course.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-6'>
+          <input type="text"
+                 placeholder="Nume capitol"
+                 matInput
+                 [formControl]="topicName"
+                 [matAutocomplete]="autoTopics">
+          <mat-autocomplete #autoTopics="matAutocomplete">
+            <mat-option *ngFor="let topic of topics" [value]="topic.name">
+              {{topic.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-12'>
+          <mat-label>Descriere</mat-label>
+          <input matInput placeholder="33" formControlName="description">
+        </mat-form-field>
+
+        <div class="row-md-12 table-container">
+          <div class="scroll">
+            <table>
+              <tr>
+                <td>
+                  <div class="container mat-elevation-z8">
+                    <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                      <ng-container matColumnDef="select">
+                        <mat-header-cell *matHeaderCellDef class="select-cell-header">
+                          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                          </mat-checkbox>
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let row" class="select-cell">
+                          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                                        [checked]="selection.isSelected(row)">
+                          </mat-checkbox>
+                        </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="questionNumber">
+                        <mat-header-cell *matHeaderCellDef class="questionNumber-cell-header"> No.</mat-header-cell>
+                        <mat-cell *matCellDef="let element" class="questionNumber-cell"> {{element.questionNumber}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef style="min-width: 300px"> Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element" style="min-width: 300px"> {{element.name}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="externalId">
+                        <mat-header-cell *matHeaderCellDef style="min-width: 300px">Id</mat-header-cell>
+                        <mat-cell *matCellDef="let element" style="min-width: 300px"> {{element.externalId}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="noData">
+                        <mat-footer-cell *matFooterCellDef colspan="5">
+                          Selecteaza un curs si un topic ca sa se populeze tabelul
+                        </mat-footer-cell>
+                      </ng-container>
+
+                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+                      </mat-row>
+
+
+                      <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>
+                    </mat-table>
+
+
+                    <mat-paginator [length]="page.length"
+                                   [pageSize]="page.pageSize"
+                                   [pageIndex]="page.pageIndex"
+                                   [pageSizeOptions]="[5, 10, 25, 100]"
+                                   (page)="changePage($event)">
+                    </mat-paginator>
+
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class='col-md-12'>
+          <mat-checkbox formControlName="enable">Activ</mat-checkbox>
+        </div>
+        <div class='col-md-12'>
+          <div class='button'>
+            <a (click)="saveQuiz()" [class.disabled]="quizForm.valid ? null: true" class="btn btn-primary align-middle">Save
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

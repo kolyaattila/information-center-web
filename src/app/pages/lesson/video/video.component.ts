@@ -19,6 +19,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
   path: string;
   id: string;
   topicName: string;
+  videoDescription: string;
 
   constructor(private router: Router,
               private service: VideoService,
@@ -27,7 +28,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
               private matDialog: MatDialog) {
     this.route.params.subscribe(params => {
       this.id = params.id;
-      this.getVideosDetailsByTopic(this.id);
+      this.getVideosDetailsByTopic(params.id);
     });
   }
 
@@ -57,6 +58,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
   changeVideo(video: Video) {
     this.videoExternalId = video.externalId;
     this.videoTitle = video.title;
+    this.videoDescription = video.description;
     this.changePath();
     this.refreshVideoTag();
   }
@@ -64,7 +66,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
   getChapterName() {
     if (this.videosDetails !== undefined) {
       if (this.videosDetails.length !== 0) {
-        this.topicName = this.videosDetails[0].chapter;
+        this.topicName = this.videosDetails[0].topic;
       }
     }
   }
@@ -88,6 +90,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
       if (videoDetails[0] !== undefined) {
         this.videoExternalId = videoDetails[0].externalId;
         this.videoTitle = videoDetails[0].title;
+        this.videoDescription = videoDetails[0].description;
       }
       this.changePath();
       this.refreshVideoTag();
