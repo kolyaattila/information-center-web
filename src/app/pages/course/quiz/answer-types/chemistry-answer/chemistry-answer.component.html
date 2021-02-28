@@ -1,0 +1,14 @@
+<div class="answer-container">
+  <mat-checkbox labelPosition="after" [(ngModel)]="answer.selected" (ngModelChange)="answerChange.emit(answer)" [checked]="answer.selected"
+                [disabled]="view_mode != 'question'">
+    <div>
+      <div *ngFor="let diagram of getChemistryDiagrams();  index as i">
+        <div [id]="'container' + getChemistryDiagramId(i)">
+          <div chem_doodle_2d [molData]="diagram" [id]="getChemistryDiagramId(i)"></div>
+        </div>
+      </div>
+      <i *ngIf="view_mode == 'result' && !questionStatus && answer.correct" class="fas fa-check text-success"></i>
+      <i *ngIf="view_mode == 'result' && !questionStatus && answer.selected && !answer.correct" class="fas fa-times text-danger"></i>
+    </div>
+  </mat-checkbox>
+</div>

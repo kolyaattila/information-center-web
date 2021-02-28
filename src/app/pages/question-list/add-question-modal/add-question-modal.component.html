@@ -59,6 +59,20 @@
           <input matInput placeholder="3546" formControlName="questionNumber">
         </mat-form-field>
 
+        <mat-form-field class='col-md-4'>
+          <mat-label>Question type</mat-label>
+          <mat-select name="questionTypeList" formControlName="questionType">
+            <mat-option *ngFor="let type of questionTypeList" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class='col-md-12' *ngIf="questionType.value === 'MATH_QUESTION' || questionType.value === 'CHEMISTRY_QUESTION'">
+          <mat-label>Text de interpretat</mat-label>
+          <textarea matInput placeholder="Text de interpretat" formControlName="parseText"></textarea>
+        </mat-form-field>
+
         <div class='col-md-12'>
           <mat-checkbox formControlName="verified">Verified</mat-checkbox>
         </div>

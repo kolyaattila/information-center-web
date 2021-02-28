@@ -1,0 +1,15 @@
+<div class="answer-container">
+  <mat-checkbox labelPosition="after" [(ngModel)]="answer.selected" (ngModelChange)="answerChange.emit(answer)" [checked]="answer.selected"
+                [disabled]="view_mode != 'question'">
+    <div>
+      <p *ngIf="answer.parseText;else noExpression" [appMath]="answer.parseText"></p>
+      <ng-template #noExpression>
+        <div class="no-expression">Expression unavailable</div>
+      </ng-template>
+    </div>
+
+    <i *ngIf="view_mode == 'result' && !questionStatus && answer.correct" class="fas fa-check text-success"></i>
+    <i *ngIf="view_mode == 'result' && !questionStatus && answer.selected && !answer.correct" class="fas fa-times text-danger"></i>
+
+  </mat-checkbox>
+</div>

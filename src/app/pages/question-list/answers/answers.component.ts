@@ -2,6 +2,7 @@ import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Answer} from '../../../shared/models/answer';
+import {AnswerType} from '../../../shared/models/AnswerType';
 
 @Component({
   selector: 'app-answers',
@@ -11,8 +12,10 @@ import {Answer} from '../../../shared/models/answer';
 export class AnswersComponent implements OnInit {
   @Input() private answers = [];
   keys = ['A', 'B', 'C', 'D', 'E'];
+  answerTypeList = [AnswerType.CHEMISTRY_ANSWER, AnswerType.MATH_ANSWER, AnswerType.SIMPLE_ANSWER];
   answerForm: any;
   private readonly isUpdate: boolean;
+  tooltipInfo = 'Adauga formula chimica in formatul mol, pentru mai multe diagrame adauga \'/*END*/\' la sfarsitul fiecarei diagrame ';
 
   constructor(public dialogRef: MatDialogRef<AnswersComponent>,
               @Inject(MAT_DIALOG_DATA) private modalData: any) {
@@ -41,6 +44,8 @@ export class AnswersComponent implements OnInit {
       answer.reason = this.reason.value;
       answer.externalId = '' + Math.random();
       answer.isNewAnswer = !this.isUpdate;
+      answer.answerType = this.answerType.value;
+      answer.parseText = this.parseText.value;
 
       this.dialogRef.close(answer);
     }
@@ -62,6 +67,16 @@ export class AnswersComponent implements OnInit {
     return this.answerForm.get('reason');
   }
 
+  get answerType() {
+    return this.answerForm.get('answerType');
+  }
+
+  get parseText() {
+    return this.answerForm.get('parseText');
+  }
+
+  // https://cactus.nci.nih.gov/cgi-bin/osra/index.cgi
+
   private initUpdateForm(answer: any) {
     this.answerForm = new FormGroup({
       answerName: new FormControl(answer.name, {
@@ -75,7 +90,11 @@ export class AnswersComponent implements OnInit {
       }),
       key: new FormControl(answer.key, {
         validators: [Validators.required]
-      })
+      }),
+      answerType: new FormControl(answer.answerType, {
+        validators: [Validators.required]
+      }),
+      parseText: new FormControl(answer.parseText, {})
     });
   }
 
@@ -92,7 +111,11 @@ export class AnswersComponent implements OnInit {
       }),
       key: new FormControl('', {
         validators: [Validators.required]
-      })
+      }),
+      answerType: new FormControl(AnswerType.SIMPLE_ANSWER, {
+        validators: [Validators.required]
+      }),
+      parseText: new FormControl('', {})
     });
   }
 }

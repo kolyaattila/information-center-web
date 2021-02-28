@@ -9,6 +9,7 @@ import {QuestionService} from '../../../core/services/question.service';
 import {ToastrService} from 'ngx-toastr';
 import {Course} from '../../../shared/models/course';
 import {CourseService} from '../../../core/services/course.service';
+import {QuestionType} from '../../../shared/models/QuestionType';
 
 @Component({
   selector: 'app-add-question-modal',
@@ -40,9 +41,14 @@ export class AddQuestionModalComponent implements OnInit {
     }),
     verified: new FormControl(false, {
       validators: []
-    })
+    }),
+    questionType: new FormControl(QuestionType.SIMPLE_QUESTION, {
+      validators: [Validators.required]
+    }),
+    parseText: new FormControl('', {})
   });
   questionDifficultyList = ['HARD', 'EASY', 'MEDIUM'];
+  questionTypeList = ['SIMPLE_QUESTION', 'MATH_QUESTION', 'CHEMISTRY_QUESTION'];
   error = '';
   topics = [];
   courses: Course[] = [];
@@ -117,6 +123,14 @@ export class AddQuestionModalComponent implements OnInit {
 
   get verified() {
     return this.creatQuestion.get('verified');
+  }
+
+  get questionType() {
+    return this.creatQuestion.get('questionType');
+  }
+
+  get parseText() {
+    return this.creatQuestion.get('parseText');
   }
 
   closeModal() {
@@ -218,6 +232,8 @@ export class AddQuestionModalComponent implements OnInit {
     question.questionDifficulty = this.questionDifficulty.value;
     question.school = this.getSchoolExternalId();
     question.questionNumber = this.questionNumber.value;
+    question.questionType = this.questionType.value;
+    question.parseText = this.parseText.value;
     return question;
   }
 
@@ -273,6 +289,8 @@ export class AddQuestionModalComponent implements OnInit {
     const question = new Question();
     question.name = this.questionName.value;
     question.answers = this.answers;
+    question.questionType = this.questionType.value;
+    question.parseText = this.parseText.value;
     return question;
   }
 
@@ -311,7 +329,11 @@ export class AddQuestionModalComponent implements OnInit {
       }),
       verified: new FormControl(question.verified, {
         validators: []
-      })
+      }),
+      questionType: new FormControl(question.questionType, {
+        validators: [Validators.required]
+      }),
+      parseText: new FormControl(question.parseText, {})
     });
   }
 }

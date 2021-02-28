@@ -10,6 +10,7 @@ import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router} from '@angular/router';
 import {of} from 'rxjs';
 
+
 describe('CoursFilterComponent', () => {
   let component: CourseFilterComponent;
   let fixture: ComponentFixture<CourseFilterComponent>;
@@ -22,7 +23,7 @@ describe('CoursFilterComponent', () => {
         {provide: CommonRepositoryService, useValue: new CommonRepositoryMockService()},
         {provide: ToastrService, useValue: {}},
         {provide: ActivatedRoute, useValue: {params: of({id: 'test'})}},
-        {provide: Router, useValue: {}},
+        {provide: Router, useValue: {}}
       ]
     })
       .compileComponents();
