@@ -19,6 +19,12 @@ import {QuizCreateComponent} from './quiz-create/quiz-create.component';
 import {CourseReviewComponent} from './course-review/course-review.component';
 import {BarRatingModule} from 'ngx-bar-rating';
 import {MyQuizComponent} from './my-quiz/my-quiz.component';
+import {SimpleAnswerComponent} from './quiz/answer-types/simple-answer/simple-answer.component';
+import {MathAnswerComponent} from './quiz/answer-types/math-answer/math-answer.component';
+import {ChemistryAnswerComponent} from './quiz/answer-types/chemistry-answer/chemistry-answer.component';
+import {ChemistryQuestionComponent} from './quiz/question/question-types/chemistry-question/chemistry-question.component';
+import {SimpleQuestionComponent} from './quiz/question/question-types/simple-question/simple-question.component';
+import {MathQuestionComponent} from './quiz/question/question-types/math-question/math-question.component';
 
 
 @NgModule({
@@ -32,7 +38,13 @@ import {MyQuizComponent} from './my-quiz/my-quiz.component';
     CoursManagementComponent,
     QuizCreateComponent,
     CourseReviewComponent,
-    MyQuizComponent
+    MyQuizComponent,
+    SimpleAnswerComponent,
+    MathAnswerComponent,
+    ChemistryAnswerComponent,
+    ChemistryQuestionComponent,
+    SimpleQuestionComponent,
+    MathQuestionComponent
   ],
   imports: [
     CommonModule,

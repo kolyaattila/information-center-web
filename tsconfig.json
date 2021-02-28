@@ -18,7 +18,8 @@
       "es2018",
       "dom"
     ],
-    "types": ["googlemaps","node","jasmine"]
+    "types": ["googlemaps","node","jasmine"],
+    "allowJs": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

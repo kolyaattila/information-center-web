@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Question} from '../../../../shared/models/question';
 
 @Component({
   selector: 'app-question',
@@ -6,8 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-  @Input() private question = {answers: []};
-  @Input() private view_mode;
+  @Input() question: Question;
+  @Input() view_mode;
 
   constructor() {
   }

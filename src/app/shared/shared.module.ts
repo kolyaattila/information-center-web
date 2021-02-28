@@ -7,6 +7,8 @@ import {PagesComponent} from '../pages/pages.component';
 import {ConfirmationModalComponent} from './modal/confirmation-modal/confirmation-modat.component';
 import {MaterialModule} from './matirial/matirial.module';
 import {NotfoundComponent} from '../notfound-component/notfound.component';
+import {NgChemdoodleModule} from './chem-doodle/chem-doodle.module';
+import {MathModule} from './math/math.module';
 
 @NgModule({
   imports: [
@@ -15,13 +17,17 @@ import {NotfoundComponent} from '../notfound-component/notfound.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    NgChemdoodleModule,
+    MathModule
   ],
   exports: [
     RouterModule,
     PagesComponent,
     ConfirmationModalComponent,
-    MaterialModule
+    MaterialModule,
+    NgChemdoodleModule,
+    MathModule
   ],
   providers: [],
   declarations: [

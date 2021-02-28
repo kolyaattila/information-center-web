@@ -1,0 +1,6 @@
+<div>
+  <p *ngIf="question.parseText;else noExpression" [appMath]="question.parseText"></p>
+  <ng-template #noExpression>
+    <div class="no-expression">Expression unavailable</div>
+  </ng-template>
+</div>

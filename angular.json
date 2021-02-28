@@ -58,6 +58,7 @@
               "src/assets/js/placeholder.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "src/assets/js/bootstrap-datepicker.js",
+              "src/assets/js/ChemDoodleWeb.js",
               "src/assets/js/coustem.js"
             ]
           },
@@ -139,7 +140,8 @@
               "e2e/tsconfig.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/e2e/**"
             ]
           }
         },

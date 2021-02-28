@@ -1,5 +1,6 @@
 import {Answer} from './answer';
 import {QuestionDifficulty} from './QuestionDifficulty';
+import {QuestionType} from './QuestionType';
 
 export class Question {
   questionNumber: number;
@@ -12,6 +13,9 @@ export class Question {
   topicExternalId: string;
   externalId: string;
   school: string;
-  answers?: Answer[];
+  answers?: Answer[] = [];
   verified: boolean;
+  questionType?: QuestionType;
+  status?: boolean;
+  parseText?: string;
 }

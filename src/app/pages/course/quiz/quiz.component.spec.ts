@@ -9,6 +9,7 @@ import {of} from 'rxjs';
 import {CommonRepositoryService} from '../../../core/shared/service/common-repository.service';
 import {CommonRepositoryMockService} from '../../../core/shared/service/common-repository.mock.service';
 
+
 describe('QuizComponent', () => {
   let component: QuizComponent;
   let fixture: ComponentFixture<QuizComponent>;
@@ -32,10 +33,13 @@ describe('QuizComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    fixture.whenStable().then(() => {
-      expect(component).toBeTruthy();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(QuizComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

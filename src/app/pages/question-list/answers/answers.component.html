@@ -18,12 +18,26 @@
       </mat-form-field>
 
       <mat-form-field class='col-md-12'>
-        <mat-label>Question difficulty</mat-label>
+        <mat-label>Key</mat-label>
         <mat-select name="key" formControlName="key">
           <mat-option *ngFor="let key of keys" [value]="key">
             {{key}}
           </mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class='col-md-12'>
+        <mat-label>Type</mat-label>
+        <mat-select name="answerType" formControlName="answerType">
+          <mat-option *ngFor="let type of answerTypeList" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class='col-md-12' *ngIf="answerType.value === 'MATH_ANSWER' || answerType.value === 'CHEMISTRY_ANSWER'">
+        <mat-label>Text de interpretat </mat-label>
+        <textarea matInput placeholder="Text de interpretat" formControlName="parseText" [matTooltip]="tooltipInfo" matTooltipPosition="above"></textarea>
       </mat-form-field>
 
       <div class='col-md-12'>

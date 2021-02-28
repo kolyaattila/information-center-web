@@ -253,3 +253,46 @@ function setupLabel() {
 		};
 };
 
+function chemDoodleCompute(molData, el, id, renderer, width, height) {
+  let e_1;
+  let _a;
+  let _b;
+  let _c;
+  if (molData === undefined || molData === '') {
+    return;
+  }
+
+    const viewerId = id + '_viewer';
+    // create canvas
+    const canvas = renderer.createElement('canvas');
+    renderer.setProperty(canvas, 'id', viewerId);
+    try {
+      // empty container and add canvas element
+      //TODO find a way to remove children elements id becomes a problem
+      // for (_b = __values(el.nativeElement.children), _c = _b.next(); !_c.done; _c = _b.next()) {
+      //   const child = _c.value;
+      //   renderer.removeChild(el.nativeElement, child);
+      // }
+    } catch (e_1_1) {
+      e_1 = {error: e_1_1};
+    } finally {
+      try {
+        if (_c && !_c.done) {
+          _a = _b.return;
+          _a.call(_b);
+        }
+      } finally {
+        if (e_1) {
+          throw e_1.error;
+        }
+      }
+    }
+    renderer.appendChild(el.nativeElement, canvas);
+
+    const viewACS = new ChemDoodle.ViewerCanvas(viewerId, width, height);
+    viewACS.styles.atoms_displayTerminalCarbonLabels_2D = true;
+    viewACS.styles.atoms_useJMOLColors = true;
+    viewACS.styles.bonds_clearOverlaps_2D = true;
+    const molecule = new ChemDoodle.readMOL(molData);
+    viewACS.loadMolecule(molecule);
+}
