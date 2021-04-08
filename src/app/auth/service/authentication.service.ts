@@ -5,12 +5,14 @@ import {map} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {Token} from '../../shared/models/token';
 import {Router} from '@angular/router';
+import {AccountService} from '../../core/services/account.service';
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
 
   constructor(private http: HttpClient,
-              private router: Router) {
+              private router: Router,
+              private accountService: AccountService) {
   }
 
   public isLogin() {
@@ -46,6 +48,7 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('currentUserToken');
+    this.accountService.invalidCache();
     this.router.navigate(['/login']);
   }
 
