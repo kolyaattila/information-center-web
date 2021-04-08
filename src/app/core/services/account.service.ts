@@ -54,4 +54,7 @@ export class AccountService {
     return this.repositoryService.updateAccount(account);
   }
 
+  invalidCache() {
+    this.currentAccountCache = undefined;
+  }
 }
