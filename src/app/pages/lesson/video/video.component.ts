@@ -2,7 +2,6 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {Video} from 'src/app/shared/models/video';
 import {ActivatedRoute, Router} from '@angular/router';
 import {VideoService} from 'src/app/core/services/video.service';
-import {environment} from '../../../../environments/environment';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CreateVideoModalComponent} from './create-video-modal/create-video-modal.component';
 
@@ -59,7 +58,7 @@ export class VideoComponent implements OnInit, AfterViewInit {
     this.videoExternalId = video.externalId;
     this.videoTitle = video.title;
     this.videoDescription = video.description;
-    this.changePath();
+    this.path = 'http://' + video.path;
     this.refreshVideoTag();
   }
 
@@ -68,12 +67,6 @@ export class VideoComponent implements OnInit, AfterViewInit {
       if (this.videosDetails.length !== 0) {
         this.topicName = this.videosDetails[0].topic;
       }
-    }
-  }
-
-  changePath() {
-    if (this.videoExternalId !== undefined || true) {
-      this.path = environment.video + '/' + this.videoExternalId;
     }
   }
 
@@ -91,8 +84,8 @@ export class VideoComponent implements OnInit, AfterViewInit {
         this.videoExternalId = videoDetails[0].externalId;
         this.videoTitle = videoDetails[0].title;
         this.videoDescription = videoDetails[0].description;
+        this.path = 'http://' + videoDetails[0].path;
       }
-      this.changePath();
       this.refreshVideoTag();
       this.getChapterName();
     });

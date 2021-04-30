@@ -31,6 +31,7 @@ export class VideoListComponent implements OnInit {
   }
 
   changeVideo(video: Video) {
+    console.log(video);
     this.changeCurrentVideo.emit(video);
   }
 

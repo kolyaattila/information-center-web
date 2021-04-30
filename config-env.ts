@@ -17,7 +17,7 @@ export const environment = {
   login: apiEndpoint + '/auth/oauth/token',
   register: apiEndpoint + '/account/',
   topic: apiEndpoint + 'topic-service/topic',
-  video: apiEndpoint + '/video-service/video'
+  video: apiEndpoint + '/course-service/video'
   account: apiEndpoint + '/account/',
   changePassword: apiEndpoint + '/auth',
   message: apiEndpoint + '/account/message',
